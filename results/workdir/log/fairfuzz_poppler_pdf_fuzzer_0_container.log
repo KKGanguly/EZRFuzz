@@ -1,0 +1,900 @@
+[2026-02-11 00:09] Container for fairfuzz/poppler/pdf_fuzzer started in 3088e72f9d7c
+/magma/targets/poppler/corpus/pdf_fuzzer/S2.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/TAMReview.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/Test-plusminus.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/ThuluthFeatures.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/ZapfDingbats.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/a2ping.man1.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/afm2tfm.man1.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/allcm.man1.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/annotation-caret-ink.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/basicapi.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/blendmode.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/calgray.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/calrgb.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/canvas.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/coons-allflags-withfunction.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/filled-background.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue1905.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue2948.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue3214.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue4061.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue4246.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue5549.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue5808.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue6231_1.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue840.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue8586.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue8702.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue9940.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/issue9972-1.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/mixedfonts.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/pattern_text_embedded_font.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/personwithdog.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/scan-bad.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/shading_extend.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/tensor-allflags-withfunction.pdf: exit_code 137
+/magma/targets/poppler/corpus/pdf_fuzzer/tiling-pattern-large-steps.pdf: exit_code 137
+Campaign launched at 2026-02-11 05:10
+[0;36mafl-fuzz [1;97m2.52b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mLooks like we're not running on a tty, so I'll be a bit less verbose.[0m
+[1;92m[+] [0mYou have 12 CPU cores and 14 runnable tasks (utilization: 117%).[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/magma/targets/poppler/corpus/pdf_fuzzer'...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:1-criticalnotes.pdf'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;90m    len = 17206, map size = 8579, exec speed = 24769 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000001,orig:1-verses.pdf'...[0m
+[1;90m    len = 17125, map size = 8502, exec speed = 21283 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000002,orig:100br1.pdf'...[0m
+[1;90m    len = 15645, map size = 9563, exec speed = 22689 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000003,orig:100br2.pdf'...[0m
+[1;90m    len = 15662, map size = 9590, exec speed = 23121 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000004,orig:2-lemma_disambigution.pdf'...[0m
+[1;90m    len = 17247, map size = 8584, exec speed = 22126 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000005,orig:2-titles_not_in_line_numbering.pdf'...[0m
+[1;90m    len = 17196, map size = 8089, exec speed = 24350 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000006,orig:3-eledpar_mwe.pdf'...[0m
+[1;90m    len = 12221, map size = 7993, exec speed = 48254 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000007,orig:3-reledpar_mwe.pdf'...[0m
+[1;90m    len = 12216, map size = 7992, exec speed = 40207 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000008,orig:4-reledpar_verse_text_between.pdf'...[0m
+[1;90m    len = 16256, map size = 8017, exec speed = 43049 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000009,orig:95-customlists-biber.pdf'...[0m
+[1;90m    len = 12157, map size = 7784, exec speed = 16310 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000010,orig:ArabicCIDTrueType.pdf'...[0m
+[1;90m    len = 39370, map size = 6865, exec speed = 17951 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000011,orig:IdentityToUnicodeMap_charCodeOf.pdf'...[0m
+[1;90m    len = 651, map size = 3575, exec speed = 6318 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000012,orig:PDFJS-7562-reduced.pdf'...[0m
+[1;90m    len = 13653, map size = 6344, exec speed = 15717 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000013,orig:ShowText-ShadingPattern.pdf'...[0m
+[1;90m    len = 4671, map size = 9007, exec speed = 45517 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000014,orig:TrueType_without_cmap.pdf'...[0m
+[1;90m    len = 3989, map size = 6028, exec speed = 4745 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000015,orig:allec.man1.pdf'...[0m
+[1;90m    len = 14137, map size = 8014, exec speed = 28352 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000016,orig:allneeded.man1.pdf'...[0m
+[1;90m    len = 14730, map size = 8057, exec speed = 21780 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000017,orig:alphatrans.pdf'...[0m
+[1;90m    len = 16910, map size = 6353, exec speed = 54097 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000018,orig:annotation-border-styles.pdf'...[0m
+[1;90m    len = 89833, map size = 7828, exec speed = 27068 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000019,orig:annotation-button-widget.pdf'...[0m
+[1;90m    len = 23785, map size = 10072, exec speed = 28321 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000020,orig:annotation-choice-widget.pdf'...[0m
+[1;90m    len = 91556, map size = 10024, exec speed = 50957 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000021,orig:annotation-fileattachment.pdf'...[0m
+[1;90m    len = 93322, map size = 7871, exec speed = 26135 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000022,orig:annotation-freetext.pdf'...[0m
+[1;90m    len = 86024, map size = 7746, exec speed = 30693 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000023,orig:annotation-highlight.pdf'...[0m
+[1;90m    len = 92397, map size = 7915, exec speed = 63030 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000024,orig:annotation-line.pdf'...[0m
+[1;90m    len = 84943, map size = 7571, exec speed = 31206 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000025,orig:annotation-link-text-popup.pdf'...[0m
+[1;90m    len = 98997, map size = 8337, exec speed = 29735 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000026,orig:annotation-polyline-polygon.pdf'...[0m
+[1;90m    len = 88691, map size = 7968, exec speed = 45968 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000027,orig:annotation-square-circle.pdf'...[0m
+[1;90m    len = 88740, map size = 7995, exec speed = 39921 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000028,orig:annotation-squiggly.pdf'...[0m
+[1;90m    len = 93644, map size = 8157, exec speed = 39013 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000029,orig:annotation-stamp.pdf'...[0m
+[1;90m    len = 88903, map size = 8283, exec speed = 29401 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000030,orig:annotation-strikeout.pdf'...[0m
+[1;90m    len = 91804, map size = 7926, exec speed = 24651 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000031,orig:annotation-text-widget.pdf'...[0m
+[1;90m    len = 93171, map size = 10450, exec speed = 40212 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000032,orig:annotation-text-without-popup.pdf'...[0m
+[1;90m    len = 24281, map size = 7376, exec speed = 9769 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000033,orig:annotation-tx.pdf'...[0m
+[1;90m    len = 11672, map size = 5384, exec speed = 24601 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000034,orig:annotation-tx2.pdf'...[0m
+[1;90m    len = 21285, map size = 6134, exec speed = 31153 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000035,orig:annotation-tx3.pdf'...[0m
+[1;90m    len = 31642, map size = 6255, exec speed = 27665 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000036,orig:annotation-underline.pdf'...[0m
+[1;90m    len = 92151, map size = 7974, exec speed = 19375 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000037,orig:anti_eclipse_V2.pdf'...[0m
+[1;90m    len = 14679, map size = 9050, exec speed = 20819 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000038,orig:arial_unicode_ab_cidfont.pdf'...[0m
+[1;90m    len = 13110, map size = 6120, exec speed = 13610 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000039,orig:arial_unicode_en_cidfont.pdf'...[0m
+[1;90m    len = 15779, map size = 3449, exec speed = 11402 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000040,orig:asciihexdecode.pdf'...[0m
+[1;90m    len = 743, map size = 3852, exec speed = 18094 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000041,orig:attachment.pdf'...[0m
+[1;90m    len = 15299, map size = 6485, exec speed = 7896 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000042,orig:b6of3.pdf'...[0m
+[1;90m    len = 12823, map size = 3970, exec speed = 40842 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000043,orig:b6of4.pdf'...[0m
+[1;90m    len = 13025, map size = 3987, exec speed = 63000 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000044,orig:bad-PageLabels.pdf'...[0m
+[1;90m    len = 798, map size = 3697, exec speed = 3992 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000045,orig:bigboundingbox.pdf'...[0m
+[1;90m    len = 76044, map size = 8506, exec speed = 20804 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000046,orig:boundingBox_invalid.pdf'...[0m
+[1;90m    len = 1263, map size = 3688, exec speed = 18002 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000047,orig:bug1001080.pdf'...[0m
+[1;90m    len = 12423, map size = 5321, exec speed = 10667 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000048,orig:bug1011159.pdf'...[0m
+[1;90m    len = 18316, map size = 4249, exec speed = 4588 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000049,orig:bug1020226.pdf'...[0m
+[1;90m    len = 184, map size = 1172, exec speed = 2313 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000050,orig:bug1020858.pdf'...[0m
+[1;90m    len = 1312, map size = 4668, exec speed = 4854 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000051,orig:bug1027533.pdf'...[0m
+[1;90m    len = 8900, map size = 5939, exec speed = 3441 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000052,orig:bug1028735.pdf'...[0m
+[1;90m    len = 22886, map size = 5342, exec speed = 3516 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000053,orig:bug1046314.pdf'...[0m
+[1;90m    len = 39249, map size = 6295, exec speed = 4250 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000054,orig:bug1050040.pdf'...[0m
+[1;90m    len = 40946, map size = 4499, exec speed = 7784 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000055,orig:bug1065245.pdf'...[0m
+[1;90m    len = 2188, map size = 3860, exec speed = 9248 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000056,orig:bug1068432.pdf'...[0m
+[1;90m    len = 2360, map size = 6982, exec speed = 2731 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000057,orig:bug1108301.pdf'...[0m
+[1;90m    len = 48421, map size = 6135, exec speed = 7239 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000058,orig:bug1132849.pdf'...[0m
+[1;90m    len = 72583, map size = 6148, exec speed = 8987 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000059,orig:bug1146106.pdf'...[0m
+[1;90m    len = 4517, map size = 7040, exec speed = 10917 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000060,orig:bug1151216.pdf'...[0m
+[1;90m    len = 17254, map size = 6056, exec speed = 5553 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000061,orig:bug1157493.pdf'...[0m
+[1;90m    len = 68735, map size = 7156, exec speed = 10079 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000062,orig:bug1175962.pdf'...[0m
+[1;90m    len = 20894, map size = 6198, exec speed = 9372 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000063,orig:bug1186827.pdf'...[0m
+[1;90m    len = 45013, map size = 7097, exec speed = 17389 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000064,orig:bug1200096.pdf'...[0m
+[1;90m    len = 117519, map size = 5873, exec speed = 5120 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000065,orig:bug1245391_reduced.pdf'...[0m
+[1;90m    len = 351793, map size = 4802, exec speed = 11664 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000066,orig:bug1250079.pdf'...[0m
+[1;90m    len = 711, map size = 3767, exec speed = 10799 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000067,orig:bug1252420.pdf'...[0m
+[1;90m    len = 78413, map size = 6383, exec speed = 5099 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000068,orig:bug1308536.pdf'...[0m
+[1;90m    len = 6753, map size = 7340, exec speed = 4834 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000069,orig:bug1337429.pdf'...[0m
+[1;90m    len = 58689, map size = 6345, exec speed = 7735 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000070,orig:bug1392647.pdf'...[0m
+[1;90m    len = 13139, map size = 6052, exec speed = 3406 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000071,orig:bug1473809.pdf'...[0m
+[1;90m    len = 178088, map size = 6603, exec speed = 44069 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000072,orig:bug1513120_reduced.pdf'...[0m
+[1;90m    len = 30014, map size = 6166, exec speed = 13142 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000073,orig:bug1552113.pdf'...[0m
+[1;90m    len = 901, map size = 4712, exec speed = 5120 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000074,orig:bug766086.pdf'...[0m
+[1;90m    len = 860, map size = 4667, exec speed = 5560 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000075,orig:bug793632.pdf'...[0m
+[1;90m    len = 23529, map size = 7189, exec speed = 28842 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000076,orig:bug816075.pdf'...[0m
+[1;90m    len = 21049, map size = 7144, exec speed = 15732 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000077,orig:bug847420.pdf'...[0m
+[1;90m    len = 1840, map size = 3731, exec speed = 5660 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000078,orig:bug850854.pdf'...[0m
+[1;90m    len = 667, map size = 3711, exec speed = 6947 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000079,orig:bug852992_reduced.pdf'...[0m
+[1;90m    len = 2191, map size = 4435, exec speed = 50091 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000080,orig:bug859204.pdf'...[0m
+[1;90m    len = 42569, map size = 7231, exec speed = 9197 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000081,orig:bug860632.pdf'...[0m
+[1;90m    len = 33087, map size = 6860, exec speed = 7101 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000082,orig:bug864847.pdf'...[0m
+[1;90m    len = 1252, map size = 3969, exec speed = 6010 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000083,orig:bug866395.pdf'...[0m
+[1;90m    len = 1879, map size = 4375, exec speed = 4789 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000084,orig:bug868745.pdf'...[0m
+[1;90m    len = 23766, map size = 5898, exec speed = 3811 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000085,orig:bug878026.pdf'...[0m
+[1;90m    len = 676, map size = 3786, exec speed = 5444 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000086,orig:bug886717.pdf'...[0m
+[1;90m    len = 133458, map size = 9250, exec speed = 37503 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000087,orig:bug893730.pdf'...[0m
+[1;90m    len = 30845, map size = 6257, exec speed = 6199 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000088,orig:bug894572.pdf'...[0m
+[1;90m    len = 41937, map size = 6091, exec speed = 7197 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000089,orig:bug898853.pdf'...[0m
+[1;90m    len = 15861, map size = 7090, exec speed = 4864 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000090,orig:bug900822.pdf'...[0m
+[1;90m    len = 166510, map size = 7654, exec speed = 31376 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000091,orig:bug903856.pdf'...[0m
+[1;90m    len = 8439, map size = 5880, exec speed = 5404 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000092,orig:bug911034.pdf'...[0m
+[1;90m    len = 56514, map size = 5572, exec speed = 12792 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000093,orig:bug921409.pdf'...[0m
+[1;90m    len = 44438, map size = 7097, exec speed = 8103 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000094,orig:bug946506.pdf'...[0m
+[1;90m    len = 20555, map size = 7972, exec speed = 27103 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000095,orig:ccitt_EndOfBlock_false.pdf'...[0m
+[1;90m    len = 3256, map size = 3834, exec speed = 12745 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000096,orig:cid_cff.pdf'...[0m
+[1;90m    len = 19970, map size = 6773, exec speed = 4951 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000097,orig:clippath.pdf'...[0m
+[1;90m    len = 459, map size = 3081, exec speed = 1888 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000098,orig:close-path-bug.pdf'...[0m
+[1;90m    len = 1451, map size = 3691, exec speed = 5080 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000099,orig:cmykjpeg.pdf'...[0m
+[1;90m    len = 374080, map size = 3448, exec speed = 8408 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000100,orig:colorkeymask.pdf'...[0m
+[1;90m    len = 161533, map size = 3586, exec speed = 13010 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000101,orig:complex_ttf_font.pdf'...[0m
+[1;90m    len = 57178, map size = 6290, exec speed = 19581 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000102,orig:decodeACSuccessive.pdf'...[0m
+[1;90m    len = 2867, map size = 3109, exec speed = 4996 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000103,orig:devicen.pdf'...[0m
+[1;90m    len = 15751, map size = 4330, exec speed = 7713 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000104,orig:endchar.pdf'...[0m
+[1;90m    len = 18985, map size = 8548, exec speed = 6619 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000105,orig:extgstate.pdf'...[0m
+[1;90m    len = 1253, map size = 4584, exec speed = 7796 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000106,orig:file_url_link.pdf'...[0m
+[1;90m    len = 856, map size = 4574, exec speed = 5007 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000107,orig:font_ascent_descent.pdf'...[0m
+[1;90m    len = 15056, map size = 8914, exec speed = 18401 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000108,orig:franz.pdf'...[0m
+[1;90m    len = 2805, map size = 3777, exec speed = 5410 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000109,orig:franz_2.pdf'...[0m
+[1;90m    len = 2828, map size = 4469, exec speed = 5583 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000110,orig:german-umlaut-r.pdf'...[0m
+[1;90m    len = 14591, map size = 6170, exec speed = 3827 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000111,orig:glyph_accent.pdf'...[0m
+[1;90m    len = 5490, map size = 7897, exec speed = 3946 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000112,orig:gradientfill.pdf'...[0m
+[1;90m    len = 1444, map size = 3516, exec speed = 6235 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000113,orig:helloworld-bad.pdf'...[0m
+[1;90m    len = 745, map size = 3787, exec speed = 4978 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000114,orig:images_1bit_grayscale.pdf'...[0m
+[1;90m    len = 4573, map size = 3721, exec speed = 10667 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000115,orig:issue1002.pdf'...[0m
+[1;90m    len = 19172, map size = 8384, exec speed = 18854 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000116,orig:issue10084_reduced.pdf'...[0m
+[1;90m    len = 15165, map size = 6916, exec speed = 8208 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000117,orig:issue10339_reduced.pdf'...[0m
+[1;90m    len = 1819, map size = 3253, exec speed = 5214 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000118,orig:issue10388_reduced.pdf'...[0m
+[1;90m    len = 1127, map size = 4611, exec speed = 9080 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000119,orig:issue10402.pdf'...[0m
+[1;90m    len = 20955, map size = 6130, exec speed = 6419 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000120,orig:issue10438_reduced.pdf'...[0m
+[1;90m    len = 723, map size = 3680, exec speed = 4956 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000121,orig:issue1045.pdf'...[0m
+[1;90m    len = 22741, map size = 7245, exec speed = 6222 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000122,orig:issue10519_reduced.pdf'...[0m
+[1;90m    len = 13286, map size = 6013, exec speed = 3824 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000123,orig:issue10529.pdf'...[0m
+[1;90m    len = 120681, map size = 9383, exec speed = 23298 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000124,orig:issue10542_reduced.pdf'...[0m
+[1;90m    len = 930, map size = 4309, exec speed = 5090 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000125,orig:issue1055r.pdf'...[0m
+[1;90m    len = 1016, map size = 4435, exec speed = 5612 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000126,orig:issue10665_reduced.pdf'...[0m
+[1;90m    len = 8809, map size = 6971, exec speed = 6959 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000127,orig:issue11016_reduced.pdf'...[0m
+[1;90m    len = 5558, map size = 6955, exec speed = 4768 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000128,orig:issue11045.pdf'...[0m
+[1;90m    len = 40875, map size = 9067, exec speed = 18461 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000129,orig:issue11150_reduced.pdf'...[0m
+[1;90m    len = 32378, map size = 6812, exec speed = 4870 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000130,orig:issue11242_reduced.pdf'...[0m
+[1;90m    len = 2751, map size = 3869, exec speed = 5751 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000131,orig:issue11279.pdf'...[0m
+[1;90m    len = 2369, map size = 8599, exec speed = 19134 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000132,orig:issue11362.pdf'...[0m
+[1;90m    len = 2922, map size = 5294, exec speed = 5851 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000133,orig:issue11442_reduced.pdf'...[0m
+[1;90m    len = 689, map size = 3684, exec speed = 4551 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000134,orig:issue1155r.pdf'...[0m
+[1;90m    len = 776, map size = 3738, exec speed = 23078 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000135,orig:issue1171.pdf'...[0m
+[1;90m    len = 1939, map size = 5575, exec speed = 2907 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000136,orig:issue1249.pdf'...[0m
+[1;90m    len = 68783, map size = 6944, exec speed = 23691 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000137,orig:issue1293r.pdf'...[0m
+[1;90m    len = 621, map size = 3684, exec speed = 4651 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000138,orig:issue1350.pdf'...[0m
+[1;90m    len = 118396, map size = 8042, exec speed = 50966 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000139,orig:issue1453.pdf'...[0m
+[1;90m    len = 17650, map size = 8448, exec speed = 43648 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000140,orig:issue1512r.pdf'...[0m
+[1;90m    len = 31198, map size = 6205, exec speed = 4996 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000141,orig:issue1655r.pdf'...[0m
+[1;90m    len = 34275, map size = 6988, exec speed = 8222 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000142,orig:issue1985.pdf'...[0m
+[1;90m    len = 9884, map size = 4996, exec speed = 8738 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000143,orig:issue2017r.pdf'...[0m
+[1;90m    len = 34802, map size = 5899, exec speed = 6655 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000144,orig:issue2074.pdf'...[0m
+[1;90m    len = 39478, map size = 6844, exec speed = 19930 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000145,orig:issue2099-1.pdf'...[0m
+[1;90m    len = 2861, map size = 4057, exec speed = 7954 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000146,orig:issue2128r.pdf'...[0m
+[1;90m    len = 1525, map size = 2950, exec speed = 8691 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000147,orig:issue215.pdf'...[0m
+[1;90m    len = 82195, map size = 7335, exec speed = 11797 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000148,orig:issue2176.pdf'...[0m
+[1;90m    len = 56760, map size = 7879, exec speed = 11848 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000149,orig:issue2177.pdf'...[0m
+[1;90m    len = 3035, map size = 3953, exec speed = 44890 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000150,orig:issue2391-1.pdf'...[0m
+[1;90m    len = 2782, map size = 3111, exec speed = 5946 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000151,orig:issue2391-2.pdf'...[0m
+[1;90m    len = 2754, map size = 3983, exec speed = 7314 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000152,orig:issue2462.pdf'...[0m
+[1;90m    len = 139946, map size = 8685, exec speed = 15466 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000153,orig:issue2537r.pdf'...[0m
+[1;90m    len = 27297, map size = 6046, exec speed = 3753 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000154,orig:issue2761.pdf'...[0m
+[1;90m    len = 12142, map size = 9248, exec speed = 8402 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000155,orig:issue2833.pdf'...[0m
+[1;90m    len = 5615, map size = 6666, exec speed = 3651 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000156,orig:issue2840.pdf'...[0m
+[1;90m    len = 3720, map size = 4166, exec speed = 3694 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000157,orig:issue2884_reduced.pdf'...[0m
+[1;90m    len = 18416, map size = 4074, exec speed = 2843 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000158,orig:issue2931.pdf'...[0m
+[1;90m    len = 25688, map size = 6140, exec speed = 4729 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000159,orig:issue2956.pdf'...[0m
+[1;90m    len = 103556, map size = 6759, exec speed = 40204 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000160,orig:issue3025.pdf'...[0m
+[1;90m    len = 7467, map size = 6139, exec speed = 5032 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000161,orig:issue3061.pdf'...[0m
+[1;90m    len = 17022, map size = 8283, exec speed = 16628 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000162,orig:issue3205r.pdf'...[0m
+[1;90m    len = 126273, map size = 6516, exec speed = 6630 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000163,orig:issue3207r.pdf'...[0m
+[1;90m    len = 50914, map size = 6869, exec speed = 8279 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000164,orig:issue3263r.pdf'...[0m
+[1;90m    len = 31592, map size = 5786, exec speed = 14286 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000165,orig:issue3323.pdf'...[0m
+[1;90m    len = 40553, map size = 5995, exec speed = 13952 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000166,orig:issue3371.pdf'...[0m
+[1;90m    len = 12323, map size = 1613, exec speed = 2588 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000167,orig:issue3405r.pdf'...[0m
+[1;90m    len = 31492, map size = 5525, exec speed = 3251 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000168,orig:issue3438.pdf'...[0m
+[1;90m    len = 70033, map size = 6181, exec speed = 13674 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000169,orig:issue3458.pdf'...[0m
+[1;90m    len = 39226, map size = 5972, exec speed = 30088 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000170,orig:issue3521.pdf'...[0m
+[1;90m    len = 4486, map size = 2992, exec speed = 14494 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000171,orig:issue3566.pdf'...[0m
+[1;90m    len = 9805, map size = 7004, exec speed = 11923 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000172,orig:issue3584.pdf'...[0m
+[1;90m    len = 21424, map size = 7283, exec speed = 14424 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000173,orig:issue3694_reduced.pdf'...[0m
+[1;90m    len = 24550, map size = 9085, exec speed = 20401 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000174,orig:issue3879r.pdf'...[0m
+[1;90m    len = 984, map size = 4231, exec speed = 9093 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000175,orig:issue3885.pdf'...[0m
+[1;90m    len = 6988, map size = 4914, exec speed = 17629 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000176,orig:issue3928.pdf'...[0m
+[1;90m    len = 31272, map size = 7414, exec speed = 22022 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000177,orig:issue4304.pdf'...[0m
+[1;90m    len = 895, map size = 3846, exec speed = 13986 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000178,orig:issue4379.pdf'...[0m
+[1;90m    len = 4264, map size = 3813, exec speed = 107793 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000179,orig:issue4402_reduced.pdf'...[0m
+[1;90m    len = 22346, map size = 6814, exec speed = 13473 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000180,orig:issue4436r.pdf'...[0m
+[1;90m    len = 777, map size = 4115, exec speed = 16113 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000181,orig:issue4461.pdf'...[0m
+[1;90m    len = 476, map size = 2473, exec speed = 5721 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000182,orig:issue4550.pdf'...[0m
+[1;90m    len = 17003, map size = 7350, exec speed = 13775 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000183,orig:issue4573.pdf'...[0m
+[1;90m    len = 8474, map size = 7039, exec speed = 9959 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000184,orig:issue4575.pdf'...[0m
+[1;90m    len = 861, map size = 3780, exec speed = 16469 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000185,orig:issue4630.pdf'...[0m
+[1;90m    len = 73122, map size = 6817, exec speed = 52251 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000186,orig:issue4650.pdf'...[0m
+[1;90m    len = 26856, map size = 6998, exec speed = 9763 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000187,orig:issue4665.pdf'...[0m
+[1;90m    len = 42242, map size = 6224, exec speed = 20634 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000188,orig:issue4668.pdf'...[0m
+[1;90m    len = 32814, map size = 5912, exec speed = 8014 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000189,orig:issue4684.pdf'...[0m
+[1;90m    len = 3714, map size = 4044, exec speed = 5901 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000190,orig:issue4722.pdf'...[0m
+[1;90m    len = 1405, map size = 3772, exec speed = 7634 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000191,orig:issue4800.pdf'...[0m
+[1;90m    len = 23060, map size = 6081, exec speed = 13504 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000192,orig:issue4801.pdf'...[0m
+[1;90m    len = 8375, map size = 7220, exec speed = 10192 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000193,orig:issue4875.pdf'...[0m
+[1;90m    len = 202841, map size = 6169, exec speed = 25060 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000194,orig:issue4881.pdf'...[0m
+[1;90m    len = 49470, map size = 5783, exec speed = 14660 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000195,orig:issue4909.pdf'...[0m
+[1;90m    len = 12688, map size = 5679, exec speed = 4728 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000196,orig:issue4934.pdf'...[0m
+[1;90m    len = 1822, map size = 3968, exec speed = 12023 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000197,orig:issue5010.pdf'...[0m
+[1;90m    len = 4443, map size = 6217, exec speed = 13669 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000198,orig:issue5039.pdf'...[0m
+[1;90m    len = 30475, map size = 4968, exec speed = 15561 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000199,orig:issue5044.pdf'...[0m
+[1;90m    len = 24214, map size = 7748, exec speed = 43349 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000200,orig:issue5070.pdf'...[0m
+[1;90m    len = 34369, map size = 6674, exec speed = 19976 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000201,orig:issue5084.pdf'...[0m
+[1;90m    len = 15526, map size = 7138, exec speed = 12210 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000202,orig:issue5138.pdf'...[0m
+[1;90m    len = 4794, map size = 7334, exec speed = 8461 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000203,orig:issue5202.pdf'...[0m
+[1;90m    len = 5241, map size = 5966, exec speed = 9622 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000204,orig:issue5238.pdf'...[0m
+[1;90m    len = 1152, map size = 3915, exec speed = 13797 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000205,orig:issue5244.pdf'...[0m
+[1;90m    len = 1703, map size = 4066, exec speed = 15476 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000206,orig:issue5256.pdf'...[0m
+[1;90m    len = 6136, map size = 6591, exec speed = 8700 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000207,orig:issue5280.pdf'...[0m
+[1;90m    len = 6550, map size = 3782, exec speed = 24323 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000208,orig:issue5291.pdf'...[0m
+[1;90m    len = 731, map size = 3725, exec speed = 4227 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000209,orig:issue5334.pdf'...[0m
+[1;90m    len = 65778, map size = 7353, exec speed = 21833 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000210,orig:issue5421.pdf'...[0m
+[1;90m    len = 3209, map size = 3763, exec speed = 14750 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000211,orig:issue5470.pdf'...[0m
+[1;90m    len = 1378, map size = 4207, exec speed = 12172 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000212,orig:issue5475.pdf'...[0m
+[1;90m    len = 166026, map size = 3430, exec speed = 238911 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000213,orig:issue5501.pdf'...[0m
+[1;90m    len = 15180, map size = 5681, exec speed = 6971 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000214,orig:issue5540.pdf'...[0m
+[1;90m    len = 17459, map size = 7115, exec speed = 13706 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000215,orig:issue5564_reduced.pdf'...[0m
+[1;90m    len = 1859, map size = 5410, exec speed = 8812 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000216,orig:issue5599.pdf'...[0m
+[1;90m    len = 756, map size = 3697, exec speed = 14476 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000217,orig:issue5677.pdf'...[0m
+[1;90m    len = 194851, map size = 5747, exec speed = 23137 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000218,orig:issue5686.pdf'...[0m
+[1;90m    len = 23718, map size = 7068, exec speed = 28319 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000219,orig:issue5701.pdf'...[0m
+[1;90m    len = 13993, map size = 5629, exec speed = 8241 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000220,orig:issue5704.pdf'...[0m
+[1;90m    len = 17915, map size = 6092, exec speed = 14264 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000221,orig:issue5734.pdf'...[0m
+[1;90m    len = 8873, map size = 7306, exec speed = 17392 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000222,orig:issue5747.pdf'...[0m
+[1;90m    len = 112018, map size = 4965, exec speed = 157394 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000223,orig:issue5751.pdf'...[0m
+[1;90m    len = 67017, map size = 7332, exec speed = 10612 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000224,orig:issue5801.pdf'...[0m
+[1;90m    len = 12045, map size = 4167, exec speed = 12034 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000225,orig:issue5804.pdf'...[0m
+[1;90m    len = 8498, map size = 8072, exec speed = 7300 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000226,orig:issue5874.pdf'...[0m
+[1;90m    len = 214331, map size = 7443, exec speed = 30128 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000227,orig:issue5896.pdf'...[0m
+[1;90m    len = 11541, map size = 4677, exec speed = 7182 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000228,orig:issue5946.pdf'...[0m
+[1;90m    len = 239220, map size = 8111, exec speed = 24145 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000229,orig:issue5954.pdf'...[0m
+[1;90m    len = 741, map size = 2634, exec speed = 2411 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000230,orig:issue5972.pdf'...[0m
+[1;90m    len = 767, map size = 3736, exec speed = 9921 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000231,orig:issue6006.pdf'...[0m
+[1;90m    len = 1374, map size = 3978, exec speed = 18279 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000232,orig:issue6010_1.pdf'...[0m
+[1;90m    len = 1116, map size = 1296, exec speed = 17160 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000233,orig:issue6010_2.pdf'...[0m
+[1;90m    len = 1116, map size = 1297, exec speed = 22372 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000234,orig:issue6019.pdf'...[0m
+[1;90m    len = 791, map size = 3903, exec speed = 6647 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000235,orig:issue6068.pdf'...[0m
+[1;90m    len = 432895, map size = 6207, exec speed = 30172 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000236,orig:issue6069.pdf'...[0m
+[1;90m    len = 565, map size = 3810, exec speed = 8822 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000237,orig:issue6081.pdf'...[0m
+[1;90m    len = 2266, map size = 4640, exec speed = 7667 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000238,orig:issue6099.pdf'...[0m
+[1;90m    len = 13934, map size = 6866, exec speed = 15447 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000239,orig:issue6106.pdf'...[0m
+[1;90m    len = 994, map size = 3813, exec speed = 9238 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000240,orig:issue6108.pdf'...[0m
+[1;90m    len = 680, map size = 3860, exec speed = 7059 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000241,orig:issue6113.pdf'...[0m
+[1;90m    len = 5248, map size = 4755, exec speed = 7023 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000242,orig:issue6151.pdf'...[0m
+[1;90m    len = 979, map size = 3714, exec speed = 6578 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000243,orig:issue6179_reduced.pdf'...[0m
+[1;90m    len = 16136, map size = 7509, exec speed = 5575 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000244,orig:issue6204.pdf'...[0m
+[1;90m    len = 2696, map size = 4645, exec speed = 12785 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000245,orig:issue6296.pdf'...[0m
+[1;90m    len = 2971, map size = 4103, exec speed = 24592 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000246,orig:issue6298.pdf'...[0m
+[1;90m    len = 2979, map size = 3439, exec speed = 13728 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000247,orig:issue6336.pdf'...[0m
+[1;90m    len = 10224, map size = 5894, exec speed = 4456 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000248,orig:issue6342.pdf'...[0m
+[1;90m    len = 2214, map size = 4837, exec speed = 6942 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000249,orig:issue6387.pdf'...[0m
+[1;90m    len = 66117, map size = 8405, exec speed = 41782 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000250,orig:issue6410.pdf'...[0m
+[1;90m    len = 211633, map size = 7941, exec speed = 49947 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000251,orig:issue6413.pdf'...[0m
+[1;90m    len = 3385, map size = 5017, exec speed = 36958 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000252,orig:issue6541.pdf'...[0m
+[1;90m    len = 2154, map size = 4422, exec speed = 11829 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000253,orig:issue6612.pdf'...[0m
+[1;90m    len = 7067, map size = 6075, exec speed = 5528 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000254,orig:issue6621.pdf'...[0m
+[1;90m    len = 14521, map size = 3412, exec speed = 9758 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000255,orig:issue6652.pdf'...[0m
+[1;90m    len = 709, map size = 3161, exec speed = 4614 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000256,orig:issue6721_reduced.pdf'...[0m
+[1;90m    len = 103344, map size = 7167, exec speed = 14617 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000257,orig:issue6782.pdf'...[0m
+[1;90m    len = 23181, map size = 7474, exec speed = 12540 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000258,orig:issue6889.pdf'...[0m
+[1;90m    len = 513863, map size = 6248, exec speed = 32122 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000259,orig:issue6901.pdf'...[0m
+[1;90m    len = 25100, map size = 7252, exec speed = 7792 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000260,orig:issue6962.pdf'...[0m
+[1;90m    len = 79762, map size = 6086, exec speed = 4577 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000261,orig:issue7014.pdf'...[0m
+[1;90m    len = 114757, map size = 9356, exec speed = 78572 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000262,orig:issue7020.pdf'...[0m
+[1;90m    len = 17014, map size = 6312, exec speed = 7765 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000263,orig:issue7074_reduced.pdf'...[0m
+[1;90m    len = 33952, map size = 7007, exec speed = 8997 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000264,orig:issue7101.pdf'...[0m
+[1;90m    len = 6832, map size = 8003, exec speed = 6454 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000265,orig:issue7115.pdf'...[0m
+[1;90m    len = 1014, map size = 4573, exec speed = 8965 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000266,orig:issue7180.pdf'...[0m
+[1;90m    len = 10391, map size = 7042, exec speed = 6984 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000267,orig:issue7200.pdf'...[0m
+[1;90m    len = 37095, map size = 3987, exec speed = 23127 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000268,orig:issue7339_reduced.pdf'...[0m
+[1;90m    len = 1360, map size = 4034, exec speed = 3243 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000269,orig:issue7403.pdf'...[0m
+[1;90m    len = 51871, map size = 7493, exec speed = 25689 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000270,orig:issue7406.pdf'...[0m
+[1;90m    len = 7468, map size = 4200, exec speed = 10707 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000271,orig:issue7426.pdf'...[0m
+[1;90m    len = 117531, map size = 6819, exec speed = 27671 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000272,orig:issue7439.pdf'...[0m
+[1;90m    len = 18557, map size = 7426, exec speed = 9061 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000273,orig:issue7446.pdf'...[0m
+[1;90m    len = 720, map size = 3810, exec speed = 4580 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000274,orig:issue7492.pdf'...[0m
+[1;90m    len = 4619, map size = 7106, exec speed = 4043 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000275,orig:issue7507.pdf'...[0m
+[1;90m    len = 18647, map size = 6173, exec speed = 5091 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000276,orig:issue7544.pdf'...[0m
+[1;90m    len = 21143, map size = 6302, exec speed = 8521 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000277,orig:issue7580.pdf'...[0m
+[1;90m    len = 1440, map size = 3843, exec speed = 4127 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000278,orig:issue7598.pdf'...[0m
+[1;90m    len = 74785, map size = 7154, exec speed = 13228 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000279,orig:issue7665.pdf'...[0m
+[1;90m    len = 1472, map size = 4125, exec speed = 29595 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000280,orig:issue7696.pdf'...[0m
+[1;90m    len = 3523, map size = 3196, exec speed = 2125 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000281,orig:issue7769.pdf'...[0m
+[1;90m    len = 10923, map size = 7738, exec speed = 4739 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000282,orig:issue7835.pdf'...[0m
+[1;90m    len = 4650, map size = 4078, exec speed = 6588 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000283,orig:issue7855.pdf'...[0m
+[1;90m    len = 50862, map size = 6149, exec speed = 3640 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000284,orig:issue7872.pdf'...[0m
+[1;90m    len = 870, map size = 3693, exec speed = 5159 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000285,orig:issue7878.pdf'...[0m
+[1;90m    len = 36048, map size = 6816, exec speed = 8939 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000286,orig:issue7901.pdf'...[0m
+[1;90m    len = 38225, map size = 7447, exec speed = 6132 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000287,orig:issue8061.pdf'...[0m
+[1;90m    len = 87672, map size = 5608, exec speed = 12018 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000288,orig:issue8088.pdf'...[0m
+[1;90m    len = 1583, map size = 3715, exec speed = 11178 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000289,orig:issue8092.pdf'...[0m
+[1;90m    len = 3356, map size = 5407, exec speed = 18208 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000290,orig:issue8097_reduced.pdf'...[0m
+[1;90m    len = 51582, map size = 6720, exec speed = 11502 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000291,orig:issue8125.pdf'...[0m
+[1;90m    len = 690, map size = 3698, exec speed = 5516 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000292,orig:issue8187.pdf'...[0m
+[1;90m    len = 2841, map size = 5715, exec speed = 2447 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000293,orig:issue8229.pdf'...[0m
+[1;90m    len = 20854, map size = 6152, exec speed = 4071 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000294,orig:issue8234.pdf'...[0m
+[1;90m    len = 13704, map size = 5874, exec speed = 6900 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000295,orig:issue8276_reduced.pdf'...[0m
+[1;90m    len = 682, map size = 3739, exec speed = 7864 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000296,orig:issue8372.pdf'...[0m
+[1;90m    len = 1143, map size = 2848, exec speed = 2212 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000297,orig:issue8424.pdf'...[0m
+[1;90m    len = 49015, map size = 6927, exec speed = 8656 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000298,orig:issue845r.pdf'...[0m
+[1;90m    len = 27472, map size = 6967, exec speed = 5243 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000299,orig:issue8480.pdf'...[0m
+[1;90m    len = 45238, map size = 8150, exec speed = 6188 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000300,orig:issue8570.pdf'...[0m
+[1;90m    len = 229717, map size = 6223, exec speed = 14580 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000301,orig:issue8697.pdf'...[0m
+[1;90m    len = 1400, map size = 3742, exec speed = 4689 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000302,orig:issue8707.pdf'...[0m
+[1;90m    len = 10055, map size = 5615, exec speed = 2975 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000303,orig:issue8798r.pdf'...[0m
+[1;90m    len = 823, map size = 3421, exec speed = 4342 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000304,orig:issue8823.pdf'...[0m
+[1;90m    len = 1771, map size = 2838, exec speed = 5646 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000305,orig:issue8960_reduced.pdf'...[0m
+[1;90m    len = 8414, map size = 6741, exec speed = 4118 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000306,orig:issue9084.pdf'...[0m
+[1;90m    len = 25823, map size = 4113, exec speed = 9483 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000307,orig:issue9105_reduced.pdf'...[0m
+[1;90m    len = 723, map size = 3679, exec speed = 4709 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000308,orig:issue918.pdf'...[0m
+[1;90m    len = 52483, map size = 4991, exec speed = 19790 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000309,orig:issue925.pdf'...[0m
+[1;90m    len = 80185, map size = 8000, exec speed = 13700 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000310,orig:issue9252.pdf'...[0m
+[1;90m    len = 1289, map size = 3750, exec speed = 7775 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000311,orig:issue9278.pdf'...[0m
+[1;90m    len = 8662, map size = 7842, exec speed = 10537 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000312,orig:issue9291.pdf'...[0m
+[1;90m    len = 2040, map size = 3774, exec speed = 3947 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000313,orig:issue9418.pdf'...[0m
+[1;90m    len = 151088, map size = 1764, exec speed = 3639 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000314,orig:issue9458.pdf'...[0m
+[1;90m    len = 106412, map size = 6065, exec speed = 15449 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000315,orig:issue9534_reduced.pdf'...[0m
+[1;90m    len = 32585, map size = 7363, exec speed = 5364 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000316,orig:issue9655_reduced.pdf'...[0m
+[1;90m    len = 31518, map size = 4456, exec speed = 6228 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000317,orig:issue9915_reduced.pdf'...[0m
+[1;90m    len = 13814, map size = 7037, exec speed = 3102 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000318,orig:issue9949.pdf'...[0m
+[1;90m    len = 844757, map size = 8206, exec speed = 32908 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000319,orig:issue9972-2.pdf'...[0m
+[1;90m    len = 80960, map size = 9359, exec speed = 26329 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000320,orig:issue9972-3.pdf'...[0m
+[1;90m    len = 80951, map size = 9359, exec speed = 29103 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000321,orig:javauninstall-7r.pdf'...[0m
+[1;90m    len = 77197, map size = 6361, exec speed = 15716 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000322,orig:jbig2_symbol_offset.pdf'...[0m
+[1;90m    len = 1157, map size = 3755, exec speed = 8603 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000323,orig:mmtype1.pdf'...[0m
+[1;90m    len = 8044, map size = 7321, exec speed = 6790 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000324,orig:multiple-filters-length-zero.pdf'...[0m
+[1;90m    len = 18374, map size = 4200, exec speed = 109990 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000325,orig:noembed-eucjp.pdf'...[0m
+[1;90m    len = 1472, map size = 2885, exec speed = 7378 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000326,orig:noembed-identity-2.pdf'...[0m
+[1;90m    len = 2147, map size = 2894, exec speed = 7838 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000327,orig:noembed-identity.pdf'...[0m
+[1;90m    len = 3054, map size = 7600, exec speed = 8783 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000328,orig:noembed-jis7.pdf'...[0m
+[1;90m    len = 15306, map size = 7538, exec speed = 13620 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000329,orig:noembed-sjis.pdf'...[0m
+[1;90m    len = 1472, map size = 2885, exec speed = 7700 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000330,orig:non-embedded-NuptialScript.pdf'...[0m
+[1;90m    len = 1627, map size = 3716, exec speed = 6407 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000331,orig:openoffice.pdf'...[0m
+[1;90m    len = 10388, map size = 6205, exec speed = 4261 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000332,orig:operator-in-TJ-array.pdf'...[0m
+[1;90m    len = 1004, map size = 3822, exec speed = 9578 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000333,orig:pdfjsbad1586.pdf'...[0m
+[1;90m    len = 7911, map size = 6617, exec speed = 6325 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000334,orig:pdfkit_compressed.pdf'...[0m
+[1;90m    len = 8286, map size = 6233, exec speed = 5778 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000335,orig:pr4922.pdf'...[0m
+[1;90m    len = 63472, map size = 8037, exec speed = 35539 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000336,orig:pr6531_1.pdf'...[0m
+[1;90m    len = 43414, map size = 1636, exec speed = 22675 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000337,orig:pr6531_2.pdf'...[0m
+[1;90m    len = 6139, map size = 5052, exec speed = 37961 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000338,orig:pr7352.pdf'...[0m
+[1;90m    len = 1648, map size = 5276, exec speed = 12575 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000339,orig:rotated.pdf'...[0m
+[1;90m    len = 12963, map size = 6927, exec speed = 9878 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000340,orig:rotation.pdf'...[0m
+[1;90m    len = 6605, map size = 4837, exec speed = 16067 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000341,orig:scorecard_reduced.pdf'...[0m
+[1;90m    len = 6975, map size = 5214, exec speed = 5889 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000342,orig:simpletype3font.pdf'...[0m
+[1;90m    len = 1624, map size = 4326, exec speed = 5972 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000343,orig:sizes.pdf'...[0m
+[1;90m    len = 13739, map size = 6279, exec speed = 12951 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000344,orig:small.pdf'...[0m
+[1;90m    len = 176, map size = 2223, exec speed = 1691 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000345,orig:smaskdim.pdf'...[0m
+[1;90m    len = 29745, map size = 8412, exec speed = 24499 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000346,orig:text_clip_cff_cid.pdf'...[0m
+[1;90m    len = 7393, map size = 7203, exec speed = 6527 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000347,orig:tiling-pattern-box.pdf'...[0m
+[1;90m    len = 59948, map size = 4511, exec speed = 21638 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000348,orig:transparency_group.pdf'...[0m
+[1;90m    len = 347690, map size = 5133, exec speed = 56638 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000349,orig:transparent.pdf'...[0m
+[1;90m    len = 56597, map size = 3904, exec speed = 3918 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000350,orig:type4psfunc.pdf'...[0m
+[1;90m    len = 25751, map size = 4461, exec speed = 11989 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000351,orig:vertical.pdf'...[0m
+[1;90m    len = 6905, map size = 3815, exec speed = 4296 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000352,orig:xobject-image.pdf'...[0m
+[1;90m    len = 1462, map size = 3097, exec speed = 5483 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000353,orig:xref_command_missing.pdf'...[0m
+[1;90m    len = 631, map size = 3683, exec speed = 5148 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000354,orig:zero_descent.pdf'...[0m
+[1;90m    len = 66554, map size = 8197, exec speed = 19796 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000355,orig:zerowidthline.pdf'...[0m
+[1;90m    len = 6569, map size = 5057, exec speed = 11473 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+
+[1;93m[!] [1;97mWARNING: [0m[1;91mThe target binary is pretty slow! See docs/perf_tips.txt.[0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases are huge (824 kB) - see docs/perf_tips.txt![0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases look useless. Consider using a smaller set.[0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mYou probably have far too many input files! Consider trimming down.[0m
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m221 favored, 86 variable, 356 total
+[1;90m       Bitmap range : [0m1172 to 10450 bits (average: 5794.73 bits)
+[1;90m        Exec timing : [0m1691 to 238k us (average: 16.3k us)
+[0m
+[1;94m[*] [0mNo -t option specified, so I'll use exec timeout of 240 ms.[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #3 (356 total, 0 uniq crashes found)...[0m
+[?25h[1;91m
+
++++ Testing aborted by user +++
+[0m
+[1;93m[!] [0mStopped during the first cycle, results may be incomplete.
+    (For info on resuming, see docs/README.)
+[1;92m[+] [0mWe're done here. Have a nice day!
+[0m
+Campaign terminated at 2026-02-11 13:10
+/magma/magma/run.sh: line 81:  6985 Terminated              while true; do
+    "$OUT/monitor" --dump row > "$MONITOR/tmp"; if [ $? -eq 0 ]; then
+        mv "$MONITOR/tmp" "$MONITOR/$counter";
+    else
+        rm "$MONITOR/tmp";
+    fi; counter=$(( counter + POLL )); sleep $POLL;
+done

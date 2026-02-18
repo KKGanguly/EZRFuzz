@@ -1,0 +1,109 @@
+[2026-02-10 16:01] Container for fairfuzz/lua/lua started in ef8195b553b3
+/magma/targets/lua/corpus/lua/big.lua: exit_code 137
+/magma/targets/lua/corpus/lua/calls.lua: exit_code 137
+/magma/targets/lua/corpus/lua/constructs.lua: exit_code 137
+/magma/targets/lua/corpus/lua/db.lua: exit_code 0 bug LUA004
+/magma/targets/lua/corpus/lua/files.lua: exit_code 0 bug LUA003
+/magma/targets/lua/corpus/lua/gc.lua: exit_code 137
+/magma/targets/lua/corpus/lua/heavy.lua: exit_code 137
+/magma/targets/lua/corpus/lua/main.lua: exit_code 137
+/magma/targets/lua/corpus/lua/math.lua: exit_code 137
+/magma/targets/lua/corpus/lua/sort.lua: exit_code 137
+/magma/targets/lua/corpus/lua/verybig.lua: exit_code 137
+Campaign launched at 2026-02-10 21:01
+[0;36mafl-fuzz [1;97m2.52b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mLooks like we're not running on a tty, so I'll be a bit less verbose.[0m
+[1;92m[+] [0mYou have 12 CPU cores and 24 runnable tasks (utilization: 200%).[0m
+[1;93m[!] [1;97mWARNING: [0mSystem under apparent load, performance may be spotty.[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/magma/targets/lua/corpus/lua'...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:all.lua'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;90m    len = 8147, map size = 3790, exec speed = 4064 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000001,orig:api.lua'...[0m
+[1;90m    len = 41184, map size = 3471, exec speed = 6105 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000002,orig:attrib.lua'...[0m
+[1;90m    len = 13125, map size = 4487, exec speed = 30805 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000003,orig:bitwise.lua'...[0m
+[1;90m    len = 9603, map size = 3673, exec speed = 3582 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000004,orig:bwcoercion.lua'...[0m
+[1;90m    len = 1791, map size = 2481, exec speed = 1795 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000005,orig:closure.lua'...[0m
+[1;90m    len = 5712, map size = 4005, exec speed = 8645 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000006,orig:code.lua'...[0m
+[1;90m    len = 12855, map size = 3524, exec speed = 3380 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000007,orig:coroutine.lua'...[0m
+[1;90m    len = 29841, map size = 4801, exec speed = 6423 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000008,orig:cstack.lua'...[0m
+[1;90m    len = 4189, map size = 3029, exec speed = 2522 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000009,orig:errors.lua'...[0m
+[1;90m    len = 17870, map size = 5669, exec speed = 12328 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000010,orig:events.lua'...[0m
+[1;90m    len = 12401, map size = 4767, exec speed = 4853 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000011,orig:gengc.lua'...[0m
+[1;90m    len = 5220, map size = 3113, exec speed = 2443 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000012,orig:goto.lua'...[0m
+[1;90m    len = 5756, map size = 3663, exec speed = 2785 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000013,orig:literals.lua'...[0m
+[1;90m    len = 10782, map size = 4526, exec speed = 14862 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000014,orig:locals.lua'...[0m
+[1;90m    len = 25958, map size = 3810, exec speed = 6344 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000015,orig:nextvar.lua'...[0m
+[1;90m    len = 18558, map size = 4920, exec speed = 32193 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000016,orig:pm.lua'...[0m
+[1;90m    len = 13270, map size = 4530, exec speed = 50597 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000017,orig:strings.lua'...[0m
+[1;90m    len = 17154, map size = 5131, exec speed = 5168 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000018,orig:tpack.lua'...[0m
+[1;90m    len = 10527, map size = 4367, exec speed = 6228 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000019,orig:tracegc.lua'...[0m
+[1;90m    len = 680, map size = 2071, exec speed = 2364 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000020,orig:utf8.lua'...[0m
+[1;90m    len = 6795, map size = 4085, exec speed = 4976 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000021,orig:vararg.lua'...[0m
+[1;90m    len = 3360, map size = 3790, exec speed = 2527 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+
+[1;93m[!] [1;97mWARNING: [0m[1;91mThe target binary is pretty slow! See docs/perf_tips.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mSome test cases are big (40.2 kB) - see docs/perf_tips.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mYou have lots of input files; try starting small.[0m
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m19 favored, 3 variable, 22 total
+[1;90m       Bitmap range : [0m2071 to 5669 bits (average: 3986.50 bits)
+[1;90m        Exec timing : [0m1795 to 50.6k us (average: 16.6k us)
+[0m
+[1;94m[*] [0mNo -t option specified, so I'll use exec timeout of 60 ms.[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #0 (22 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #1 (976 total, 0 uniq crashes found)...[0m
+[?25h[1;91m
+
++++ Testing aborted by user +++
+[0m
+[1;93m[!] [0mStopped during the first cycle, results may be incomplete.
+    (For info on resuming, see docs/README.)
+[1;92m[+] [0mWe're done here. Have a nice day!
+[0m
+Campaign terminated at 2026-02-11 05:01
+/magma/magma/run.sh: line 81:   475 Terminated              while true; do
+    "$OUT/monitor" --dump row > "$MONITOR/tmp"; if [ $? -eq 0 ]; then
+        mv "$MONITOR/tmp" "$MONITOR/$counter";
+    else
+        rm "$MONITOR/tmp";
+    fi; counter=$(( counter + POLL )); sleep $POLL;
+done

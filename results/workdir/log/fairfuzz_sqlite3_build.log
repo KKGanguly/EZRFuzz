@@ -1,0 +1,94 @@
+++ id -u swiftgrass
+++ id -g swiftgrass
++ docker build -t magma/fairfuzz/sqlite3 --build-arg fuzzer_name=fairfuzz --build-arg target_name=sqlite3 --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 --build-arg canaries=1 -f /home/swiftgrass/sem4/magma/docker/Dockerfile /home/swiftgrass/sem4/magma
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.45kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 2.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 47B done
+#3 DONE 0.1s
+
+#4 [ 1/20] FROM docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#4 resolve docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.0s done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 11.97MB 1.4s done
+#5 DONE 1.4s
+
+#6 [10/20] RUN mkdir -p /magma/fuzzers/fairfuzz && chown magma:magma /magma/fuzzers/fairfuzz
+#6 CACHED
+
+#7 [13/20] RUN /magma/fuzzers/fairfuzz/fetch.sh
+#7 CACHED
+
+#8 [ 9/20] RUN /magma/magma/prebuild.sh
+#8 CACHED
+
+#9 [ 3/20] RUN mkdir -p /home && 	groupadd -g 1000 magma && 	useradd -l -u 1000 -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home
+#9 CACHED
+
+#10 [ 8/20] RUN /magma/magma/preinstall.sh
+#10 CACHED
+
+#11 [ 5/20] RUN mkdir -p /magma_shared /magma_out && 	chown magma:magma /magma_shared /magma_out && 	chmod 744 /magma_shared /magma_out
+#11 CACHED
+
+#12 [ 2/20] RUN apt-get update && apt-get install -y sudo
+#12 CACHED
+
+#13 [15/20] RUN mkdir -p /magma/targets/sqlite3 && chown magma:magma /magma/targets/sqlite3
+#13 CACHED
+
+#14 [18/20] RUN /magma/targets/sqlite3/fetch.sh
+#14 CACHED
+
+#15 [14/20] RUN /magma/fuzzers/fairfuzz/build.sh
+#15 CACHED
+
+#16 [ 6/20] RUN mkdir -p /magma/magma && chown magma:magma /magma/magma
+#16 CACHED
+
+#17 [12/20] RUN /magma/fuzzers/fairfuzz/preinstall.sh
+#17 CACHED
+
+#18 [ 7/20] COPY --chown=magma:magma .//magma /magma/magma/
+#18 CACHED
+
+#19 [16/20] COPY --chown=magma:magma .//targets/sqlite3 /magma/targets/sqlite3/
+#19 CACHED
+
+#20 [17/20] RUN /magma/targets/sqlite3/preinstall.sh
+#20 CACHED
+
+#21 [ 4/20] RUN	ECHO "magma:amgam" | chpasswd && usermod -a -G sudo magma
+#21 CACHED
+
+#22 [11/20] COPY --chown=magma:magma .//fuzzers/fairfuzz /magma/fuzzers/fairfuzz/
+#22 CACHED
+
+#23 [19/20] RUN /magma/magma/apply_patches.sh
+#23 CACHED
+
+#24 [20/20] RUN /magma/fuzzers/fairfuzz/instrument.sh
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers 0.0s done
+#25 exporting manifest sha256:a499b32a25e8407019b76c70c6a70367fedf3f421eb327a3143543ae1e0df2d4 0.1s done
+#25 exporting config sha256:6921c24e469da229b28929d48798e56c9093cd76e843bfa34397e8ef2c251732
+#25 exporting config sha256:6921c24e469da229b28929d48798e56c9093cd76e843bfa34397e8ef2c251732 0.0s done
+#25 exporting attestation manifest sha256:64b1af362cc3f7f7f0b80a244c348f56990274f03c8a60a6505f7ba228160b87 0.1s done
+#25 exporting manifest list sha256:c842a37777cc78ef66396392674ab7a0144c5738c3bad46056cc3a1b309811dc
+#25 exporting manifest list sha256:c842a37777cc78ef66396392674ab7a0144c5738c3bad46056cc3a1b309811dc 0.0s done
+#25 naming to docker.io/magma/fairfuzz/sqlite3:latest done
+#25 unpacking to docker.io/magma/fairfuzz/sqlite3:latest 0.0s done
+#25 DONE 0.4s
++ set +x
+magma/fairfuzz/sqlite3

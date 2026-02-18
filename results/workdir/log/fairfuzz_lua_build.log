@@ -1,0 +1,98 @@
+++ id -u swiftgrass
+++ id -g swiftgrass
++ docker build -t magma/fairfuzz/lua --build-arg fuzzer_name=fairfuzz --build-arg target_name=lua --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 --build-arg canaries=1 -f /home/swiftgrass/sem4/magma/docker/Dockerfile /home/swiftgrass/sem4/magma
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.45kB 0.1s done
+#1 DONE 1.6s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 1.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 47B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [ 1/20] FROM docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#5 resolve docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 441.83kB 0.6s done
+#4 DONE 0.6s
+
+#6 [15/20] RUN mkdir -p /magma/targets/lua && chown magma:magma /magma/targets/lua
+#6 CACHED
+
+#7 [ 5/20] RUN mkdir -p /magma_shared /magma_out && 	chown magma:magma /magma_shared /magma_out && 	chmod 744 /magma_shared /magma_out
+#7 CACHED
+
+#8 [ 7/20] COPY --chown=magma:magma .//magma /magma/magma/
+#8 CACHED
+
+#9 [ 8/20] RUN /magma/magma/preinstall.sh
+#9 CACHED
+
+#10 [10/20] RUN mkdir -p /magma/fuzzers/fairfuzz && chown magma:magma /magma/fuzzers/fairfuzz
+#10 CACHED
+
+#11 [11/20] COPY --chown=magma:magma .//fuzzers/fairfuzz /magma/fuzzers/fairfuzz/
+#11 CACHED
+
+#12 [14/20] RUN /magma/fuzzers/fairfuzz/build.sh
+#12 CACHED
+
+#13 [18/20] RUN /magma/targets/lua/fetch.sh
+#13 CACHED
+
+#14 [13/20] RUN /magma/fuzzers/fairfuzz/fetch.sh
+#14 CACHED
+
+#15 [12/20] RUN /magma/fuzzers/fairfuzz/preinstall.sh
+#15 CACHED
+
+#16 [17/20] RUN /magma/targets/lua/preinstall.sh
+#16 CACHED
+
+#17 [19/20] RUN /magma/magma/apply_patches.sh
+#17 CACHED
+
+#18 [ 9/20] RUN /magma/magma/prebuild.sh
+#18 CACHED
+
+#19 [ 2/20] RUN apt-get update && apt-get install -y sudo
+#19 CACHED
+
+#20 [ 4/20] RUN	ECHO "magma:amgam" | chpasswd && usermod -a -G sudo magma
+#20 CACHED
+
+#21 [ 6/20] RUN mkdir -p /magma/magma && chown magma:magma /magma/magma
+#21 CACHED
+
+#22 [16/20] COPY --chown=magma:magma .//targets/lua /magma/targets/lua/
+#22 CACHED
+
+#23 [ 3/20] RUN mkdir -p /home && 	groupadd -g 1000 magma && 	useradd -l -u 1000 -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home
+#23 CACHED
+
+#24 [20/20] RUN /magma/fuzzers/fairfuzz/instrument.sh
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers 0.0s done
+#25 exporting manifest sha256:b6efedf2f8693f85c88bdd4b4060cff8645ed5bf3beac710d125dfa4b7ea4500 0.0s done
+#25 exporting config sha256:74a80d9bdb232025604db8a368fdd8a77de8c6fc882db46758504c1844de13c0 done
+#25 exporting attestation manifest sha256:b3366bf97ab069edfc304790bcbabaf2c9faa9ef2bd952021f5d9d896ef60e39
+#25 exporting attestation manifest sha256:b3366bf97ab069edfc304790bcbabaf2c9faa9ef2bd952021f5d9d896ef60e39 0.1s done
+#25 exporting manifest list sha256:ae1ee9cb6b9d56c3b5e962603bddcb451bd5f60de668e7711ecf81e4ddc59b10
+#25 exporting manifest list sha256:ae1ee9cb6b9d56c3b5e962603bddcb451bd5f60de668e7711ecf81e4ddc59b10 0.0s done
+#25 naming to docker.io/magma/fairfuzz/lua:latest 0.0s done
+#25 unpacking to docker.io/magma/fairfuzz/lua:latest 0.1s done
+#25 DONE 0.5s
++ set +x
+magma/fairfuzz/lua

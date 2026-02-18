@@ -1,0 +1,93 @@
+++ id -u swiftgrass
+++ id -g swiftgrass
++ docker build -t magma/honggfuzz/libpng --build-arg fuzzer_name=honggfuzz --build-arg target_name=libpng --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 --build-arg canaries=1 -f /home/swiftgrass/sem4/magma/docker/Dockerfile /home/swiftgrass/sem4/magma
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.45kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 2.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 47B done
+#3 DONE 0.0s
+
+#4 [ 1/20] FROM docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#4 resolve docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 20.28kB 0.1s done
+#5 DONE 0.1s
+
+#6 [ 7/20] COPY --chown=magma:magma .//magma /magma/magma/
+#6 CACHED
+
+#7 [ 9/20] RUN /magma/magma/prebuild.sh
+#7 CACHED
+
+#8 [19/20] RUN /magma/magma/apply_patches.sh
+#8 CACHED
+
+#9 [ 6/20] RUN mkdir -p /magma/magma && chown magma:magma /magma/magma
+#9 CACHED
+
+#10 [13/20] RUN /magma/fuzzers/honggfuzz/fetch.sh
+#10 CACHED
+
+#11 [ 2/20] RUN apt-get update && apt-get install -y sudo
+#11 CACHED
+
+#12 [ 5/20] RUN mkdir -p /magma_shared /magma_out && 	chown magma:magma /magma_shared /magma_out && 	chmod 744 /magma_shared /magma_out
+#12 CACHED
+
+#13 [14/20] RUN /magma/fuzzers/honggfuzz/build.sh
+#13 CACHED
+
+#14 [17/20] RUN /magma/targets/libpng/preinstall.sh
+#14 CACHED
+
+#15 [12/20] RUN /magma/fuzzers/honggfuzz/preinstall.sh
+#15 CACHED
+
+#16 [ 8/20] RUN /magma/magma/preinstall.sh
+#16 CACHED
+
+#17 [16/20] COPY --chown=magma:magma .//targets/libpng /magma/targets/libpng/
+#17 CACHED
+
+#18 [15/20] RUN mkdir -p /magma/targets/libpng && chown magma:magma /magma/targets/libpng
+#18 CACHED
+
+#19 [11/20] COPY --chown=magma:magma .//fuzzers/honggfuzz /magma/fuzzers/honggfuzz/
+#19 CACHED
+
+#20 [ 4/20] RUN	ECHO "magma:amgam" | chpasswd && usermod -a -G sudo magma
+#20 CACHED
+
+#21 [18/20] RUN /magma/targets/libpng/fetch.sh
+#21 CACHED
+
+#22 [10/20] RUN mkdir -p /magma/fuzzers/honggfuzz && chown magma:magma /magma/fuzzers/honggfuzz
+#22 CACHED
+
+#23 [ 3/20] RUN mkdir -p /home && 	groupadd -g 1000 magma && 	useradd -l -u 1000 -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home
+#23 CACHED
+
+#24 [20/20] RUN /magma/fuzzers/honggfuzz/instrument.sh
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:c5f5063b9b6cb57398c762a996c97777312d65e62bbd0475c5d8802bf96d08a7 done
+#25 exporting config sha256:3cf0ea6428c5f6621bfc77467c2372bde1e114c24e9eca0d949d56381f1ed141 done
+#25 exporting attestation manifest sha256:1b4fc21bb6379d5d04921a7c1e92072d0bb937a224263e60b054d867ee66a4f2 0.0s done
+#25 exporting manifest list sha256:c93ff40d0e63d65deeb22724b7f5b2889d9695c10eed17aa184e813706484045 0.0s done
+#25 naming to docker.io/magma/honggfuzz/libpng:latest done
+#25 unpacking to docker.io/magma/honggfuzz/libpng:latest
+#25 unpacking to docker.io/magma/honggfuzz/libpng:latest 0.0s done
+#25 DONE 0.1s
++ set +x
+magma/honggfuzz/libpng

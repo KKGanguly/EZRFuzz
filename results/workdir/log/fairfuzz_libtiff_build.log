@@ -1,0 +1,1547 @@
+++ id -u swiftgrass
+++ id -g swiftgrass
++ docker build -t magma/fairfuzz/libtiff --build-arg fuzzer_name=fairfuzz --build-arg target_name=libtiff --build-arg USER_ID=1000 --build-arg GROUP_ID=1000 --build-arg canaries=1 -f /home/swiftgrass/sem4/magma/docker/Dockerfile /home/swiftgrass/sem4/magma
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.45kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 19.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 47B done
+#3 DONE 0.0s
+
+#4 [ 1/20] FROM docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#4 resolve docker.io/library/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.0s done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 439.43kB 0.1s done
+#5 DONE 0.1s
+
+#6 [ 8/20] RUN /magma/magma/preinstall.sh
+#6 CACHED
+
+#7 [12/20] RUN /magma/fuzzers/fairfuzz/preinstall.sh
+#7 CACHED
+
+#8 [ 2/20] RUN apt-get update && apt-get install -y sudo
+#8 CACHED
+
+#9 [ 6/20] RUN mkdir -p /magma/magma && chown magma:magma /magma/magma
+#9 CACHED
+
+#10 [10/20] RUN mkdir -p /magma/fuzzers/fairfuzz && chown magma:magma /magma/fuzzers/fairfuzz
+#10 CACHED
+
+#11 [ 3/20] RUN mkdir -p /home && 	groupadd -g 1000 magma && 	useradd -l -u 1000 -K UMASK=0000 -d /home -g magma magma && 	chown magma:magma /home
+#11 CACHED
+
+#12 [ 5/20] RUN mkdir -p /magma_shared /magma_out && 	chown magma:magma /magma_shared /magma_out && 	chmod 744 /magma_shared /magma_out
+#12 CACHED
+
+#13 [ 7/20] COPY --chown=magma:magma .//magma /magma/magma/
+#13 CACHED
+
+#14 [ 9/20] RUN /magma/magma/prebuild.sh
+#14 CACHED
+
+#15 [11/20] COPY --chown=magma:magma .//fuzzers/fairfuzz /magma/fuzzers/fairfuzz/
+#15 CACHED
+
+#16 [ 4/20] RUN	ECHO "magma:amgam" | chpasswd && usermod -a -G sudo magma
+#16 CACHED
+
+#17 [13/20] RUN /magma/fuzzers/fairfuzz/fetch.sh
+#17 CACHED
+
+#18 [14/20] RUN /magma/fuzzers/fairfuzz/build.sh
+#18 CACHED
+
+#19 [15/20] RUN mkdir -p /magma/targets/libtiff && chown magma:magma /magma/targets/libtiff
+#19 DONE 0.6s
+
+#20 [16/20] COPY --chown=magma:magma .//targets/libtiff /magma/targets/libtiff/
+#20 DONE 0.2s
+
+#21 [17/20] RUN /magma/targets/libtiff/preinstall.sh
+#21 1.688 Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [102 kB]
+#21 1.786 Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+#21 1.840 Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [102 kB]
+#21 2.095 Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [102 kB]
+#21 3.528 Fetched 305 kB in 3s (111 kB/s)
+#21 3.528 Reading package lists...
+#21 5.993 Reading package lists...
+#21 7.830 Building dependency tree...
+#21 8.260 Reading state information...
+#21 8.882 make is already the newest version (4.1-9.1ubuntu1).
+#21 8.882 git is already the newest version (1:2.17.1-1ubuntu0.18).
+#21 8.882 wget is already the newest version (1.19.4-1ubuntu2.2).
+#21 8.882 The following additional packages will be installed:
+#21 8.886   autotools-dev cmake-data libarchive13 libcurl4 libicu60 libjpeg-turbo8
+#21 8.891   libltdl-dev libltdl7 liblzo2-2 librhash0 libsigsegv2 libuv1 libxml2 m4
+#21 8.896 Suggested packages:
+#21 8.896   autoconf-archive gnu-standards autoconf-doc gettext cmake-doc ninja-build
+#21 8.896   lrzip libtool-doc liblzma-doc gfortran | fortran95-compiler gcj-jdk m4-doc
+#21 9.045 The following NEW packages will be installed:
+#21 9.046   autoconf automake autotools-dev cmake cmake-data libarchive13 libcurl4
+#21 9.046   libicu60 libjpeg-turbo8 libjpeg-turbo8-dev libltdl-dev libltdl7 liblzma-dev
+#21 9.050   liblzo2-2 librhash0 libsigsegv2 libtool libuv1 libxml2 m4 nasm zlib1g-dev
+#21 9.345 0 upgraded, 22 newly installed, 0 to remove and 1 not upgraded.
+#21 9.345 Need to get 16.4 MB of archives.
+#21 9.345 After this operation, 71.9 MB of additional disk space will be used.
+#21 9.345 Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libjpeg-turbo8 amd64 1.5.2-0ubuntu5.18.04.6 [111 kB]
+#21 9.495 Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 liblzo2-2 amd64 2.08-1.2 [48.7 kB]
+#21 9.515 Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libicu60 amd64 60.2-3ubuntu3.2 [8050 kB]
+#21 10.41 Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libxml2 amd64 2.9.4+dfsg1-6.1ubuntu1.9 [663 kB]
+#21 10.46 Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 libsigsegv2 amd64 2.12-1 [14.7 kB]
+#21 10.46 Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 m4 amd64 1.4.18-1 [197 kB]
+#21 10.49 Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 autoconf all 2.69-11 [322 kB]
+#21 10.54 Get:8 http://archive.ubuntu.com/ubuntu bionic/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+#21 10.54 Get:9 http://archive.ubuntu.com/ubuntu bionic/main amd64 automake all 1:1.15.1-3ubuntu2 [509 kB]
+#21 10.61 Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cmake-data all 3.10.2-1ubuntu2.18.04.2 [1332 kB]
+#21 10.74 Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libarchive13 amd64 3.2.2-3.1ubuntu0.7 [288 kB]
+#21 10.77 Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl4 amd64 7.58.0-2ubuntu3.24 [221 kB]
+#21 10.78 Get:13 http://archive.ubuntu.com/ubuntu bionic/main amd64 librhash0 amd64 1.3.6-2 [78.1 kB]
+#21 10.97 Get:14 http://archive.ubuntu.com/ubuntu bionic/main amd64 libuv1 amd64 1.18.0-3 [64.4 kB]
+#21 11.10 Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cmake amd64 3.10.2-1ubuntu2.18.04.2 [3152 kB]
+#21 11.69 Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libjpeg-turbo8-dev amd64 1.5.2-0ubuntu5.18.04.6 [225 kB]
+#21 11.73 Get:17 http://archive.ubuntu.com/ubuntu bionic/main amd64 libltdl7 amd64 2.4.6-2 [38.8 kB]
+#21 11.73 Get:18 http://archive.ubuntu.com/ubuntu bionic/main amd64 libltdl-dev amd64 2.4.6-2 [162 kB]
+#21 11.73 Get:19 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtool all 2.4.6-2 [194 kB]
+#21 11.77 Get:20 http://archive.ubuntu.com/ubuntu bionic/universe amd64 nasm amd64 2.13.02-0.1 [359 kB]
+#21 11.77 Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 zlib1g-dev amd64 1:1.2.11.dfsg-0ubuntu2.2 [176 kB]
+#21 11.80 Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblzma-dev amd64 5.2.2-1.3ubuntu0.1 [145 kB]
+#21 12.49 debconf: delaying package configuration, since apt-utils is not installed
+#21 12.60 Fetched 16.4 MB in 3s (6110 kB/s)
+#21 12.75 Selecting previously unselected package libjpeg-turbo8:amd64.
+#21 12.75 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17202 files and directories currently installed.)
+#21 12.88 Preparing to unpack .../00-libjpeg-turbo8_1.5.2-0ubuntu5.18.04.6_amd64.deb ...
+#21 12.89 Unpacking libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.6) ...
+#21 13.09 Selecting previously unselected package liblzo2-2:amd64.
+#21 13.10 Preparing to unpack .../01-liblzo2-2_2.08-1.2_amd64.deb ...
+#21 13.11 Unpacking liblzo2-2:amd64 (2.08-1.2) ...
+#21 13.20 Selecting previously unselected package libicu60:amd64.
+#21 13.20 Preparing to unpack .../02-libicu60_60.2-3ubuntu3.2_amd64.deb ...
+#21 13.22 Unpacking libicu60:amd64 (60.2-3ubuntu3.2) ...
+#21 14.21 Selecting previously unselected package libxml2:amd64.
+#21 14.21 Preparing to unpack .../03-libxml2_2.9.4+dfsg1-6.1ubuntu1.9_amd64.deb ...
+#21 14.22 Unpacking libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.9) ...
+#21 14.52 Selecting previously unselected package libsigsegv2:amd64.
+#21 14.52 Preparing to unpack .../04-libsigsegv2_2.12-1_amd64.deb ...
+#21 14.53 Unpacking libsigsegv2:amd64 (2.12-1) ...
+#21 14.65 Selecting previously unselected package m4.
+#21 14.65 Preparing to unpack .../05-m4_1.4.18-1_amd64.deb ...
+#21 14.67 Unpacking m4 (1.4.18-1) ...
+#21 14.81 Selecting previously unselected package autoconf.
+#21 14.81 Preparing to unpack .../06-autoconf_2.69-11_all.deb ...
+#21 14.83 Unpacking autoconf (2.69-11) ...
+#21 15.24 Selecting previously unselected package autotools-dev.
+#21 15.25 Preparing to unpack .../07-autotools-dev_20180224.1_all.deb ...
+#21 15.26 Unpacking autotools-dev (20180224.1) ...
+#21 15.51 Selecting previously unselected package automake.
+#21 15.51 Preparing to unpack .../08-automake_1%3a1.15.1-3ubuntu2_all.deb ...
+#21 15.54 Unpacking automake (1:1.15.1-3ubuntu2) ...
+#21 15.98 Selecting previously unselected package cmake-data.
+#21 15.98 Preparing to unpack .../09-cmake-data_3.10.2-1ubuntu2.18.04.2_all.deb ...
+#21 16.02 Unpacking cmake-data (3.10.2-1ubuntu2.18.04.2) ...
+#21 17.81 Selecting previously unselected package libarchive13:amd64.
+#21 17.81 Preparing to unpack .../10-libarchive13_3.2.2-3.1ubuntu0.7_amd64.deb ...
+#21 17.82 Unpacking libarchive13:amd64 (3.2.2-3.1ubuntu0.7) ...
+#21 17.94 Selecting previously unselected package libcurl4:amd64.
+#21 17.95 Preparing to unpack .../11-libcurl4_7.58.0-2ubuntu3.24_amd64.deb ...
+#21 17.96 Unpacking libcurl4:amd64 (7.58.0-2ubuntu3.24) ...
+#21 18.09 Selecting previously unselected package librhash0:amd64.
+#21 18.10 Preparing to unpack .../12-librhash0_1.3.6-2_amd64.deb ...
+#21 18.12 Unpacking librhash0:amd64 (1.3.6-2) ...
+#21 18.31 Selecting previously unselected package libuv1:amd64.
+#21 18.31 Preparing to unpack .../13-libuv1_1.18.0-3_amd64.deb ...
+#21 18.32 Unpacking libuv1:amd64 (1.18.0-3) ...
+#21 18.41 Selecting previously unselected package cmake.
+#21 18.41 Preparing to unpack .../14-cmake_3.10.2-1ubuntu2.18.04.2_amd64.deb ...
+#21 18.42 Unpacking cmake (3.10.2-1ubuntu2.18.04.2) ...
+#21 18.95 Selecting previously unselected package libjpeg-turbo8-dev:amd64.
+#21 18.95 Preparing to unpack .../15-libjpeg-turbo8-dev_1.5.2-0ubuntu5.18.04.6_amd64.deb ...
+#21 18.96 Unpacking libjpeg-turbo8-dev:amd64 (1.5.2-0ubuntu5.18.04.6) ...
+#21 19.09 Selecting previously unselected package libltdl7:amd64.
+#21 19.09 Preparing to unpack .../16-libltdl7_2.4.6-2_amd64.deb ...
+#21 19.11 Unpacking libltdl7:amd64 (2.4.6-2) ...
+#21 19.21 Selecting previously unselected package libltdl-dev:amd64.
+#21 19.21 Preparing to unpack .../17-libltdl-dev_2.4.6-2_amd64.deb ...
+#21 19.22 Unpacking libltdl-dev:amd64 (2.4.6-2) ...
+#21 19.35 Selecting previously unselected package libtool.
+#21 19.35 Preparing to unpack .../18-libtool_2.4.6-2_all.deb ...
+#21 19.36 Unpacking libtool (2.4.6-2) ...
+#21 19.53 Selecting previously unselected package nasm.
+#21 19.53 Preparing to unpack .../19-nasm_2.13.02-0.1_amd64.deb ...
+#21 19.54 Unpacking nasm (2.13.02-0.1) ...
+#21 19.73 Selecting previously unselected package zlib1g-dev:amd64.
+#21 19.73 Preparing to unpack .../20-zlib1g-dev_1%3a1.2.11.dfsg-0ubuntu2.2_amd64.deb ...
+#21 19.74 Unpacking zlib1g-dev:amd64 (1:1.2.11.dfsg-0ubuntu2.2) ...
+#21 19.90 Selecting previously unselected package liblzma-dev:amd64.
+#21 19.90 Preparing to unpack .../21-liblzma-dev_5.2.2-1.3ubuntu0.1_amd64.deb ...
+#21 19.91 Unpacking liblzma-dev:amd64 (5.2.2-1.3ubuntu0.1) ...
+#21 20.03 Setting up libicu60:amd64 (60.2-3ubuntu3.2) ...
+#21 20.06 Setting up libsigsegv2:amd64 (2.12-1) ...
+#21 20.09 Setting up libuv1:amd64 (1.18.0-3) ...
+#21 20.11 Setting up libcurl4:amd64 (7.58.0-2ubuntu3.24) ...
+#21 20.13 Setting up cmake-data (3.10.2-1ubuntu2.18.04.2) ...
+#21 20.20 Setting up libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.6) ...
+#21 20.23 Setting up m4 (1.4.18-1) ...
+#21 20.26 Setting up libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.9) ...
+#21 20.28 Setting up librhash0:amd64 (1.3.6-2) ...
+#21 20.30 Setting up libjpeg-turbo8-dev:amd64 (1.5.2-0ubuntu5.18.04.6) ...
+#21 20.33 Setting up autotools-dev (20180224.1) ...
+#21 20.35 Setting up libltdl7:amd64 (2.4.6-2) ...
+#21 20.39 Setting up nasm (2.13.02-0.1) ...
+#21 20.42 Setting up liblzma-dev:amd64 (5.2.2-1.3ubuntu0.1) ...
+#21 20.45 Setting up liblzo2-2:amd64 (2.08-1.2) ...
+#21 20.51 Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-0ubuntu2.2) ...
+#21 20.55 Setting up libtool (2.4.6-2) ...
+#21 20.64 Setting up libltdl-dev:amd64 (2.4.6-2) ...
+#21 20.71 Setting up libarchive13:amd64 (3.2.2-3.1ubuntu0.7) ...
+#21 20.74 Setting up autoconf (2.69-11) ...
+#21 20.81 Setting up automake (1:1.15.1-3ubuntu2) ...
+#21 20.88 update-alternatives: using /usr/bin/automake-1.15 to provide /usr/bin/automake (automake) in auto mode
+#21 20.88 update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.15.1.gz (of link group automake) doesn't exist
+#21 20.88 update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.15.1.gz (of link group automake) doesn't exist
+#21 20.89 Setting up cmake (3.10.2-1ubuntu2.18.04.2) ...
+#21 20.92 Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+#21 DONE 21.4s
+
+#22 [18/20] RUN /magma/targets/libtiff/fetch.sh
+#22 0.639 Cloning into '/magma/targets/libtiff/repo'...
+#22 8.036 Note: checking out 'c145a6c14978f73bb484c955eb9f84203efcb12e'.
+#22 8.036 
+#22 8.036 You are in 'detached HEAD' state. You can look around, make experimental
+#22 8.036 changes and commit them, and you can discard any commits you make in this
+#22 8.036 state without impacting any branches by performing another checkout.
+#22 8.036 
+#22 8.036 If you want to create a new branch to retain commits you create, you may
+#22 8.036 do so (now or later) by using -b with the checkout command again. Example:
+#22 8.036 
+#22 8.036   git checkout -b <new-branch-name>
+#22 8.036 
+#22 8.036 HEAD is now at c145a6c1 Merge branch 'libjpeg9d_support_simplification' into 'master'
+#22 DONE 8.1s
+
+#23 [19/20] RUN /magma/magma/apply_patches.sh
+#23 0.571 Applying /magma/targets/libtiff/patches/setup/libtiff.patch
+#23 0.584 patching file CMakeLists.txt
+#23 0.584 Hunk #1 succeeded at 138 (offset -564 lines).
+#23 0.601 Applying /magma/targets/libtiff/patches/bugs/TIF001.patch
+#23 0.616 patching file libtiff/tif_predict.c
+#23 0.616 Hunk #2 succeeded at 356 with fuzz 1.
+#23 0.616 Hunk #3 succeeded at 396 with fuzz 1.
+#23 0.616 Hunk #4 succeeded at 431 with fuzz 2.
+#23 0.616 Hunk #7 succeeded at 599 with fuzz 1.
+#23 0.616 Hunk #8 succeeded at 644 with fuzz 1.
+#23 0.616 Hunk #9 succeeded at 694 with fuzz 2.
+#23 0.630 Applying /magma/targets/libtiff/patches/bugs/TIF012.patch
+#23 0.639 patching file libtiff/tif_dir.c
+#23 0.646 Hunk #1 succeeded at 118 (offset 1 line).
+#23 0.646 Hunk #2 succeeded at 129 with fuzz 2 (offset 1 line).
+#23 0.646 Hunk #3 succeeded at 276 (offset 1 line).
+#23 0.646 Hunk #4 succeeded at 308 with fuzz 2 (offset 1 line).
+#23 0.653 Applying /magma/targets/libtiff/patches/bugs/TIF003.patch
+#23 0.656 patching file libtiff/tif_read.c
+#23 0.656 Hunk #1 succeeded at 484 with fuzz 2 (offset -8 lines).
+#23 0.664 Applying /magma/targets/libtiff/patches/bugs/TIF009.patch
+#23 0.672 patching file libtiff/tif_dirwrite.c
+#23 0.672 Hunk #1 succeeded at 2101 (offset 75 lines).
+#23 0.679 Applying /magma/targets/libtiff/patches/bugs/TIF002.patch
+#23 0.685 patching file libtiff/tif_pixarlog.c
+#23 0.685 Hunk #1 succeeded at 798 (offset -6 lines).
+#23 0.691 Applying /magma/targets/libtiff/patches/bugs/TIF010.patch
+#23 0.696 patching file libtiff/tif_lzw.c
+#23 0.696 Hunk #1 succeeded at 749 (offset -15 lines).
+#23 0.705 Applying /magma/targets/libtiff/patches/bugs/TIF011.patch
+#23 0.711 patching file libtiff/tif_print.c
+#23 0.712 Hunk #1 succeeded at 539 with fuzz 1 (offset -5 lines).
+#23 0.716 Applying /magma/targets/libtiff/patches/bugs/TIF014.patch
+#23 0.721 patching file libtiff/tif_dirread.c
+#23 0.723 Hunk #1 succeeded at 5961 with fuzz 1 (offset 109 lines).
+#23 0.723 Hunk #2 succeeded at 5968 (offset 106 lines).
+#23 0.735 Applying /magma/targets/libtiff/patches/bugs/TIF013.patch
+#23 0.740 patching file libtiff/tif_jbig.c
+#23 0.741 Applying /magma/targets/libtiff/patches/bugs/TIF005.patch
+#23 0.747 patching file libtiff/tif_luv.c
+#23 0.748 Hunk #1 succeeded at 1566 (offset -21 lines).
+#23 0.748 Hunk #2 succeeded at 1577 (offset -21 lines).
+#23 0.762 Applying /magma/targets/libtiff/patches/bugs/TIF007.patch
+#23 0.770 patching file libtiff/tif_dirread.c
+#23 0.770 Hunk #1 succeeded at 5879 (offset 106 lines).
+#23 0.770 Hunk #2 succeeded at 5958 with fuzz 1 (offset 106 lines).
+#23 0.773 Applying /magma/targets/libtiff/patches/bugs/TIF004.patch
+#23 0.781 patching file libtiff/tif_ojpeg.c
+#23 0.781 Hunk #1 succeeded at 790 (offset 1 line).
+#23 0.791 Applying /magma/targets/libtiff/patches/bugs/TIF006.patch
+#23 0.801 patching file libtiff/tif_pixarlog.c
+#23 0.802 Hunk #1 succeeded at 1266 (offset 1 line).
+#23 0.802 Hunk #2 succeeded at 1281 (offset 1 line).
+#23 0.806 Applying /magma/targets/libtiff/patches/bugs/TIF008.patch
+#23 0.811 patching file libtiff/tif_next.c
+#23 DONE 0.8s
+
+#24 [20/20] RUN /magma/fuzzers/fairfuzz/instrument.sh
+#24 1.459 + libtoolize --force --copy
+#24 2.614 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+#24 2.614 libtoolize: copying file 'config/ltmain.sh'
+#24 2.812 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#24 2.812 libtoolize: copying file 'm4/libtool.m4'
+#24 2.872 libtoolize: copying file 'm4/ltoptions.m4'
+#24 2.962 libtoolize: copying file 'm4/ltsugar.m4'
+#24 2.994 libtoolize: copying file 'm4/ltversion.m4'
+#24 3.017 libtoolize: copying file 'm4/lt~obsolete.m4'
+#24 3.078 + aclocal -I ./m4
+#24 4.941 + autoheader
+#24 5.502 + automake --foreign --add-missing --copy
+#24 7.367 configure.ac:106: installing 'config/compile'
+#24 7.416 configure.ac:34: installing 'config/config.guess'
+#24 7.443 configure.ac:34: installing 'config/config.sub'
+#24 7.450 configure.ac:36: installing 'config/install-sh'
+#24 7.473 configure.ac:36: installing 'config/missing'
+#24 7.754 contrib/addtiffo/Makefile.am: installing 'config/depcomp'
+#24 8.779 parallel-tests: installing 'config/test-driver'
+#24 8.949 + autoconf
+#24 9.400 + echo ./autogen.sh: getting config.guess...
+#24 9.418 ./autogen.sh: getting config.guess...
+#24 9.418 + wget -q --timeout=5 -O config/config.guess.tmp https://git.savannah.gnu.org/cgit/config.git/plain/config.guess
+#24 11.68 + mv config/config.guess.tmp config/config.guess
+#24 11.69 + chmod a+x config/config.guess
+#24 11.69 + retval=0
+#24 11.69 + rm -f config/config.guess.tmp
+#24 11.70 + test 0 -eq 0
+#24 11.70 ./autogen.sh: getting config.sub...
+#24 11.70 + echo ./autogen.sh: getting config.sub...
+#24 11.70 + wget -q --timeout=5 -O config/config.sub.tmp https://git.savannah.gnu.org/cgit/config.git/plain/config.sub
+#24 12.83 + mv config/config.sub.tmp config/config.sub
+#24 12.84 + chmod a+x config/config.sub
+#24 12.84 + retval=0
+#24 12.84 + rm -f config/config.sub.tmp
+#24 12.85 + test 0 -eq 0
+#24 13.23 checking build system type... x86_64-pc-linux-gnu
+#24 13.47 checking host system type... x86_64-pc-linux-gnu
+#24 13.47 checking for a BSD-compatible install... /usr/bin/install -c
+#24 13.49 checking whether build environment is sane... yes
+#24 13.52 checking for a thread-safe mkdir -p... /bin/mkdir -p
+#24 13.53 checking for gawk... no
+#24 13.53 checking for mawk... mawk
+#24 13.53 checking whether make sets $(MAKE)... yes
+#24 13.57 checking whether make supports nested variables... yes
+#24 13.61 checking whether UID '1000' is supported by ustar format... yes
+#24 13.61 checking whether GID '1000' is supported by ustar format... yes
+#24 13.61 checking how to create a ustar tar archive... gnutar
+#24 13.66 checking whether to enable maintainer-specific portions of Makefiles... no
+#24 13.67 checking for style of include used by make... GNU
+#24 13.68 checking for gcc... /magma/fuzzers/fairfuzz/repo/afl-clang-fast
+#24 13.97 checking whether the C compiler works... yes
+#24 14.23 checking for C compiler default output file name... a.out
+#24 14.23 checking for suffix of executables... 
+#24 14.55 checking whether we are cross compiling... no
+#24 14.76 checking for suffix of object files... o
+#24 14.91 checking whether we are using the GNU C compiler... yes
+#24 15.01 checking whether /magma/fuzzers/fairfuzz/repo/afl-clang-fast accepts -g... yes
+#24 15.18 checking for /magma/fuzzers/fairfuzz/repo/afl-clang-fast option to accept ISO C89... none needed
+#24 15.34 checking whether /magma/fuzzers/fairfuzz/repo/afl-clang-fast understands -c and -o together... yes
+#24 15.50 checking dependency style of /magma/fuzzers/fairfuzz/repo/afl-clang-fast... gcc3
+#24 15.61 checking for /magma/fuzzers/fairfuzz/repo/afl-clang-fast option to accept ISO C99... none needed
+#24 15.74 checking for C compiler warning flags... -Wall -W
+#24 15.75 checking whether ln -s works... yes
+#24 15.75 checking for cmake... /usr/bin/cmake
+#24 15.75 checking how to print strings... printf
+#24 15.85 checking for a sed that does not truncate output... /bin/sed
+#24 15.86 checking for grep that handles long lines and -e... /bin/grep
+#24 15.87 checking for egrep... /bin/grep -E
+#24 15.88 checking for fgrep... /bin/grep -F
+#24 15.89 checking for ld used by /magma/fuzzers/fairfuzz/repo/afl-clang-fast... /usr/bin/ld
+#24 16.01 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#24 16.02 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+#24 16.02 checking the name lister (/usr/bin/nm) interface... BSD nm
+#24 16.12 checking the maximum length of command line arguments... 1572864
+#24 16.16 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#24 16.17 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#24 16.17 checking for /usr/bin/ld option to reload object files... -r
+#24 16.17 checking for objdump... objdump
+#24 16.17 checking how to recognize dependent libraries... pass_all
+#24 16.17 checking for dlltool... no
+#24 16.18 checking how to associate runtime and link libraries... printf %s\n
+#24 16.18 checking for archiver @FILE support... @
+#24 16.38 checking for strip... strip
+#24 16.38 checking for ranlib... /usr/bin/ranlib
+#24 16.38 checking command to parse /usr/bin/nm output from /magma/fuzzers/fairfuzz/repo/afl-clang-fast object... ok
+#24 16.67 checking for sysroot... no
+#24 16.68 checking for a working dd... /bin/dd
+#24 16.69 checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+#24 16.87 checking for mt... no
+#24 16.87 checking if : is a manifest tool... no
+#24 16.90 checking how to run the C preprocessor... /magma/fuzzers/fairfuzz/repo/afl-clang-fast -E
+#24 17.40 checking for ANSI C header files... yes
+#24 18.09 checking for sys/types.h... yes
+#24 18.23 checking for sys/stat.h... yes
+#24 18.39 checking for stdlib.h... yes
+#24 18.65 checking for string.h... yes
+#24 18.81 checking for memory.h... yes
+#24 19.06 checking for strings.h... yes
+#24 19.19 checking for inttypes.h... yes
+#24 19.44 checking for stdint.h... yes
+#24 19.69 checking for unistd.h... yes
+#24 20.00 checking for dlfcn.h... yes
+#24 20.14 checking for objdir... .libs
+#24 20.63 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast supports -fno-rtti -fno-exceptions... yes
+#24 20.94 checking for /magma/fuzzers/fairfuzz/repo/afl-clang-fast option to produce PIC... -fPIC -DPIC
+#24 20.94 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast PIC flag -fPIC -DPIC works... yes
+#24 21.19 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast static flag -static works... yes
+#24 22.35 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast supports -c -o file.o... yes
+#24 22.58 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast supports -c -o file.o... (cached) yes
+#24 22.58 checking whether the /magma/fuzzers/fairfuzz/repo/afl-clang-fast linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#24 22.65 checking dynamic linker characteristics... GNU/Linux ld.so
+#24 23.07 checking how to hardcode library paths into programs... immediate
+#24 23.08 checking whether stripping libraries is possible... yes
+#24 23.10 checking if libtool supports shared libraries... yes
+#24 23.10 checking whether to build shared libraries... no
+#24 23.10 checking whether to build static libraries... yes
+#24 23.61 checking whether we are using the GNU C++ compiler... yes
+#24 23.78 checking whether /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ accepts -g... yes
+#24 23.94 checking dependency style of /magma/fuzzers/fairfuzz/repo/afl-clang-fast++... gcc3
+#24 24.10 checking how to run the C++ preprocessor... /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ -E
+#24 25.52 checking for ld used by /magma/fuzzers/fairfuzz/repo/afl-clang-fast++... /usr/bin/ld -m elf_x86_64
+#24 25.64 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#24 25.77 checking whether the /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#24 26.53 checking for /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ option to produce PIC... -fPIC -DPIC
+#24 26.53 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ PIC flag -fPIC -DPIC works... yes
+#24 26.66 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ static flag -static works... yes
+#24 27.23 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ supports -c -o file.o... yes
+#24 27.34 checking if /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ supports -c -o file.o... (cached) yes
+#24 27.34 checking whether the /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#24 27.34 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#24 27.38 checking how to hardcode library paths into programs... immediate
+#24 27.38 checking whether make supports nested variables... (cached) yes
+#24 27.38 checking for sin in -lm... yes
+#24 27.70 checking assert.h usability... yes
+#24 27.82 checking assert.h presence... yes
+#24 27.94 checking for assert.h... yes
+#24 28.02 checking fcntl.h usability... yes
+#24 28.24 checking fcntl.h presence... yes
+#24 28.36 checking for fcntl.h... yes
+#24 28.43 checking io.h usability... no
+#24 28.64 checking io.h presence... no
+#24 28.72 checking for io.h... no
+#24 28.76 checking search.h usability... yes
+#24 28.91 checking search.h presence... yes
+#24 29.03 checking for search.h... yes
+#24 29.08 checking for unistd.h... (cached) yes
+#24 29.14 checking for an ANSI C-conforming const... yes
+#24 29.26 checking whether byte ordering is bigendian... no
+#24 29.68 checking for off_t... yes
+#24 29.91 checking for size_t... yes
+#24 30.27 checking whether time.h and sys/time.h may both be included... yes
+#24 30.39 checking whether struct tm is in sys/time.h or time.h... time.h
+#24 30.59 checking for _LARGEFILE_SOURCE value needed for large files... no
+#24 30.96 checking whether optarg is declared... yes
+#24 31.16 checking size of size_t... 8
+#24 31.78 checking for signed size type... int64_t
+#24 31.83 checking for mmap... yes
+#24 32.35 checking for setmode... no
+#24 32.57 checking for getopt... yes
+#24 32.82 checking native cpu bit order... lsb2msb
+#24 32.84 checking for special C compiler options needed for large files... no
+#24 32.84 checking for _FILE_OFFSET_BITS value needed for large files... no
+#24 32.99 checking for inflateEnd in -lz... yes
+#24 33.22 checking zlib.h usability... yes
+#24 33.35 checking zlib.h presence... yes
+#24 33.49 checking for zlib.h... yes
+#24 33.50 checking for libdeflate_zlib_decompress in -ldeflate... no
+#24 33.67 checking libdeflate.h usability... no
+#24 33.87 checking libdeflate.h presence... no
+#24 34.06 checking for libdeflate.h... no
+#24 34.06 checking for jpeg_read_scanlines in -ljpeg... yes
+#24 34.27 checking jpeglib.h usability... yes
+#24 34.43 checking jpeglib.h presence... yes
+#24 34.58 checking for jpeglib.h... yes
+#24 34.58 checking for jbg_dec_init in -ljbig... no
+#24 34.78 checking jbig.h usability... no
+#24 34.95 checking jbig.h presence... no
+#24 35.05 checking for jbig.h... no
+#24 35.05 checking for lerc_decode in -l"LercLib"... no
+#24 35.17 checking for lerc_decode in -l"Lerc"... no
+#24 35.36 checking Lerc_c_api.h usability... no
+#24 35.47 checking Lerc_c_api.h presence... no
+#24 35.60 checking for Lerc_c_api.h... no
+#24 35.60 checking for lzma_code in -llzma... yes
+#24 35.92 checking lzma.h usability... yes
+#24 36.08 checking lzma.h presence... yes
+#24 36.20 checking for lzma.h... yes
+#24 36.20 checking for ZSTD_decompressStream in -lzstd... no
+#24 36.38 checking zstd.h usability... no
+#24 36.58 checking zstd.h presence... no
+#24 36.67 checking for zstd.h... no
+#24 36.68 checking for WebPDecode in -lwebp... no
+#24 36.83 checking webp/decode.h usability... no
+#24 36.96 checking webp/decode.h presence... no
+#24 37.13 checking for webp/decode.h... no
+#24 37.13 checking for X... no
+#24 37.41 checking for the pthreads library -lpthreads... no
+#24 37.62 checking whether pthreads work without any flags... no
+#24 37.81 checking whether pthreads work with -Kthread... no
+#24 37.87 checking whether pthreads work with -kthread... no
+#24 38.01 checking for the pthreads library -llthread... no
+#24 38.21 checking whether pthreads work with -pthread... yes
+#24 38.45 checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+#24 38.78 checking if more special flags are required for pthreads... no
+#24 38.78 checking whether we are using the Microsoft C compiler... no
+#24 38.92 checking GL/gl.h usability... no
+#24 39.16 checking GL/gl.h presence... no
+#24 39.31 checking for GL/gl.h... no
+#24 39.35 checking OpenGL/gl.h usability... no
+#24 39.61 checking OpenGL/gl.h presence... no
+#24 39.82 checking for OpenGL/gl.h... no
+#24 39.84 checking windows.h usability... no
+#24 40.17 checking windows.h presence... no
+#24 40.40 checking for windows.h... no
+#24 40.40 checking for OpenGL library... no
+#24 42.46 checking GL/glu.h usability... no
+#24 42.57 checking GL/glu.h presence... no
+#24 42.69 checking for GL/glu.h... no
+#24 42.71 checking OpenGL/glu.h usability... no
+#24 42.82 checking OpenGL/glu.h presence... no
+#24 42.95 checking for OpenGL/glu.h... no
+#24 42.97 checking for OpenGL Utility library... no
+#24 43.34 checking GL/glut.h usability... no
+#24 43.47 checking GL/glut.h presence... no
+#24 43.63 checking for GL/glut.h... no
+#24 43.66 checking GLUT/glut.h usability... no
+#24 43.81 checking GLUT/glut.h presence... no
+#24 43.95 checking for GLUT/glut.h... no
+#24 43.95 checking for GLUT library... no
+#24 44.48 checking that generated files are newer than configure... done
+#24 44.49 configure: creating ./config.status
+#24 47.47 config.status: creating Makefile
+#24 47.54 config.status: creating build/Makefile
+#24 47.62 config.status: creating contrib/Makefile
+#24 47.78 config.status: creating contrib/addtiffo/Makefile
+#24 47.84 config.status: creating contrib/dbs/Makefile
+#24 47.96 config.status: creating contrib/dbs/xtiff/Makefile
+#24 48.04 config.status: creating contrib/iptcutil/Makefile
+#24 48.09 config.status: creating contrib/mfs/Makefile
+#24 48.14 config.status: creating contrib/pds/Makefile
+#24 48.26 config.status: creating contrib/ras/Makefile
+#24 48.32 config.status: creating contrib/stream/Makefile
+#24 48.39 config.status: creating contrib/tags/Makefile
+#24 48.48 config.status: creating contrib/win_dib/Makefile
+#24 48.57 config.status: creating html/Makefile
+#24 48.61 config.status: creating html/images/Makefile
+#24 48.67 config.status: creating html/man/Makefile
+#24 48.74 config.status: creating libtiff-4.pc
+#24 48.78 config.status: creating libtiff/Makefile
+#24 48.83 config.status: creating man/Makefile
+#24 48.98 config.status: creating port/Makefile
+#24 49.13 config.status: creating test/Makefile
+#24 49.24 config.status: creating tools/Makefile
+#24 49.30 config.status: creating config/config.h
+#24 49.38 config.status: creating libtiff/tif_config.h
+#24 49.45 config.status: creating libtiff/tiffconf.h
+#24 49.54 config.status: creating port/libport_config.h
+#24 49.59 config.status: executing depfiles commands
+#24 51.22 config.status: executing libtool commands
+#24 51.32 
+#24 51.32 Libtiff is now configured for x86_64-pc-linux-gnu
+#24 51.32 
+#24 51.32   Installation directory:             /magma/targets/libtiff/work
+#24 51.32   Documentation directory:            ${prefix}/share/doc/tiff-4.3.0
+#24 51.32   C compiler:                         /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W
+#24 51.32   C++ compiler:                       /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0
+#24 51.32   Enable runtime linker paths:        no
+#24 51.32   Enable linker symbol versioning:    no
+#24 51.32   Support Microsoft Document Imaging: yes
+#24 51.32   Use Win32 IO:                       no
+#24 51.32 
+#24 51.32  Support for internal codecs:
+#24 51.32   CCITT Group 3 & 4 algorithms:       yes
+#24 51.32   Macintosh PackBits algorithm:       yes
+#24 51.32   LZW algorithm:                      yes
+#24 51.32   ThunderScan 4-bit RLE algorithm:    yes
+#24 51.32   NeXT 2-bit RLE algorithm:           yes
+#24 51.32   LogLuv high dynamic range encoding: yes
+#24 51.32 
+#24 51.32  Support for external codecs:
+#24 51.32   ZLIB support:                       yes
+#24 51.32   libdeflate support:                 no
+#24 51.32   Pixar log-format algorithm:         yes
+#24 51.32   JPEG support:                       yes
+#24 51.32   Old JPEG support:                   yes
+#24 51.32   JPEG 8/12 bit dual mode:            no
+#24 51.32   ISO JBIG support:                   no
+#24 51.32   LERC support:                       no
+#24 51.32   LZMA2 support:                      yes
+#24 51.32   ZSTD support:                       no
+#24 51.32   WEBP support:                       no
+#24 51.32 
+#24 51.32   C++ support:                        yes
+#24 51.32 
+#24 51.32   OpenGL support:                     no
+#24 51.32 
+#24 51.79 Making clean in port
+#24 51.81 make[1]: Entering directory '/magma/targets/libtiff/repo/port'
+#24 51.81 rm -rf .libs _libs
+#24 51.81 test -z "libport.la" || rm -f libport.la
+#24 51.81 rm -f *.o
+#24 51.81 rm -f *.lo
+#24 51.89 rm -f ./so_locations
+#24 51.90 make[1]: Leaving directory '/magma/targets/libtiff/repo/port'
+#24 51.91 Making clean in libtiff
+#24 51.93 make[1]: Entering directory '/magma/targets/libtiff/repo/libtiff'
+#24 51.93 test -z "libtiff.la libtiffxx.la" || rm -f libtiff.la libtiffxx.la
+#24 51.93 rm -rf .libs _libs
+#24 51.93 rm -f *.o
+#24 51.95 rm -f *.lo
+#24 52.01  rm -f mkg3states
+#24 52.02 rm -f ./so_locations
+#24 52.04 make[1]: Leaving directory '/magma/targets/libtiff/repo/libtiff'
+#24 52.05 Making clean in tools
+#24 52.06 make[1]: Entering directory '/magma/targets/libtiff/repo/tools'
+#24 52.07 rm -rf .libs _libs
+#24 52.07 rm -f *.o
+#24 52.07 rm -f *.lo
+#24 52.07  rm -f rgb2ycbcr thumbnail
+#24 52.11  rm -f fax2ps fax2tiff pal2rgb ppm2tiff raw2tiff tiff2bw tiff2pdf tiff2ps tiff2rgba tiffcmp tiffcp tiffcrop tiffdither tiffdump tiffinfo tiffmedian tiffset tiffsplit
+#24 52.12 make[1]: Leaving directory '/magma/targets/libtiff/repo/tools'
+#24 52.13 Making clean in build
+#24 52.14 make[1]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 52.22 make[2]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 52.22 rm -rf .libs _libs
+#24 52.22 rm -f *.lo
+#24 52.25 make[2]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 52.25 make[1]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 52.26 Making clean in contrib
+#24 52.27 make[1]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 52.30 Making clean in addtiffo
+#24 52.32 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 52.32 rm -rf .libs _libs
+#24 52.32 rm -f *.o
+#24 52.33 rm -f *.lo
+#24 52.34  rm -f addtiffo
+#24 52.35 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 52.35 Making clean in dbs
+#24 52.36 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 52.40 Making clean in xtiff
+#24 52.42 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 52.42 rm -rf .libs _libs
+#24 52.42 rm -f *.lo
+#24 52.44 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 52.45 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 52.45 rm -rf .libs _libs
+#24 52.45 rm -f *.o
+#24 52.46 rm -f *.lo
+#24 52.47  rm -f tiff-bi tiff-grayscale tiff-palette tiff-rgb
+#24 52.49 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 52.50 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 52.50 Making clean in iptcutil
+#24 52.51 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 52.51 rm -rf .libs _libs
+#24 52.51 rm -f *.o
+#24 52.51 rm -f *.lo
+#24 52.51  rm -f iptcutil
+#24 52.55 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 52.55 Making clean in mfs
+#24 52.56 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 52.56 rm -rf .libs _libs
+#24 52.56 rm -f *.lo
+#24 52.58 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 52.58 Making clean in pds
+#24 52.61 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 52.61 rm -rf .libs _libs
+#24 52.61 rm -f *.lo
+#24 52.63 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 52.64 Making clean in ras
+#24 52.65 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 52.65 rm -rf .libs _libs
+#24 52.65 rm -f *.lo
+#24 52.69 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 52.69 Making clean in stream
+#24 52.71 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 52.71 rm -rf .libs _libs
+#24 52.71 rm -f *.lo
+#24 52.73 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 52.74 Making clean in tags
+#24 52.74 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 52.74 rm -rf .libs _libs
+#24 52.74 rm -f *.lo
+#24 52.77 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 52.77 Making clean in win_dib
+#24 52.80 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 52.80 rm -rf .libs _libs
+#24 52.80 rm -f *.lo
+#24 52.83 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 52.84 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 52.84 rm -rf .libs _libs
+#24 52.84 rm -f *.lo
+#24 52.87 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 52.87 make[1]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 52.88 Making clean in test
+#24 52.88 make[1]: Entering directory '/magma/targets/libtiff/repo/test'
+#24 52.89 test -z "test_packbits.tif o-*" || rm -f test_packbits.tif o-*
+#24 52.89 rm -rf .libs _libs
+#24 52.89 rm -f *.o
+#24 52.89 test -z "ascii_tag.log long_tag.log short_tag.log strip_rw.log rewrite.log custom_dir.log custom_dir_EXIF_231.log rational_precision2double.log defer_strile_loading.log defer_strile_writing.log testtypes.log raw_decode.log ppm2tiff_pbm.sh.log ppm2tiff_pgm.sh.log ppm2tiff_ppm.sh.log fax2tiff.sh.log tiffcp-g3.sh.log tiffcp-g3-1d.sh.log tiffcp-g3-1d-fill.sh.log tiffcp-g3-2d.sh.log tiffcp-g3-2d-fill.sh.log tiffcp-g4.sh.log tiffcp-logluv.sh.log tiffcp-thumbnail.sh.log tiffcp-lzw-compat.sh.log tiffcp-lzw-scanline-decode.sh.log tiffdump.sh.log tiffinfo.sh.log tiffcp-split.sh.log tiffcp-split-join.sh.log tiff2ps-PS1.sh.log tiff2ps-PS2.sh.log tiff2ps-PS3.sh.log tiff2ps-EPS1.sh.log tiff2pdf.sh.log tiffcrop-doubleflip-logluv-3c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-8b.sh.log tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.log tiffcrop-doubleflip-miniswhite-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-4b.sh.log tiffcrop-doubleflip-palette-1c-8b.sh.log tiffcrop-doubleflip-rgb-3c-16b.sh.log tiffcrop-doubleflip-rgb-3c-8b.sh.log tiffcrop-extract-logluv-3c-16b.sh.log tiffcrop-extract-minisblack-1c-16b.sh.log tiffcrop-extract-minisblack-1c-8b.sh.log tiffcrop-extract-minisblack-2c-8b-alpha.sh.log tiffcrop-extract-miniswhite-1c-1b.sh.log tiffcrop-extract-palette-1c-1b.sh.log tiffcrop-extract-palette-1c-4b.sh.log tiffcrop-extract-palette-1c-8b.sh.log tiffcrop-extract-rgb-3c-16b.sh.log tiffcrop-extract-rgb-3c-8b.sh.log tiffcrop-extractz14-logluv-3c-16b.sh.log tiffcrop-extractz14-minisblack-1c-16b.sh.log tiffcrop-extractz14-minisblack-1c-8b.sh.log tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.log tiffcrop-extractz14-miniswhite-1c-1b.sh.log tiffcrop-extractz14-palette-1c-1b.sh.log tiffcrop-extractz14-palette-1c-4b.sh.log tiffcrop-extractz14-palette-1c-8b.sh.log tiffcrop-extractz14-rgb-3c-16b.sh.log tiffcrop-extractz14-rgb-3c-8b.sh.log tiffcrop-R90-logluv-3c-16b.sh.log tiffcrop-R90-minisblack-1c-16b.sh.log tiffcrop-R90-minisblack-1c-8b.sh.log tiffcrop-R90-minisblack-2c-8b-alpha.sh.log tiffcrop-R90-miniswhite-1c-1b.sh.log tiffcrop-R90-palette-1c-1b.sh.log tiffcrop-R90-palette-1c-4b.sh.log tiffcrop-R90-palette-1c-8b.sh.log tiffcrop-R90-rgb-3c-16b.sh.log tiffcrop-R90-rgb-3c-8b.sh.log tiff2bw-palette-1c-8b.sh.log tiff2bw-quad-lzw-compat.sh.log tiff2bw-rgb-3c-8b.sh.log tiff2rgba-logluv-3c-16b.sh.log tiff2rgba-minisblack-1c-16b.sh.log tiff2rgba-minisblack-1c-8b.sh.log tiff2rgba-minisblack-2c-8b-alpha.sh.log tiff2rgba-miniswhite-1c-1b.sh.log tiff2rgba-palette-1c-1b.sh.log tiff2rgba-palette-1c-4b.sh.log tiff2rgba-palette-1c-8b.sh.log tiff2rgba-rgb-3c-16b.sh.log tiff2rgba-rgb-3c-8b.sh.log testfax4.sh.log testdeflatelaststripextradata.sh.log tiff2rgba-quad-tile.jpg.sh.log tiff2rgba-ojpeg_zackthecat_subsamp22_single_strip.sh.log tiff2rgba-ojpeg_chewey_subsamp21_multi_strip.sh.log tiff2rgba-ojpeg_single_strip_no_rowsperstrip.sh.log" || rm -f ascii_tag.log long_tag.log short_tag.log strip_rw.log rewrite.log custom_dir.log custom_dir_EXIF_231.log rational_precision2double.log defer_strile_loading.log defer_strile_writing.log testtypes.log raw_decode.log ppm2tiff_pbm.sh.log ppm2tiff_pgm.sh.log ppm2tiff_ppm.sh.log fax2tiff.sh.log tiffcp-g3.sh.log tiffcp-g3-1d.sh.log tiffcp-g3-1d-fill.sh.log tiffcp-g3-2d.sh.log tiffcp-g3-2d-fill.sh.log tiffcp-g4.sh.log tiffcp-logluv.sh.log tiffcp-thumbnail.sh.log tiffcp-lzw-compat.sh.log tiffcp-lzw-scanline-decode.sh.log tiffdump.sh.log tiffinfo.sh.log tiffcp-split.sh.log tiffcp-split-join.sh.log tiff2ps-PS1.sh.log tiff2ps-PS2.sh.log tiff2ps-PS3.sh.log tiff2ps-EPS1.sh.log tiff2pdf.sh.log tiffcrop-doubleflip-logluv-3c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-8b.sh.log tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.log tiffcrop-doubleflip-miniswhite-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-4b.sh.log tiffcrop-doubleflip-palette-1c-8b.sh.log tiffcrop-doubleflip-rgb-3c-16b.sh.log tiffcrop-doubleflip-rgb-3c-8b.sh.log tiffcrop-extract-logluv-3c-16b.sh.log tiffcrop-extract-minisblack-1c-16b.sh.log tiffcrop-extract-minisblack-1c-8b.sh.log tiffcrop-extract-minisblack-2c-8b-alpha.sh.log tiffcrop-extract-miniswhite-1c-1b.sh.log tiffcrop-extract-palette-1c-1b.sh.log tiffcrop-extract-palette-1c-4b.sh.log tiffcrop-extract-palette-1c-8b.sh.log tiffcrop-extract-rgb-3c-16b.sh.log tiffcrop-extract-rgb-3c-8b.sh.log tiffcrop-extractz14-logluv-3c-16b.sh.log tiffcrop-extractz14-minisblack-1c-16b.sh.log tiffcrop-extractz14-minisblack-1c-8b.sh.log tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.log tiffcrop-extractz14-miniswhite-1c-1b.sh.log tiffcrop-extractz14-palette-1c-1b.sh.log tiffcrop-extractz14-palette-1c-4b.sh.log tiffcrop-extractz14-palette-1c-8b.sh.log tiffcrop-extractz14-rgb-3c-16b.sh.log tiffcrop-extractz14-rgb-3c-8b.sh.log tiffcrop-R90-logluv-3c-16b.sh.log tiffcrop-R90-minisblack-1c-16b.sh.log tiffcrop-R90-minisblack-1c-8b.sh.log tiffcrop-R90-minisblack-2c-8b-alpha.sh.log tiffcrop-R90-miniswhite-1c-1b.sh.log tiffcrop-R90-palette-1c-1b.sh.log tiffcrop-R90-palette-1c-4b.sh.log tiffcrop-R90-palette-1c-8b.sh.log tiffcrop-R90-rgb-3c-16b.sh.log tiffcrop-R90-rgb-3c-8b.sh.log tiff2bw-palette-1c-8b.sh.log tiff2bw-quad-lzw-compat.sh.log tiff2bw-rgb-3c-8b.sh.log tiff2rgba-logluv-3c-16b.sh.log tiff2rgba-minisblack-1c-16b.sh.log tiff2rgba-minisblack-1c-8b.sh.log tiff2rgba-minisblack-2c-8b-alpha.sh.log tiff2rgba-miniswhite-1c-1b.sh.log tiff2rgba-palette-1c-1b.sh.log tiff2rgba-palette-1c-4b.sh.log tiff2rgba-palette-1c-8b.sh.log tiff2rgba-rgb-3c-16b.sh.log tiff2rgba-rgb-3c-8b.sh.log testfax4.sh.log testdeflatelaststripextradata.sh.log tiff2rgba-quad-tile.jpg.sh.log tiff2rgba-ojpeg_zackthecat_subsamp22_single_strip.sh.log tiff2rgba-ojpeg_chewey_subsamp21_multi_strip.sh.log tiff2rgba-ojpeg_single_strip_no_rowsperstrip.sh.log
+#24 52.89 rm -f *.lo
+#24 52.89  rm -f ascii_tag long_tag short_tag strip_rw rewrite custom_dir custom_dir_EXIF_231 rational_precision2double defer_strile_loading defer_strile_writing testtypes raw_decode
+#24 52.92 test -z "ascii_tag.trs long_tag.trs short_tag.trs strip_rw.trs rewrite.trs custom_dir.trs custom_dir_EXIF_231.trs rational_precision2double.trs defer_strile_loading.trs defer_strile_writing.trs testtypes.trs raw_decode.trs ppm2tiff_pbm.sh.trs ppm2tiff_pgm.sh.trs ppm2tiff_ppm.sh.trs fax2tiff.sh.trs tiffcp-g3.sh.trs tiffcp-g3-1d.sh.trs tiffcp-g3-1d-fill.sh.trs tiffcp-g3-2d.sh.trs tiffcp-g3-2d-fill.sh.trs tiffcp-g4.sh.trs tiffcp-logluv.sh.trs tiffcp-thumbnail.sh.trs tiffcp-lzw-compat.sh.trs tiffcp-lzw-scanline-decode.sh.trs tiffdump.sh.trs tiffinfo.sh.trs tiffcp-split.sh.trs tiffcp-split-join.sh.trs tiff2ps-PS1.sh.trs tiff2ps-PS2.sh.trs tiff2ps-PS3.sh.trs tiff2ps-EPS1.sh.trs tiff2pdf.sh.trs tiffcrop-doubleflip-logluv-3c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-8b.sh.trs tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.trs tiffcrop-doubleflip-miniswhite-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-4b.sh.trs tiffcrop-doubleflip-palette-1c-8b.sh.trs tiffcrop-doubleflip-rgb-3c-16b.sh.trs tiffcrop-doubleflip-rgb-3c-8b.sh.trs tiffcrop-extract-logluv-3c-16b.sh.trs tiffcrop-extract-minisblack-1c-16b.sh.trs tiffcrop-extract-minisblack-1c-8b.sh.trs tiffcrop-extract-minisblack-2c-8b-alpha.sh.trs tiffcrop-extract-miniswhite-1c-1b.sh.trs tiffcrop-extract-palette-1c-1b.sh.trs tiffcrop-extract-palette-1c-4b.sh.trs tiffcrop-extract-palette-1c-8b.sh.trs tiffcrop-extract-rgb-3c-16b.sh.trs tiffcrop-extract-rgb-3c-8b.sh.trs tiffcrop-extractz14-logluv-3c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-8b.sh.trs tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.trs tiffcrop-extractz14-miniswhite-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-4b.sh.trs tiffcrop-extractz14-palette-1c-8b.sh.trs tiffcrop-extractz14-rgb-3c-16b.sh.trs tiffcrop-extractz14-rgb-3c-8b.sh.trs tiffcrop-R90-logluv-3c-16b.sh.trs tiffcrop-R90-minisblack-1c-16b.sh.trs tiffcrop-R90-minisblack-1c-8b.sh.trs tiffcrop-R90-minisblack-2c-8b-alpha.sh.trs tiffcrop-R90-miniswhite-1c-1b.sh.trs tiffcrop-R90-palette-1c-1b.sh.trs tiffcrop-R90-palette-1c-4b.sh.trs tiffcrop-R90-palette-1c-8b.sh.trs tiffcrop-R90-rgb-3c-16b.sh.trs tiffcrop-R90-rgb-3c-8b.sh.trs tiff2bw-palette-1c-8b.sh.trs tiff2bw-quad-lzw-compat.sh.trs tiff2bw-rgb-3c-8b.sh.trs tiff2rgba-logluv-3c-16b.sh.trs tiff2rgba-minisblack-1c-16b.sh.trs tiff2rgba-minisblack-1c-8b.sh.trs tiff2rgba-minisblack-2c-8b-alpha.sh.trs tiff2rgba-miniswhite-1c-1b.sh.trs tiff2rgba-palette-1c-1b.sh.trs tiff2rgba-palette-1c-4b.sh.trs tiff2rgba-palette-1c-8b.sh.trs tiff2rgba-rgb-3c-16b.sh.trs tiff2rgba-rgb-3c-8b.sh.trs testfax4.sh.trs testdeflatelaststripextradata.sh.trs tiff2rgba-quad-tile.jpg.sh.trs tiff2rgba-ojpeg_zackthecat_subsamp22_single_strip.sh.trs tiff2rgba-ojpeg_chewey_subsamp21_multi_strip.sh.trs tiff2rgba-ojpeg_single_strip_no_rowsperstrip.sh.trs" || rm -f ascii_tag.trs long_tag.trs short_tag.trs strip_rw.trs rewrite.trs custom_dir.trs custom_dir_EXIF_231.trs rational_precision2double.trs defer_strile_loading.trs defer_strile_writing.trs testtypes.trs raw_decode.trs ppm2tiff_pbm.sh.trs ppm2tiff_pgm.sh.trs ppm2tiff_ppm.sh.trs fax2tiff.sh.trs tiffcp-g3.sh.trs tiffcp-g3-1d.sh.trs tiffcp-g3-1d-fill.sh.trs tiffcp-g3-2d.sh.trs tiffcp-g3-2d-fill.sh.trs tiffcp-g4.sh.trs tiffcp-logluv.sh.trs tiffcp-thumbnail.sh.trs tiffcp-lzw-compat.sh.trs tiffcp-lzw-scanline-decode.sh.trs tiffdump.sh.trs tiffinfo.sh.trs tiffcp-split.sh.trs tiffcp-split-join.sh.trs tiff2ps-PS1.sh.trs tiff2ps-PS2.sh.trs tiff2ps-PS3.sh.trs tiff2ps-EPS1.sh.trs tiff2pdf.sh.trs tiffcrop-doubleflip-logluv-3c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-8b.sh.trs tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.trs tiffcrop-doubleflip-miniswhite-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-4b.sh.trs tiffcrop-doubleflip-palette-1c-8b.sh.trs tiffcrop-doubleflip-rgb-3c-16b.sh.trs tiffcrop-doubleflip-rgb-3c-8b.sh.trs tiffcrop-extract-logluv-3c-16b.sh.trs tiffcrop-extract-minisblack-1c-16b.sh.trs tiffcrop-extract-minisblack-1c-8b.sh.trs tiffcrop-extract-minisblack-2c-8b-alpha.sh.trs tiffcrop-extract-miniswhite-1c-1b.sh.trs tiffcrop-extract-palette-1c-1b.sh.trs tiffcrop-extract-palette-1c-4b.sh.trs tiffcrop-extract-palette-1c-8b.sh.trs tiffcrop-extract-rgb-3c-16b.sh.trs tiffcrop-extract-rgb-3c-8b.sh.trs tiffcrop-extractz14-logluv-3c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-8b.sh.trs tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.trs tiffcrop-extractz14-miniswhite-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-4b.sh.trs tiffcrop-extractz14-palette-1c-8b.sh.trs tiffcrop-extractz14-rgb-3c-16b.sh.trs tiffcrop-extractz14-rgb-3c-8b.sh.trs tiffcrop-R90-logluv-3c-16b.sh.trs tiffcrop-R90-minisblack-1c-16b.sh.trs tiffcrop-R90-minisblack-1c-8b.sh.trs tiffcrop-R90-minisblack-2c-8b-alpha.sh.trs tiffcrop-R90-miniswhite-1c-1b.sh.trs tiffcrop-R90-palette-1c-1b.sh.trs tiffcrop-R90-palette-1c-4b.sh.trs tiffcrop-R90-palette-1c-8b.sh.trs tiffcrop-R90-rgb-3c-16b.sh.trs tiffcrop-R90-rgb-3c-8b.sh.trs tiff2bw-palette-1c-8b.sh.trs tiff2bw-quad-lzw-compat.sh.trs tiff2bw-rgb-3c-8b.sh.trs tiff2rgba-logluv-3c-16b.sh.trs tiff2rgba-minisblack-1c-16b.sh.trs tiff2rgba-minisblack-1c-8b.sh.trs tiff2rgba-minisblack-2c-8b-alpha.sh.trs tiff2rgba-miniswhite-1c-1b.sh.trs tiff2rgba-palette-1c-1b.sh.trs tiff2rgba-palette-1c-4b.sh.trs tiff2rgba-palette-1c-8b.sh.trs tiff2rgba-rgb-3c-16b.sh.trs tiff2rgba-rgb-3c-8b.sh.trs testfax4.sh.trs testdeflatelaststripextradata.sh.trs tiff2rgba-quad-tile.jpg.sh.trs tiff2rgba-ojpeg_zackthecat_subsamp22_single_strip.sh.trs tiff2rgba-ojpeg_chewey_subsamp21_multi_strip.sh.trs tiff2rgba-ojpeg_single_strip_no_rowsperstrip.sh.trs
+#24 52.96 test -z "test-suite.log" || rm -f test-suite.log
+#24 52.96 make[1]: Leaving directory '/magma/targets/libtiff/repo/test'
+#24 52.97 Making clean in man
+#24 52.98 make[1]: Entering directory '/magma/targets/libtiff/repo/man'
+#24 52.98 rm -rf .libs _libs
+#24 52.98 rm -f *.lo
+#24 52.99 make[1]: Leaving directory '/magma/targets/libtiff/repo/man'
+#24 53.00 Making clean in html
+#24 53.01 make[1]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 53.04 Making clean in images
+#24 53.07 make[2]: Entering directory '/magma/targets/libtiff/repo/html/images'
+#24 53.07 rm -rf .libs _libs
+#24 53.07 rm -f *.lo
+#24 53.09 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/images'
+#24 53.09 Making clean in man
+#24 53.14 make[2]: Entering directory '/magma/targets/libtiff/repo/html/man'
+#24 53.14 rm -rf .libs _libs
+#24 53.16 rm -f *.lo
+#24 53.16 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/man'
+#24 53.17 make[2]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 53.17 rm -rf .libs _libs
+#24 53.18 rm -f *.lo
+#24 53.20 make[2]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 53.20 make[1]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 53.20 make[1]: Entering directory '/magma/targets/libtiff/repo'
+#24 53.20 rm -rf .libs _libs
+#24 53.20 rm -f *.lo
+#24 53.22 make[1]: Leaving directory '/magma/targets/libtiff/repo'
+#24 53.27 Making all in port
+#24 53.29 make[1]: Entering directory '/magma/targets/libtiff/repo/port'
+#24 53.32 make  all-am
+#24 53.33 make[2]: Entering directory '/magma/targets/libtiff/repo/port'
+#24 53.33 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff   -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT dummy.lo -MD -MP -MF .deps/dummy.Tpo -c -o dummy.lo dummy.c
+#24 53.47 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT dummy.lo -MD -MP -MF .deps/dummy.Tpo -c dummy.c -o dummy.o
+#24 53.58 mv -f .deps/dummy.Tpo .deps/dummy.Plo
+#24 53.59 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o libport.la  dummy.lo  -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 53.87 libtool: link: /usr/bin/ar cru .libs/libport.a  dummy.o
+#24 53.87 /usr/bin/ar: `u' modifier ignored since `D' is the default (see `U')
+#24 53.88 libtool: link: /usr/bin/ranlib .libs/libport.a
+#24 53.96 libtool: link: ( cd ".libs" && rm -f "libport.la" && ln -s "../libport.la" "libport.la" )
+#24 53.97 make[2]: Leaving directory '/magma/targets/libtiff/repo/port'
+#24 53.97 make[1]: Leaving directory '/magma/targets/libtiff/repo/port'
+#24 53.98 Making all in libtiff
+#24 54.00 make[1]: Entering directory '/magma/targets/libtiff/repo/libtiff'
+#24 54.02 make  all-am
+#24 54.06 make[2]: Entering directory '/magma/targets/libtiff/repo/libtiff'
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_aux.lo -MD -MP -MF .deps/tif_aux.Tpo -c -o tif_aux.lo tif_aux.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_close.lo -MD -MP -MF .deps/tif_close.Tpo -c -o tif_close.lo tif_close.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_codec.lo -MD -MP -MF .deps/tif_codec.Tpo -c -o tif_codec.lo tif_codec.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_color.lo -MD -MP -MF .deps/tif_color.Tpo -c -o tif_color.lo tif_color.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_compress.lo -MD -MP -MF .deps/tif_compress.Tpo -c -o tif_compress.lo tif_compress.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_dir.lo -MD -MP -MF .deps/tif_dir.Tpo -c -o tif_dir.lo tif_dir.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_dirinfo.lo -MD -MP -MF .deps/tif_dirinfo.Tpo -c -o tif_dirinfo.lo tif_dirinfo.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_dirread.lo -MD -MP -MF .deps/tif_dirread.Tpo -c -o tif_dirread.lo tif_dirread.c
+#24 54.06 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_dirwrite.lo -MD -MP -MF .deps/tif_dirwrite.Tpo -c -o tif_dirwrite.lo tif_dirwrite.c
+#24 54.07 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_dumpmode.lo -MD -MP -MF .deps/tif_dumpmode.Tpo -c -o tif_dumpmode.lo tif_dumpmode.c
+#24 54.07 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_error.lo -MD -MP -MF .deps/tif_error.Tpo -c -o tif_error.lo tif_error.c
+#24 54.07 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_extension.lo -MD -MP -MF .deps/tif_extension.Tpo -c -o tif_extension.lo tif_extension.c
+#24 54.21 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_compress.lo -MD -MP -MF .deps/tif_compress.Tpo -c tif_compress.c -o tif_compress.o
+#24 54.35 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_extension.lo -MD -MP -MF .deps/tif_extension.Tpo -c tif_extension.c -o tif_extension.o
+#24 54.41 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_dir.lo -MD -MP -MF .deps/tif_dir.Tpo -c tif_dir.c -o tif_dir.o
+#24 54.41 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_dirread.lo -MD -MP -MF .deps/tif_dirread.Tpo -c tif_dirread.c -o tif_dirread.o
+#24 54.46 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_codec.lo -MD -MP -MF .deps/tif_codec.Tpo -c tif_codec.c -o tif_codec.o
+#24 54.63 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_dirwrite.lo -MD -MP -MF .deps/tif_dirwrite.Tpo -c tif_dirwrite.c -o tif_dirwrite.o
+#24 54.75 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_color.lo -MD -MP -MF .deps/tif_color.Tpo -c tif_color.c -o tif_color.o
+#24 54.84 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_close.lo -MD -MP -MF .deps/tif_close.Tpo -c tif_close.c -o tif_close.o
+#24 54.95 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_aux.lo -MD -MP -MF .deps/tif_aux.Tpo -c tif_aux.c -o tif_aux.o
+#24 54.99 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_dirinfo.lo -MD -MP -MF .deps/tif_dirinfo.Tpo -c tif_dirinfo.c -o tif_dirinfo.o
+#24 55.10 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_error.lo -MD -MP -MF .deps/tif_error.Tpo -c tif_error.c -o tif_error.o
+#24 55.24 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_dumpmode.lo -MD -MP -MF .deps/tif_dumpmode.Tpo -c tif_dumpmode.c -o tif_dumpmode.o
+#24 55.66 mv -f .deps/tif_dumpmode.Tpo .deps/tif_dumpmode.Plo
+#24 55.69 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_fax3.lo -MD -MP -MF .deps/tif_fax3.Tpo -c -o tif_fax3.lo tif_fax3.c
+#24 55.93 tif_dir.c:99:27: warning: unused variable 'module' [-Wunused-variable]
+#24 55.93         static const char module[] = "setExtraSamples";
+#24 55.93                           ^
+#24 55.94 mv -f .deps/tif_extension.Tpo .deps/tif_extension.Plo
+#24 56.04 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_fax3sm.lo -MD -MP -MF .deps/tif_fax3sm.Tpo -c -o tif_fax3sm.lo tif_fax3sm.c
+#24 56.15 mv -f .deps/tif_codec.Tpo .deps/tif_codec.Plo
+#24 56.29 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_flush.lo -MD -MP -MF .deps/tif_flush.Tpo -c -o tif_flush.lo tif_flush.c
+#24 56.38 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_fax3.lo -MD -MP -MF .deps/tif_fax3.Tpo -c tif_fax3.c -o tif_fax3.o
+#24 56.61 mv -f .deps/tif_error.Tpo .deps/tif_error.Plo
+#24 56.64 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_getimage.lo -MD -MP -MF .deps/tif_getimage.Tpo -c -o tif_getimage.lo tif_getimage.c
+#24 56.81 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_fax3sm.lo -MD -MP -MF .deps/tif_fax3sm.Tpo -c tif_fax3sm.c -o tif_fax3sm.o
+#24 56.95 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_flush.lo -MD -MP -MF .deps/tif_flush.Tpo -c tif_flush.c -o tif_flush.o
+#24 57.50 mv -f .deps/tif_close.Tpo .deps/tif_close.Plo
+#24 57.50 mv -f .deps/tif_compress.Tpo .deps/tif_compress.Plo
+#24 57.52 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_getimage.lo -MD -MP -MF .deps/tif_getimage.Tpo -c tif_getimage.c -o tif_getimage.o
+#24 57.54 mv -f .deps/tif_aux.Tpo .deps/tif_aux.Plo
+#24 57.54 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_jbig.lo -MD -MP -MF .deps/tif_jbig.Tpo -c -o tif_jbig.lo tif_jbig.c
+#24 57.57 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_jpeg.lo -MD -MP -MF .deps/tif_jpeg.Tpo -c -o tif_jpeg.lo tif_jpeg.c
+#24 57.68 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_jpeg_12.lo -MD -MP -MF .deps/tif_jpeg_12.Tpo -c -o tif_jpeg_12.lo tif_jpeg_12.c
+#24 57.85 mv -f .deps/tif_color.Tpo .deps/tif_color.Plo
+#24 57.89 mv -f .deps/tif_fax3sm.Tpo .deps/tif_fax3sm.Plo
+#24 57.96 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_lerc.lo -MD -MP -MF .deps/tif_lerc.Tpo -c -o tif_lerc.lo tif_lerc.c
+#24 58.01 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_luv.lo -MD -MP -MF .deps/tif_luv.Tpo -c -o tif_luv.lo tif_luv.c
+#24 58.32 mv -f .deps/tif_flush.Tpo .deps/tif_flush.Plo
+#24 58.38 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_lzma.lo -MD -MP -MF .deps/tif_lzma.Tpo -c -o tif_lzma.lo tif_lzma.c
+#24 58.45 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_jpeg.lo -MD -MP -MF .deps/tif_jpeg.Tpo -c tif_jpeg.c -o tif_jpeg.o
+#24 58.60 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_jbig.lo -MD -MP -MF .deps/tif_jbig.Tpo -c tif_jbig.c -o tif_jbig.o
+#24 58.70 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_jpeg_12.lo -MD -MP -MF .deps/tif_jpeg_12.Tpo -c tif_jpeg_12.c -o tif_jpeg_12.o
+#24 58.84 mv -f .deps/tif_dirinfo.Tpo .deps/tif_dirinfo.Plo
+#24 58.87 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_lzw.lo -MD -MP -MF .deps/tif_lzw.Tpo -c -o tif_lzw.lo tif_lzw.c
+#24 58.94 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_luv.lo -MD -MP -MF .deps/tif_luv.Tpo -c tif_luv.c -o tif_luv.o
+#24 59.38 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_lerc.lo -MD -MP -MF .deps/tif_lerc.Tpo -c tif_lerc.c -o tif_lerc.o
+#24 59.43 mv -f .deps/tif_jpeg_12.Tpo .deps/tif_jpeg_12.Plo
+#24 59.51 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_lzma.lo -MD -MP -MF .deps/tif_lzma.Tpo -c tif_lzma.c -o tif_lzma.o
+#24 59.56 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_next.lo -MD -MP -MF .deps/tif_next.Tpo -c -o tif_next.lo tif_next.c
+#24 59.70 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_lzw.lo -MD -MP -MF .deps/tif_lzw.Tpo -c tif_lzw.c -o tif_lzw.o
+#24 59.70 mv -f .deps/tif_jbig.Tpo .deps/tif_jbig.Plo
+#24 59.85 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_ojpeg.lo -MD -MP -MF .deps/tif_ojpeg.Tpo -c -o tif_ojpeg.lo tif_ojpeg.c
+#24 60.01 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_next.lo -MD -MP -MF .deps/tif_next.Tpo -c tif_next.c -o tif_next.o
+#24 60.43 mv -f .deps/tif_lerc.Tpo .deps/tif_lerc.Plo
+#24 60.46 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_ojpeg.lo -MD -MP -MF .deps/tif_ojpeg.Tpo -c tif_ojpeg.c -o tif_ojpeg.o
+#24 60.50 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_open.lo -MD -MP -MF .deps/tif_open.Tpo -c -o tif_open.lo tif_open.c
+#24 60.97 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_open.lo -MD -MP -MF .deps/tif_open.Tpo -c tif_open.c -o tif_open.o
+#24 61.12 tif_ojpeg.c:790:27: warning: unused variable 'module' [-Wunused-variable]
+#24 61.13         static const char module[]="OJPEGDecode";
+#24 61.13                           ^
+#24 61.91 mv -f .deps/tif_lzma.Tpo .deps/tif_lzma.Plo
+#24 62.02 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_packbits.lo -MD -MP -MF .deps/tif_packbits.Tpo -c -o tif_packbits.lo tif_packbits.c
+#24 62.12 mv -f .deps/tif_next.Tpo .deps/tif_next.Plo
+#24 62.19 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_pixarlog.lo -MD -MP -MF .deps/tif_pixarlog.Tpo -c -o tif_pixarlog.lo tif_pixarlog.c
+#24 62.76 mv -f .deps/tif_jpeg.Tpo .deps/tif_jpeg.Plo
+#24 62.80 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_predict.lo -MD -MP -MF .deps/tif_predict.Tpo -c -o tif_predict.lo tif_predict.c
+#24 62.92 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_packbits.lo -MD -MP -MF .deps/tif_packbits.Tpo -c tif_packbits.c -o tif_packbits.o
+#24 63.12 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_pixarlog.lo -MD -MP -MF .deps/tif_pixarlog.Tpo -c tif_pixarlog.c -o tif_pixarlog.o
+#24 63.27 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_predict.lo -MD -MP -MF .deps/tif_predict.Tpo -c tif_predict.c -o tif_predict.o
+#24 64.00 mv -f .deps/tif_open.Tpo .deps/tif_open.Plo
+#24 64.04 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_print.lo -MD -MP -MF .deps/tif_print.Tpo -c -o tif_print.lo tif_print.c
+#24 64.93 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_print.lo -MD -MP -MF .deps/tif_print.Tpo -c tif_print.c -o tif_print.o
+#24 65.19 1 warning generated.
+#24 65.26 mv -f .deps/tif_dirwrite.Tpo .deps/tif_dirwrite.Plo
+#24 65.28 mv -f .deps/tif_packbits.Tpo .deps/tif_packbits.Plo
+#24 65.31 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_read.lo -MD -MP -MF .deps/tif_read.Tpo -c -o tif_read.lo tif_read.c
+#24 65.34 mv -f .deps/tif_dir.Tpo .deps/tif_dir.Plo
+#24 65.37 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_strip.lo -MD -MP -MF .deps/tif_strip.Tpo -c -o tif_strip.lo tif_strip.c
+#24 65.40 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_swab.lo -MD -MP -MF .deps/tif_swab.Tpo -c -o tif_swab.lo tif_swab.c
+#24 65.58 mv -f .deps/tif_luv.Tpo .deps/tif_luv.Plo
+#24 65.63 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_thunder.lo -MD -MP -MF .deps/tif_thunder.Tpo -c -o tif_thunder.lo tif_thunder.c
+#24 65.76 mv -f .deps/tif_lzw.Tpo .deps/tif_lzw.Plo
+#24 65.89 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_tile.lo -MD -MP -MF .deps/tif_tile.Tpo -c -o tif_tile.lo tif_tile.c
+#24 66.08 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_read.lo -MD -MP -MF .deps/tif_read.Tpo -c tif_read.c -o tif_read.o
+#24 66.19 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_swab.lo -MD -MP -MF .deps/tif_swab.Tpo -c tif_swab.c -o tif_swab.o
+#24 66.30 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_thunder.lo -MD -MP -MF .deps/tif_thunder.Tpo -c tif_thunder.c -o tif_thunder.o
+#24 66.33 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_strip.lo -MD -MP -MF .deps/tif_strip.Tpo -c tif_strip.c -o tif_strip.o
+#24 66.67 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_tile.lo -MD -MP -MF .deps/tif_tile.Tpo -c tif_tile.c -o tif_tile.o
+#24 67.17 mv -f .deps/tif_fax3.Tpo .deps/tif_fax3.Plo
+#24 67.31 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_version.lo -MD -MP -MF .deps/tif_version.Tpo -c -o tif_version.lo tif_version.c
+#24 68.11 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_version.lo -MD -MP -MF .deps/tif_version.Tpo -c tif_version.c -o tif_version.o
+#24 68.69 mv -f .deps/tif_thunder.Tpo .deps/tif_thunder.Plo
+#24 68.75 mv -f .deps/tif_swab.Tpo .deps/tif_swab.Plo
+#24 68.78 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_warning.lo -MD -MP -MF .deps/tif_warning.Tpo -c -o tif_warning.lo tif_warning.c
+#24 68.82 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_webp.lo -MD -MP -MF .deps/tif_webp.Tpo -c -o tif_webp.lo tif_webp.c
+#24 68.89 mv -f .deps/tif_strip.Tpo .deps/tif_strip.Plo
+#24 68.98 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_write.lo -MD -MP -MF .deps/tif_write.Tpo -c -o tif_write.lo tif_write.c
+#24 69.00 mv -f .deps/tif_tile.Tpo .deps/tif_tile.Plo
+#24 69.15 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_zip.lo -MD -MP -MF .deps/tif_zip.Tpo -c -o tif_zip.lo tif_zip.c
+#24 69.26 mv -f .deps/tif_predict.Tpo .deps/tif_predict.Plo
+#24 69.35 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_zstd.lo -MD -MP -MF .deps/tif_zstd.Tpo -c -o tif_zstd.lo tif_zstd.c
+#24 69.40 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_webp.lo -MD -MP -MF .deps/tif_webp.Tpo -c tif_webp.c -o tif_webp.o
+#24 69.48 mv -f .deps/tif_version.Tpo .deps/tif_version.Plo
+#24 69.63 /bin/bash ../libtool  --tag=CC   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_unix.lo -MD -MP -MF .deps/tif_unix.Tpo -c -o tif_unix.lo tif_unix.c
+#24 69.81 mv -f .deps/tif_print.Tpo .deps/tif_print.Plo
+#24 69.84 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_warning.lo -MD -MP -MF .deps/tif_warning.Tpo -c tif_warning.c -o tif_warning.o
+#24 69.88 /bin/bash ../libtool  --tag=CXX   --mode=compile /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -MT tif_stream.lo -MD -MP -MF .deps/tif_stream.Tpo -c -o tif_stream.lo tif_stream.cxx
+#24 69.95 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_write.lo -MD -MP -MF .deps/tif_write.Tpo -c tif_write.c -o tif_write.o
+#24 70.04 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_zip.lo -MD -MP -MF .deps/tif_zip.Tpo -c tif_zip.c -o tif_zip.o
+#24 70.16 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_zstd.lo -MD -MP -MF .deps/tif_zstd.Tpo -c tif_zstd.c -o tif_zstd.o
+#24 70.21 mv -f .deps/tif_webp.Tpo .deps/tif_webp.Plo
+#24 70.47 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT mkg3states.o -MD -MP -MF .deps/mkg3states.Tpo -c -o mkg3states.o mkg3states.c
+#24 70.63 1 warning generated.
+#24 70.94 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -MT tif_unix.lo -MD -MP -MF .deps/tif_unix.Tpo -c tif_unix.c -o tif_unix.o
+#24 70.95 libtool: compile:  /magma/fuzzers/fairfuzz/repo/afl-clang-fast++ -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -MT tif_stream.lo -MD -MP -MF .deps/tif_stream.Tpo -c tif_stream.cxx -o tif_stream.o
+#24 71.00 mv -f .deps/tif_ojpeg.Tpo .deps/tif_ojpeg.Plo
+#24 71.03 mv -f .deps/tif_write.Tpo .deps/tif_write.Plo
+#24 71.51 mv -f .deps/tif_zstd.Tpo .deps/tif_zstd.Plo
+#24 71.60 mv -f .deps/tif_warning.Tpo .deps/tif_warning.Plo
+#24 71.90 mv -f .deps/tif_read.Tpo .deps/tif_read.Plo
+#24 71.93 mv -f .deps/tif_dirread.Tpo .deps/tif_dirread.Plo
+#24 72.28 mv -f .deps/tif_unix.Tpo .deps/tif_unix.Plo
+#24 72.52 mv -f .deps/tif_pixarlog.Tpo .deps/tif_pixarlog.Plo
+#24 72.60 mv -f .deps/tif_zip.Tpo .deps/tif_zip.Plo
+#24 72.82 mv -f .deps/mkg3states.Tpo .deps/mkg3states.Po
+#24 72.90 mv -f .deps/tif_getimage.Tpo .deps/tif_getimage.Plo
+#24 72.90 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o mkg3states mkg3states.o ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 72.90 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -no-undefined -version-info 12:0:7   -L/magma_out -g -o libtiff.la -rpath /magma/targets/libtiff/work/lib tif_aux.lo tif_close.lo tif_codec.lo tif_color.lo tif_compress.lo tif_dir.lo tif_dirinfo.lo tif_dirread.lo tif_dirwrite.lo tif_dumpmode.lo tif_error.lo tif_extension.lo tif_fax3.lo tif_fax3sm.lo tif_flush.lo tif_getimage.lo tif_jbig.lo tif_jpeg.lo tif_jpeg_12.lo tif_lerc.lo tif_luv.lo tif_lzma.lo tif_lzw.lo tif_next.lo tif_ojpeg.lo tif_open.lo tif_packbits.lo tif_pixarlog.lo tif_predict.lo tif_print.lo tif_read.lo tif_strip.lo tif_swab.lo tif_thunder.lo tif_tile.lo tif_version.lo tif_warning.lo tif_webp.lo tif_write.lo tif_zip.lo tif_zstd.lo  tif_unix.lo  -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 73.26 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o mkg3states mkg3states.o  -L/magma_out ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 73.80 mv -f .deps/tif_stream.Tpo .deps/tif_stream.Plo
+#24 73.84 libtool: link: /usr/bin/ar cru .libs/libtiff.a  tif_aux.o tif_close.o tif_codec.o tif_color.o tif_compress.o tif_dir.o tif_dirinfo.o tif_dirread.o tif_dirwrite.o tif_dumpmode.o tif_error.o tif_extension.o tif_fax3.o tif_fax3sm.o tif_flush.o tif_getimage.o tif_jbig.o tif_jpeg.o tif_jpeg_12.o tif_lerc.o tif_luv.o tif_lzma.o tif_lzw.o tif_next.o tif_ojpeg.o tif_open.o tif_packbits.o tif_pixarlog.o tif_predict.o tif_print.o tif_read.o tif_strip.o tif_swab.o tif_thunder.o tif_tile.o tif_version.o tif_warning.o tif_webp.o tif_write.o tif_zip.o tif_zstd.o tif_unix.o
+#24 73.84 /usr/bin/ar: `u' modifier ignored since `D' is the default (see `U')
+#24 73.87 libtool: link: /usr/bin/ranlib .libs/libtiff.a
+#24 73.96 libtool: link: ( cd ".libs" && rm -f "libtiff.la" && ln -s "../libtiff.la" "libtiff.la" )
+#24 73.98 /bin/bash ../libtool  --tag=CXX   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast++  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -no-undefined -version-info 12:0:7   -L/magma_out -g -o libtiffxx.la -rpath /magma/targets/libtiff/work/lib tif_stream.lo ../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 74.44 libtool: link: /usr/bin/ar cru .libs/libtiffxx.a  tif_stream.o
+#24 74.45 /usr/bin/ar: `u' modifier ignored since `D' is the default (see `U')
+#24 74.45 libtool: link: /usr/bin/ranlib .libs/libtiffxx.a
+#24 74.52 libtool: link: ( cd ".libs" && rm -f "libtiffxx.la" && ln -s "../libtiffxx.la" "libtiffxx.la" )
+#24 74.55 make[2]: Leaving directory '/magma/targets/libtiff/repo/libtiff'
+#24 74.55 make[1]: Leaving directory '/magma/targets/libtiff/repo/libtiff'
+#24 74.56 Making all in tools
+#24 74.57 make[1]: Entering directory '/magma/targets/libtiff/repo/tools'
+#24 74.57 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT fax2ps.o -MD -MP -MF .deps/fax2ps.Tpo -c -o fax2ps.o fax2ps.c
+#24 74.57 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT fax2tiff.o -MD -MP -MF .deps/fax2tiff.Tpo -c -o fax2tiff.o fax2tiff.c
+#24 74.58 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT pal2rgb.o -MD -MP -MF .deps/pal2rgb.Tpo -c -o pal2rgb.o pal2rgb.c
+#24 74.58 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT ppm2tiff.o -MD -MP -MF .deps/ppm2tiff.Tpo -c -o ppm2tiff.o ppm2tiff.c
+#24 74.58 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT raw2tiff.o -MD -MP -MF .deps/raw2tiff.Tpo -c -o raw2tiff.o raw2tiff.c
+#24 74.59 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff2bw.o -MD -MP -MF .deps/tiff2bw.Tpo -c -o tiff2bw.o tiff2bw.c
+#24 74.60 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff2pdf.o -MD -MP -MF .deps/tiff2pdf.Tpo -c -o tiff2pdf.o tiff2pdf.c
+#24 74.60 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff2ps.o -MD -MP -MF .deps/tiff2ps.Tpo -c -o tiff2ps.o tiff2ps.c
+#24 74.60 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff2rgba.o -MD -MP -MF .deps/tiff2rgba.Tpo -c -o tiff2rgba.o tiff2rgba.c
+#24 74.61 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffcmp.o -MD -MP -MF .deps/tiffcmp.Tpo -c -o tiffcmp.o tiffcmp.c
+#24 74.61 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffcp.o -MD -MP -MF .deps/tiffcp.Tpo -c -o tiffcp.o tiffcp.c
+#24 74.62 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffcrop.o -MD -MP -MF .deps/tiffcrop.Tpo -c -o tiffcrop.o tiffcrop.c
+#24 76.15 mv -f .deps/pal2rgb.Tpo .deps/pal2rgb.Po
+#24 76.23 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffdither.o -MD -MP -MF .deps/tiffdither.Tpo -c -o tiffdither.o tiffdither.c
+#24 76.25 mv -f .deps/tiff2bw.Tpo .deps/tiff2bw.Po
+#24 76.33 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffdump.o -MD -MP -MF .deps/tiffdump.Tpo -c -o tiffdump.o tiffdump.c
+#24 76.36 mv -f .deps/fax2ps.Tpo .deps/fax2ps.Po
+#24 76.40 mv -f .deps/ppm2tiff.Tpo .deps/ppm2tiff.Po
+#24 76.55 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffinfo.o -MD -MP -MF .deps/tiffinfo.Tpo -c -o tiffinfo.o tiffinfo.c
+#24 76.55 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffmedian.o -MD -MP -MF .deps/tiffmedian.Tpo -c -o tiffmedian.o tiffmedian.c
+#24 76.68 mv -f .deps/fax2tiff.Tpo .deps/fax2tiff.Po
+#24 76.73 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffset.o -MD -MP -MF .deps/tiffset.Tpo -c -o tiffset.o tiffset.c
+#24 77.08 mv -f .deps/tiff2rgba.Tpo .deps/tiff2rgba.Po
+#24 77.14 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiffsplit.o -MD -MP -MF .deps/tiffsplit.Tpo -c -o tiffsplit.o tiffsplit.c
+#24 77.49 mv -f .deps/raw2tiff.Tpo .deps/raw2tiff.Po
+#24 77.60 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o fax2ps fax2ps.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 77.74 mv -f .deps/tiffset.Tpo .deps/tiffset.Po
+#24 77.77 mv -f .deps/tiffdither.Tpo .deps/tiffdither.Po
+#24 77.79 mv -f .deps/tiffcmp.Tpo .deps/tiffcmp.Po
+#24 77.87 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o pal2rgb pal2rgb.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 77.93 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o fax2tiff fax2tiff.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 77.96 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o ppm2tiff ppm2tiff.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 79.08 mv -f .deps/tiffmedian.Tpo .deps/tiffmedian.Po
+#24 79.14 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o pal2rgb pal2rgb.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 79.23 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o fax2ps fax2ps.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 79.32 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o raw2tiff raw2tiff.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 79.75 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o fax2tiff fax2tiff.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 79.88 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o ppm2tiff ppm2tiff.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 80.13 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff2bw tiff2bw.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 80.27 mv -f .deps/tiffinfo.Tpo .deps/tiffinfo.Po
+#24 80.56 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff2rgba tiff2rgba.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 80.81 mv -f .deps/tiff2ps.Tpo .deps/tiff2ps.Po
+#24 80.81 mv -f .deps/tiffsplit.Tpo .deps/tiffsplit.Po
+#24 80.91 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffdither tiffdither.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 80.94 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffcmp tiffcmp.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 80.97 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffinfo tiffinfo.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 81.19 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o raw2tiff raw2tiff.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 81.81 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff2bw tiff2bw.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.04 mv -f .deps/tiffdump.Tpo .deps/tiffdump.Po
+#24 82.10 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffmedian tiffmedian.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.13 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffset tiffset.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.24 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffsplit tiffsplit.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.30 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffdither tiffdither.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.76 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffinfo tiffinfo.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.79 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff2rgba tiff2rgba.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.97 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff2ps tiff2ps.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.98 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffmedian tiffmedian.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 82.99 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffdump tiffdump.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 83.01 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffcmp tiffcmp.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 83.47 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffset tiffset.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 84.06 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffsplit tiffsplit.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 84.18 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff2ps tiff2ps.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 84.27 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffdump tiffdump.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 84.32 mv -f .deps/tiffcp.Tpo .deps/tiffcp.Po
+#24 84.33 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffcp tiffcp.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 85.57 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffcp tiffcp.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 86.75 mv -f .deps/tiff2pdf.Tpo .deps/tiff2pdf.Po
+#24 86.77 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff2pdf tiff2pdf.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 87.36 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff2pdf tiff2pdf.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 91.10 mv -f .deps/tiffcrop.Tpo .deps/tiffcrop.Po
+#24 91.12 /bin/bash ../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiffcrop tiffcrop.o ../libtiff/libtiff.la ../port/libport.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 91.89 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiffcrop tiffcrop.o  -L/magma_out ../libtiff/.libs/libtiff.a ../port/.libs/libport.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 92.37 make[1]: Leaving directory '/magma/targets/libtiff/repo/tools'
+#24 92.38 Making all in build
+#24 92.40 make[1]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 92.45 make[2]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 92.45 make[2]: Nothing to be done for 'all-am'.
+#24 92.45 make[2]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 92.46 make[1]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 92.46 Making all in contrib
+#24 92.47 make[1]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 92.51 Making all in addtiffo
+#24 92.56 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 92.56 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT addtiffo.o -MD -MP -MF .deps/addtiffo.Tpo -c -o addtiffo.o addtiffo.c
+#24 92.56 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_overview.o -MD -MP -MF .deps/tif_overview.Tpo -c -o tif_overview.o tif_overview.c
+#24 92.56 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tif_ovrcache.o -MD -MP -MF .deps/tif_ovrcache.Tpo -c -o tif_ovrcache.o tif_ovrcache.c
+#24 92.76 mv -f .deps/addtiffo.Tpo .deps/addtiffo.Po
+#24 93.09 mv -f .deps/tif_ovrcache.Tpo .deps/tif_ovrcache.Po
+#24 93.27 mv -f .deps/tif_overview.Tpo .deps/tif_overview.Po
+#24 93.28 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o addtiffo addtiffo.o tif_overview.o tif_ovrcache.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 93.60 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o addtiffo addtiffo.o tif_overview.o tif_ovrcache.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 93.84 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 93.84 Making all in dbs
+#24 93.86 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 93.90 Making all in xtiff
+#24 93.90 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 93.90 make[3]: Nothing to be done for 'all'.
+#24 93.90 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 93.92 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 93.92 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff-bi.o -MD -MP -MF .deps/tiff-bi.Tpo -c -o tiff-bi.o tiff-bi.c
+#24 93.92 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff-grayscale.o -MD -MP -MF .deps/tiff-grayscale.Tpo -c -o tiff-grayscale.o tiff-grayscale.c
+#24 93.92 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff-palette.o -MD -MP -MF .deps/tiff-palette.Tpo -c -o tiff-palette.o tiff-palette.c
+#24 93.92 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT tiff-rgb.o -MD -MP -MF .deps/tiff-rgb.Tpo -c -o tiff-rgb.o tiff-rgb.c
+#24 94.10 mv -f .deps/tiff-grayscale.Tpo .deps/tiff-grayscale.Po
+#24 94.16 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff-grayscale tiff-grayscale.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 94.25 mv -f .deps/tiff-rgb.Tpo .deps/tiff-rgb.Po
+#24 94.27 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff-rgb tiff-rgb.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 94.53 mv -f .deps/tiff-bi.Tpo .deps/tiff-bi.Po
+#24 94.59 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff-bi tiff-bi.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 94.83 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff-rgb tiff-rgb.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 94.90 mv -f .deps/tiff-palette.Tpo .deps/tiff-palette.Po
+#24 94.92 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o tiff-palette tiff-palette.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 94.92 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff-grayscale tiff-grayscale.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 95.23 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff-bi tiff-bi.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 95.48 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o tiff-palette tiff-palette.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 95.71 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 95.71 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 95.71 Making all in iptcutil
+#24 95.73 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 95.73 /magma/fuzzers/fairfuzz/repo/afl-clang-fast -DHAVE_CONFIG_H -I. -I../../config -I../../libtiff -I../../port  -I../../libtiff -DTIFF_DISABLE_DEPRECATED   -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W -MT iptcutil.o -MD -MP -MF .deps/iptcutil.Tpo -c -o iptcutil.o iptcutil.c
+#24 96.08 mv -f .deps/iptcutil.Tpo .deps/iptcutil.Po
+#24 96.10 /bin/bash ../../libtool  --tag=CC   --mode=link /magma/fuzzers/fairfuzz/repo/afl-clang-fast  -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES    -g -O0 -Wall -W  -L/magma_out -g -o iptcutil iptcutil.o ../../libtiff/libtiff.la -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 96.36 libtool: link: /magma/fuzzers/fairfuzz/repo/afl-clang-fast -include /magma/magma/src/canary.h -DMAGMA_ENABLE_CANARIES -g -O0 -Wall -W -g -o iptcutil iptcutil.o  -L/magma_out ../../libtiff/.libs/libtiff.a -llzma -ljpeg -lz -lm -l:magma.o -lrt -l:afl_driver.o -lstdc++
+#24 96.52 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 96.52 Making all in mfs
+#24 96.53 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 96.53 make[2]: Nothing to be done for 'all'.
+#24 96.53 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 96.54 Making all in pds
+#24 96.54 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 96.54 make[2]: Nothing to be done for 'all'.
+#24 96.54 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 96.54 Making all in ras
+#24 96.55 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 96.55 make[2]: Nothing to be done for 'all'.
+#24 96.55 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 96.56 Making all in stream
+#24 96.56 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 96.56 make[2]: Nothing to be done for 'all'.
+#24 96.57 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 96.57 Making all in tags
+#24 96.57 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 96.57 make[2]: Nothing to be done for 'all'.
+#24 96.57 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 96.57 Making all in win_dib
+#24 96.59 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 96.59 make[2]: Nothing to be done for 'all'.
+#24 96.59 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 96.59 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 96.59 make[2]: Nothing to be done for 'all-am'.
+#24 96.59 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 96.59 make[1]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 96.59 Making all in test
+#24 96.61 make[1]: Entering directory '/magma/targets/libtiff/repo/test'
+#24 96.61 make[1]: Nothing to be done for 'all'.
+#24 96.61 make[1]: Leaving directory '/magma/targets/libtiff/repo/test'
+#24 96.62 Making all in man
+#24 96.64 make[1]: Entering directory '/magma/targets/libtiff/repo/man'
+#24 96.64 make[1]: Nothing to be done for 'all'.
+#24 96.64 make[1]: Leaving directory '/magma/targets/libtiff/repo/man'
+#24 96.64 Making all in html
+#24 96.66 make[1]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 96.71 Making all in images
+#24 96.71 make[2]: Entering directory '/magma/targets/libtiff/repo/html/images'
+#24 96.71 make[2]: Nothing to be done for 'all'.
+#24 96.71 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/images'
+#24 96.72 Making all in man
+#24 96.74 make[2]: Entering directory '/magma/targets/libtiff/repo/html/man'
+#24 96.74 make[2]: Nothing to be done for 'all'.
+#24 96.74 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/man'
+#24 96.75 make[2]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 96.75 make[2]: Nothing to be done for 'all-am'.
+#24 96.75 make[2]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 96.75 make[1]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 96.77 make[1]: Entering directory '/magma/targets/libtiff/repo'
+#24 96.77 make[1]: Nothing to be done for 'all-am'.
+#24 96.77 make[1]: Leaving directory '/magma/targets/libtiff/repo'
+#24 96.80 Making install in port
+#24 96.81 make[1]: Entering directory '/magma/targets/libtiff/repo/port'
+#24 96.86 make[2]: Entering directory '/magma/targets/libtiff/repo/port'
+#24 96.86 make[2]: Nothing to be done for 'install-exec-am'.
+#24 96.86 make[2]: Nothing to be done for 'install-data-am'.
+#24 96.86 make[2]: Leaving directory '/magma/targets/libtiff/repo/port'
+#24 96.86 make[1]: Leaving directory '/magma/targets/libtiff/repo/port'
+#24 96.86 Making install in libtiff
+#24 96.88 make[1]: Entering directory '/magma/targets/libtiff/repo/libtiff'
+#24 96.97 make[2]: Entering directory '/magma/targets/libtiff/repo/libtiff'
+#24 97.03  /bin/mkdir -p '/magma/targets/libtiff/work/lib'
+#24 97.03  /bin/bash ../libtool   --mode=install /usr/bin/install -c   libtiff.la libtiffxx.la '/magma/targets/libtiff/work/lib'
+#24 97.14 libtool: install: /usr/bin/install -c .libs/libtiff.lai /magma/targets/libtiff/work/lib/libtiff.la
+#24 97.14 libtool: install: /usr/bin/install -c .libs/libtiffxx.lai /magma/targets/libtiff/work/lib/libtiffxx.la
+#24 97.15 libtool: install: /usr/bin/install -c .libs/libtiff.a /magma/targets/libtiff/work/lib/libtiff.a
+#24 97.16 libtool: install: chmod 644 /magma/targets/libtiff/work/lib/libtiff.a
+#24 97.17 libtool: install: /usr/bin/ranlib /magma/targets/libtiff/work/lib/libtiff.a
+#24 97.19 libtool: install: /usr/bin/install -c .libs/libtiffxx.a /magma/targets/libtiff/work/lib/libtiffxx.a
+#24 97.20 libtool: install: chmod 644 /magma/targets/libtiff/work/lib/libtiffxx.a
+#24 97.20 libtool: install: /usr/bin/ranlib /magma/targets/libtiff/work/lib/libtiffxx.a
+#24 97.31 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /magma/targets/libtiff/work/lib
+#24 97.31 ----------------------------------------------------------------------
+#24 97.31 Libraries have been installed in:
+#24 97.31    /magma/targets/libtiff/work/lib
+#24 97.32 
+#24 97.32 If you ever happen to want to link against installed libraries
+#24 97.32 in a given directory, LIBDIR, you must either use libtool, and
+#24 97.32 specify the full pathname of the library, or use the '-LLIBDIR'
+#24 97.32 flag during linking and do at least one of the following:
+#24 97.32    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#24 97.32      during execution
+#24 97.32    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#24 97.32      during linking
+#24 97.32    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#24 97.32    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#24 97.32 
+#24 97.32 See any operating system documentation about shared libraries for
+#24 97.32 more information, such as the ld(1) and ld.so(8) manual pages.
+#24 97.32 ----------------------------------------------------------------------
+#24 97.32  /bin/mkdir -p '/magma/targets/libtiff/work/include'
+#24 97.35  /usr/bin/install -c -m 644 tiff.h tiffio.h tiffvers.h tiffio.hxx '/magma/targets/libtiff/work/include'
+#24 97.36  /bin/mkdir -p '/magma/targets/libtiff/work/include'
+#24 97.40  /usr/bin/install -c -m 644 tiffconf.h '/magma/targets/libtiff/work/include'
+#24 97.44 make[2]: Leaving directory '/magma/targets/libtiff/repo/libtiff'
+#24 97.44 make[1]: Leaving directory '/magma/targets/libtiff/repo/libtiff'
+#24 97.45 Making install in tools
+#24 97.47 make[1]: Entering directory '/magma/targets/libtiff/repo/tools'
+#24 97.52 make[2]: Entering directory '/magma/targets/libtiff/repo/tools'
+#24 97.53  /bin/mkdir -p '/magma/targets/libtiff/work/bin'
+#24 97.57   /bin/bash ../libtool   --mode=install /usr/bin/install -c fax2ps fax2tiff pal2rgb ppm2tiff raw2tiff tiff2bw tiff2pdf tiff2ps tiff2rgba tiffcmp tiffcp tiffcrop tiffdither tiffdump tiffinfo tiffmedian tiffset tiffsplit '/magma/targets/libtiff/work/bin'
+#24 97.70 libtool: install: /usr/bin/install -c fax2ps /magma/targets/libtiff/work/bin/fax2ps
+#24 97.73 libtool: install: /usr/bin/install -c fax2tiff /magma/targets/libtiff/work/bin/fax2tiff
+#24 97.75 libtool: install: /usr/bin/install -c pal2rgb /magma/targets/libtiff/work/bin/pal2rgb
+#24 97.78 libtool: install: /usr/bin/install -c ppm2tiff /magma/targets/libtiff/work/bin/ppm2tiff
+#24 97.80 libtool: install: /usr/bin/install -c raw2tiff /magma/targets/libtiff/work/bin/raw2tiff
+#24 97.81 libtool: install: /usr/bin/install -c tiff2bw /magma/targets/libtiff/work/bin/tiff2bw
+#24 97.83 libtool: install: /usr/bin/install -c tiff2pdf /magma/targets/libtiff/work/bin/tiff2pdf
+#24 97.86 libtool: install: /usr/bin/install -c tiff2ps /magma/targets/libtiff/work/bin/tiff2ps
+#24 97.88 libtool: install: /usr/bin/install -c tiff2rgba /magma/targets/libtiff/work/bin/tiff2rgba
+#24 97.90 libtool: install: /usr/bin/install -c tiffcmp /magma/targets/libtiff/work/bin/tiffcmp
+#24 97.92 libtool: install: /usr/bin/install -c tiffcp /magma/targets/libtiff/work/bin/tiffcp
+#24 97.95 libtool: install: /usr/bin/install -c tiffcrop /magma/targets/libtiff/work/bin/tiffcrop
+#24 97.97 libtool: install: /usr/bin/install -c tiffdither /magma/targets/libtiff/work/bin/tiffdither
+#24 97.99 libtool: install: /usr/bin/install -c tiffdump /magma/targets/libtiff/work/bin/tiffdump
+#24 98.02 libtool: install: /usr/bin/install -c tiffinfo /magma/targets/libtiff/work/bin/tiffinfo
+#24 98.04 libtool: install: /usr/bin/install -c tiffmedian /magma/targets/libtiff/work/bin/tiffmedian
+#24 98.07 libtool: install: /usr/bin/install -c tiffset /magma/targets/libtiff/work/bin/tiffset
+#24 98.11 libtool: install: /usr/bin/install -c tiffsplit /magma/targets/libtiff/work/bin/tiffsplit
+#24 98.13 make[2]: Nothing to be done for 'install-data-am'.
+#24 98.13 make[2]: Leaving directory '/magma/targets/libtiff/repo/tools'
+#24 98.13 make[1]: Leaving directory '/magma/targets/libtiff/repo/tools'
+#24 98.13 Making install in build
+#24 98.14 make[1]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 98.16 make[2]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 98.18 make[3]: Entering directory '/magma/targets/libtiff/repo/build'
+#24 98.18 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.18 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.18 make[3]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 98.18 make[2]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 98.19 make[1]: Leaving directory '/magma/targets/libtiff/repo/build'
+#24 98.20 Making install in contrib
+#24 98.20 make[1]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 98.24 Making install in addtiffo
+#24 98.26 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 98.28 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 98.28 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.28 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.28 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 98.28 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/addtiffo'
+#24 98.29 Making install in dbs
+#24 98.31 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.36 Making install in xtiff
+#24 98.38 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 98.39 make[4]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 98.39 make[4]: Nothing to be done for 'install-exec-am'.
+#24 98.39 make[4]: Nothing to be done for 'install-data-am'.
+#24 98.39 make[4]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 98.39 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs/xtiff'
+#24 98.41 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.42 make[4]: Entering directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.42 make[4]: Nothing to be done for 'install-exec-am'.
+#24 98.42 make[4]: Nothing to be done for 'install-data-am'.
+#24 98.42 make[4]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.43 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.43 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/dbs'
+#24 98.43 Making install in iptcutil
+#24 98.45 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 98.46 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 98.46 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.46 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.46 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 98.46 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/iptcutil'
+#24 98.48 Making install in mfs
+#24 98.48 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 98.49 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 98.49 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.49 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.49 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 98.49 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/mfs'
+#24 98.49 Making install in pds
+#24 98.49 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 98.51 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 98.52 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.52 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.52 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 98.53 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/pds'
+#24 98.53 Making install in ras
+#24 98.54 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 98.56 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 98.56 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.56 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.56 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 98.56 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/ras'
+#24 98.57 Making install in stream
+#24 98.57 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 98.58 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 98.58 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.58 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.58 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 98.58 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/stream'
+#24 98.59 Making install in tags
+#24 98.60 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 98.61 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 98.61 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.61 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.61 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 98.63 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/tags'
+#24 98.63 Making install in win_dib
+#24 98.64 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 98.64 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 98.64 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.64 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.64 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 98.65 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib/win_dib'
+#24 98.68 make[2]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 98.68 make[3]: Entering directory '/magma/targets/libtiff/repo/contrib'
+#24 98.68 make[3]: Nothing to be done for 'install-exec-am'.
+#24 98.68 make[3]: Nothing to be done for 'install-data-am'.
+#24 98.68 make[3]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 98.69 make[2]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 98.69 make[1]: Leaving directory '/magma/targets/libtiff/repo/contrib'
+#24 98.69 Making install in test
+#24 98.72 make[1]: Entering directory '/magma/targets/libtiff/repo/test'
+#24 98.75 make[2]: Entering directory '/magma/targets/libtiff/repo/test'
+#24 98.75 make[2]: Nothing to be done for 'install-exec-am'.
+#24 98.75 make[2]: Nothing to be done for 'install-data-am'.
+#24 98.75 make[2]: Leaving directory '/magma/targets/libtiff/repo/test'
+#24 98.77 make[1]: Leaving directory '/magma/targets/libtiff/repo/test'
+#24 98.78 Making install in man
+#24 98.79 make[1]: Entering directory '/magma/targets/libtiff/repo/man'
+#24 98.80 make[2]: Entering directory '/magma/targets/libtiff/repo/man'
+#24 98.80 make[2]: Nothing to be done for 'install-exec-am'.
+#24 98.84  /bin/mkdir -p '/magma/targets/libtiff/work/share/man/man1'
+#24 98.89  /usr/bin/install -c -m 644 fax2ps.1 fax2tiff.1 pal2rgb.1 ppm2tiff.1 raw2tiff.1 tiff2bw.1 tiff2pdf.1 tiff2ps.1 tiff2rgba.1 tiffcmp.1 tiffcp.1 tiffcrop.1 tiffdither.1 tiffdump.1 tiffgt.1 tiffinfo.1 tiffmedian.1 tiffset.1 tiffsplit.1 '/magma/targets/libtiff/work/share/man/man1'
+#24 98.96  /bin/mkdir -p '/magma/targets/libtiff/work/share/man/man3'
+#24 99.03  /usr/bin/install -c -m 644 libtiff.3tiff TIFFbuffer.3tiff TIFFClose.3tiff TIFFcodec.3tiff TIFFcolor.3tiff TIFFDataWidth.3tiff TIFFError.3tiff TIFFFieldDataType.3tiff TIFFFieldName.3tiff TIFFFieldPassCount.3tiff TIFFFieldReadCount.3tiff TIFFFieldTag.3tiff TIFFFieldWriteCount.3tiff TIFFFlush.3tiff TIFFGetField.3tiff TIFFmemory.3tiff TIFFOpen.3tiff TIFFPrintDirectory.3tiff TIFFquery.3tiff TIFFReadDirectory.3tiff TIFFReadEncodedStrip.3tiff TIFFReadEncodedTile.3tiff TIFFReadRawStrip.3tiff TIFFReadRawTile.3tiff TIFFReadRGBAImage.3tiff TIFFReadRGBAStrip.3tiff TIFFReadRGBATile.3tiff TIFFReadScanline.3tiff TIFFReadTile.3tiff TIFFRGBAImage.3tiff TIFFSetDirectory.3tiff TIFFSetField.3tiff TIFFsize.3tiff TIFFstrip.3tiff TIFFswab.3tiff TIFFtile.3tiff TIFFWarning.3tiff TIFFWriteDirectory.3tiff TIFFWriteEncodedStrip.3tiff TIFFWriteEncodedTile.3tiff '/magma/targets/libtiff/work/share/man/man3'
+#24 99.09  /usr/bin/install -c -m 644 TIFFWriteRawStrip.3tiff TIFFWriteRawTile.3tiff TIFFWriteScanline.3tiff TIFFWriteTile.3tiff '/magma/targets/libtiff/work/share/man/man3'
+#24 99.10 make[2]: Leaving directory '/magma/targets/libtiff/repo/man'
+#24 99.10 make[1]: Leaving directory '/magma/targets/libtiff/repo/man'
+#24 99.11 Making install in html
+#24 99.13 make[1]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 99.17 Making install in images
+#24 99.17 make[2]: Entering directory '/magma/targets/libtiff/repo/html/images'
+#24 99.22 make[3]: Entering directory '/magma/targets/libtiff/repo/html/images'
+#24 99.22 make[3]: Nothing to be done for 'install-exec-am'.
+#24 99.25  /bin/mkdir -p '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html/images'
+#24 99.28  /usr/bin/install -c -m 644 back.gif bali.jpg cat.gif cover.jpg cramps.gif dave.gif info.gif jello.jpg jim.gif note.gif oxford.gif quad.jpg ring.gif smallliz.jpg strike.gif warning.gif '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html/images'
+#24 99.30 make[3]: Leaving directory '/magma/targets/libtiff/repo/html/images'
+#24 99.31 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/images'
+#24 99.31 Making install in man
+#24 99.32 make[2]: Entering directory '/magma/targets/libtiff/repo/html/man'
+#24 99.35 make[3]: Entering directory '/magma/targets/libtiff/repo/html/man'
+#24 99.35 make[3]: Nothing to be done for 'install-exec-am'.
+#24 99.37  /bin/mkdir -p '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html/man'
+#24 99.41  /usr/bin/install -c -m 644 index.html libtiff.3tiff.html TIFFbuffer.3tiff.html TIFFClose.3tiff.html TIFFcodec.3tiff.html TIFFcolor.3tiff.html TIFFDataWidth.3tiff.html TIFFError.3tiff.html TIFFFieldDataType.3tiff.html TIFFFieldName.3tiff.html TIFFFieldPassCount.3tiff.html TIFFFieldReadCount.3tiff.html TIFFFieldTag.3tiff.html TIFFFieldWriteCount.3tiff.html TIFFFlush.3tiff.html TIFFGetField.3tiff.html TIFFmemory.3tiff.html TIFFOpen.3tiff.html TIFFPrintDirectory.3tiff.html TIFFquery.3tiff.html TIFFReadDirectory.3tiff.html TIFFReadEncodedStrip.3tiff.html TIFFReadEncodedTile.3tiff.html TIFFReadRawStrip.3tiff.html TIFFReadRawTile.3tiff.html TIFFReadRGBAImage.3tiff.html TIFFReadRGBAStrip.3tiff.html TIFFReadRGBATile.3tiff.html TIFFReadScanline.3tiff.html TIFFReadTile.3tiff.html TIFFRGBAImage.3tiff.html TIFFSetDirectory.3tiff.html TIFFSetField.3tiff.html TIFFsize.3tiff.html TIFFstrip.3tiff.html TIFFswab.3tiff.html TIFFtile.3tiff.html TIFFWarning.3tiff.html TIFFWriteDirectory.3tiff.html TIFFWriteEncodedStrip.3tiff.html '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html/man'
+#24 99.44  /usr/bin/install -c -m 644 TIFFWriteEncodedTile.3tiff.html TIFFWriteRawStrip.3tiff.html TIFFWriteRawTile.3tiff.html TIFFWriteScanline.3tiff.html TIFFWriteTile.3tiff.html fax2ps.1.html fax2tiff.1.html pal2rgb.1.html ppm2tiff.1.html raw2tiff.1.html tiff2bw.1.html tiff2pdf.1.html tiff2ps.1.html tiff2rgba.1.html tiffcmp.1.html tiffcp.1.html tiffcrop.1.html tiffdither.1.html tiffdump.1.html tiffgt.1.html tiffinfo.1.html tiffmedian.1.html tiffset.1.html tiffsplit.1.html '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html/man'
+#24 99.46 make[3]: Leaving directory '/magma/targets/libtiff/repo/html/man'
+#24 99.46 make[2]: Leaving directory '/magma/targets/libtiff/repo/html/man'
+#24 99.47 make[2]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 99.49 make[3]: Entering directory '/magma/targets/libtiff/repo/html'
+#24 99.49 make[3]: Nothing to be done for 'install-exec-am'.
+#24 99.50  /bin/mkdir -p '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html'
+#24 99.54  /usr/bin/install -c -m 644 addingtags.html bugs.html build.html contrib.html document.html images.html index.html internals.html intro.html libtiff.html misc.html support.html TIFFTechNote2.html tools.html v3.4beta007.html v3.4beta016.html v3.4beta018.html v3.4beta024.html v3.4beta028.html v3.4beta029.html v3.4beta031.html v3.4beta032.html v3.4beta033.html v3.4beta034.html v3.4beta035.html v3.4beta036.html v3.5.1.html v3.5.2.html v3.5.3.html v3.5.4.html v3.5.5.html v3.5.6-beta.html v3.5.7.html v3.6.0.html v3.6.1.html v3.7.0alpha.html v3.7.0beta.html v3.7.0beta2.html v3.7.0.html v3.7.1.html '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html'
+#24 99.60  /usr/bin/install -c -m 644 v3.7.2.html v3.7.3.html v3.7.4.html v3.8.0.html v3.8.1.html v3.8.2.html v3.9.0beta.html v3.9.1.html v3.9.2.html v4.0.0.html v4.0.1.html v4.0.2.html v4.0.3.html v4.0.4beta.html v4.0.4.html v4.0.5.html v4.0.6.html v4.0.7.html v4.0.8.html v4.0.9.html v4.0.10.html v4.1.0.html v4.2.0.html v4.3.0.html '/magma/targets/libtiff/work/share/doc/tiff-4.3.0/html'
+#24 99.63 make[3]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 99.63 make[2]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 99.63 make[1]: Leaving directory '/magma/targets/libtiff/repo/html'
+#24 99.63 make[1]: Entering directory '/magma/targets/libtiff/repo'
+#24 99.65 make[2]: Entering directory '/magma/targets/libtiff/repo'
+#24 99.65 make[2]: Nothing to be done for 'install-exec-am'.
+#24 99.65  /bin/mkdir -p '/magma/targets/libtiff/work/share/doc/tiff-4.3.0'
+#24 99.69  /usr/bin/install -c -m 644 COPYRIGHT ChangeLog README.md RELEASE-DATE TODO VERSION '/magma/targets/libtiff/work/share/doc/tiff-4.3.0'
+#24 99.71  /bin/mkdir -p '/magma/targets/libtiff/work/lib/pkgconfig'
+#24 99.74  /usr/bin/install -c -m 644 libtiff-4.pc '/magma/targets/libtiff/work/lib/pkgconfig'
+#24 99.78 make[2]: Leaving directory '/magma/targets/libtiff/repo'
+#24 99.78 make[1]: Leaving directory '/magma/targets/libtiff/repo'
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:36:7: warning: 'uint64' is deprecated [-Wdeprecated-declarations]
+#24 100.7 const uint64 MAX_SIZE = 500000000;
+#24 100.7       ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:87:45: note: 'uint64' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint64_t uint64 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:60:3: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   uint32 w, h;
+#24 100.7   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:61:3: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   uint32* raster;
+#24 100.7   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:70:3: warning: 'uint64' is deprecated [-Wdeprecated-declarations]
+#24 100.7   uint64 bufsize = TIFFTileSize64(tif);
+#24 100.7   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:87:45: note: 'uint64' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint64_t uint64 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:77:3: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   uint32 tilewidth = 0, tilewidth2;
+#24 100.7   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:78:3: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   uint32 imagewidth = 0;
+#24 100.7   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.7                                   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.7                                   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.7 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.7                                            ^
+#24 100.7 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.7   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.7                                   ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.7 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.7                                             ^
+#24 100.7 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:81:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   tilewidth2 = __TIFFSafeMultiply(uint32, tilewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:82:35: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   imagewidth = __TIFFSafeMultiply(uint32, imagewidth, 2);
+#24 100.8                                   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:3: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8   ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:87:36: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   uint32 size = __TIFFSafeMultiply(uint32, w, h);
+#24 100.8                                    ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:92:13: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   raster = (uint32*) _TIFFmalloc(size * sizeof (uint32));
+#24 100.8             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 100.8 contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc:92:49: warning: 'uint32' is deprecated [-Wdeprecated-declarations]
+#24 100.8   raster = (uint32*) _TIFFmalloc(size * sizeof (uint32));
+#24 100.8                                                 ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:84:45: note: 'uint32' has been explicitly marked deprecated here
+#24 100.8 typedef TIFF_MSC_DEPRECATED uint32_t uint32 TIFF_GCC_DEPRECATED;
+#24 100.8                                             ^
+#24 100.8 /magma/targets/libtiff/work/include/tiff.h:66:44: note: expanded from macro 'TIFF_GCC_DEPRECATED'
+#24 100.8 #define TIFF_GCC_DEPRECATED __attribute__((deprecated))
+#24 100.8                                            ^
+#24 101.1 27 warnings generated.
+#24 DONE 101.6s
+
+#25 exporting to image
+#25 exporting layers
+#25 exporting layers 8.4s done
+#25 exporting manifest sha256:fb118604ce4e847bb901b5ecb4b7423f6add48b51ab8473c5650662e4fcc3f41
+#25 exporting manifest sha256:fb118604ce4e847bb901b5ecb4b7423f6add48b51ab8473c5650662e4fcc3f41 0.0s done
+#25 exporting config sha256:78e85ab05985e7aa91e1b59be53fd0fd3f1a4fc48404214c2ee28120636e92fd 0.0s done
+#25 exporting attestation manifest sha256:cedc7fa0c23e060eae52d564c7b0b930670299031dee8300cf0ace2fe2063766 0.1s done
+#25 exporting manifest list sha256:946fd00320ba8e1b4ddb7819c7fe0fd2697a5c70a0ca5535ceac9c017c7eb721
+#25 exporting manifest list sha256:946fd00320ba8e1b4ddb7819c7fe0fd2697a5c70a0ca5535ceac9c017c7eb721 0.0s done
+#25 naming to docker.io/magma/fairfuzz/libtiff:latest done
+#25 unpacking to docker.io/magma/fairfuzz/libtiff:latest
+#25 unpacking to docker.io/magma/fairfuzz/libtiff:latest 3.9s done
+#25 DONE 12.6s
++ set +x
+magma/fairfuzz/libtiff

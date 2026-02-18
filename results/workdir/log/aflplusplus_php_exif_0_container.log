@@ -1,0 +1,264 @@
+[2026-02-11 08:30] Container for aflplusplus/php/exif started in 29fffdcfd108
+/magma/targets/php/corpus/exif/bug34704.jpg: exit_code 137
+/magma/targets/php/corpus/exif/bug34704_2.jpg: exit_code 137
+/magma/targets/php/corpus/exif/bug72094_1.jpg: exit_code 137
+/magma/targets/php/corpus/exif/bug77563.jpg: exit_code 0 bug PHP009
+/magma/targets/php/corpus/exif/bug77753.tiff: exit_code 0 bug PHP004
+/magma/targets/php/corpus/exif/bug77950.tiff: exit_code 0 bug PHP011
+/magma/targets/php/corpus/exif/duplicate_copyright_tag_leak.tiff: exit_code 137
+/magma/targets/php/corpus/exif/image024.jpg: exit_code 137
+Campaign launched at 2026-02-11 13:30
+0000000001122940 W main
+[1;92m[+] [0mLoaded environment variable AFL_NO_UI with value 1[0m
+[1;92m[+] [0mLoaded environment variable AFL_SKIP_CPUFREQ with value 1[0m
+[1;92m[+] [0mLoaded environment variable AFL_NO_AFFINITY with value 1[0m
+[1;93m[!] [1;97mWARNING: [0mMistyped AFL environment variable: AFL_DRIVER_DONT_DEFER=1[0m
+[0;36mafl-fuzz++3.14a[0m based on afl by Michal Zalewski and a large online community
+[1;92m[+] [0mafl++ is maintained by Marc "van Hauser" Heuse, Heiko "hexcoder" Eißfeldt, Andrea Fioraldi and Dominik Maier[0m
+[1;92m[+] [0mafl++ is open source, get it at https://github.com/AFLplusplus/AFLplusplus[0m
+[1;92m[+] [0mNOTE: This is v3.x which changes defaults and behaviours - see README.md[0m
+[1;92m[+] [0mNo -M/-S set, autoconfiguring for "-S default"[0m
+[1;94m[*] [0mGetting to work...[0m
+[1;92m[+] [0mUsing exponential power schedule (FAST)[0m
+[1;92m[+] [0mCmpLog level: 2[0m
+[1;92m[+] [0mEnabled testcache with 50 MB[0m
+[1;92m[+] [0mDisabling the UI because AFL_NO_UI is set.[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+[1;92m[+] [0mYou have 12 CPU cores and 18 runnable tasks (utilization: 150%).[0m
+[1;94m[*] [0mSetting up output directories...[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mScanning '/magma/targets/php/corpus/exif'...[0m
+[1;92m[+] [0mLoaded a total of 52 seeds.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;94m[*] [0mTarget map size: 192083[0m
+[1;94m[*] [0mSpawning cmplog forkserver[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;94m[*] [0mTarget map size: 208250[0m
+[1;92m[+] [0mCmplog forkserver successfully started[0m
+[1;94m[*] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,time:0,orig:zero_length_makernote_leak.tiff'...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;90m    len = 164, map size = 2825, exec speed = 20594 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000001,time:0,orig:test6.jpg'...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;90m    len = 1240, map size = 2801, exec speed = 22273 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000002,time:0,orig:test5.jpg'...[0m
+[1;90m    len = 603, map size = 2739, exec speed = 18707 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000003,time:0,orig:test4.jpg'...[0m
+[1;90m    len = 713, map size = 2806, exec speed = 17218 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000004,time:0,orig:test3.jpg'...[0m
+[1;90m    len = 1240, map size = 2857, exec speed = 17793 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000005,time:0,orig:test22.jpg'...[0m
+[1;90m    len = 1240, map size = 2800, exec speed = 16121 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000006,time:0,orig:test2.jpg'...[0m
+[1;90m    len = 1240, map size = 2800, exec speed = 15728 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000007,time:0,orig:test1.jpg'...[0m
+[1;90m    len = 523, map size = 2688, exec speed = 11055 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000008,time:0,orig:temporary_buffer_leak.jpg'...[0m
+[1;90m    len = 46, map size = 2735, exec speed = 12942 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000009,time:0,orig:tag_with_illegal_zero_components.jpeg'...[0m
+[1;90m    len = 43, map size = 2734, exec speed = 13869 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000010,time:0,orig:image027.tiff'...[0m
+[1;90m    len = 1984, map size = 2802, exec speed = 21057 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000011,time:0,orig:image026.tiff'...[0m
+[1;90m    len = 1984, map size = 2801, exec speed = 27920 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000012,time:0,orig:image025.jpg'...[0m
+[1;90m    len = 417, map size = 2771, exec speed = 16733 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000013,time:0,orig:image023.tiff'...[0m
+[1;90m    len = 2282, map size = 2884, exec speed = 15953 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000014,time:0,orig:image022.tiff'...[0m
+[1;90m    len = 2282, map size = 2883, exec speed = 13384 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000015,time:0,orig:image021.tiff'...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;90m    len = 2068, map size = 2815, exec speed = 14895 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000016,time:0,orig:image020.tiff'...[0m
+[1;90m    len = 2068, map size = 2814, exec speed = 16242 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000017,time:0,orig:image018.tiff'...[0m
+[1;90m    len = 2088, map size = 2866, exec speed = 13306 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000018,time:0,orig:image017.tiff'...[0m
+[1;90m    len = 1874, map size = 2765, exec speed = 21066 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000019,time:0,orig:image016.tiff'...[0m
+[1;90m    len = 1874, map size = 2764, exec speed = 16351 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000020,time:0,orig:image015.jpg'...[0m
+[1;90m    len = 935, map size = 2871, exec speed = 13403 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000021,time:0,orig:image014.jpg'...[0m
+[1;90m    len = 935, map size = 2871, exec speed = 14367 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000022,time:0,orig:image013.jpg'...[0m
+[1;90m    len = 721, map size = 2814, exec speed = 13445 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000023,time:0,orig:image012.jpg'...[0m
+[1;90m    len = 721, map size = 2814, exec speed = 12545 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000024,time:0,orig:image011.jpg'...[0m
+[1;90m    len = 741, map size = 2838, exec speed = 13331 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000025,time:0,orig:image010.jpg'...[0m
+[1;90m    len = 741, map size = 2838, exec speed = 13609 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000026,time:0,orig:image009.jpg'...[0m
+[1;90m    len = 527, map size = 2770, exec speed = 14116 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000027,time:0,orig:image008.jpg'...[0m
+[1;90m    len = 527, map size = 2770, exec speed = 13796 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000028,time:0,orig:image007.jpg'...[0m
+[1;90m    len = 283, map size = 2686, exec speed = 13720 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000029,time:0,orig:exif_encoding_crash.jpg'...[0m
+[1;90m    len = 7599, map size = 2934, exec speed = 13071 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000030,time:0,orig:bug77988.jpg'...[0m
+[1;90m    len = 1202, map size = 2866, exec speed = 11761 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000031,time:0,orig:bug77831.tiff'...[0m
+[1;90m    len = 49, map size = 2780, exec speed = 13380 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000032,time:0,orig:bug77540.jpg'...[0m
+[1;90m    len = 91, map size = 2745, exec speed = 14400 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000033,time:0,orig:bug76557.jpg'...[0m
+[1;90m    len = 2372, map size = 2801, exec speed = 16464 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000034,time:0,orig:bug76423.jpg'...[0m
+[1;90m    len = 1537, map size = 2740, exec speed = 13639 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000035,time:0,orig:bug76130_2.jpg'...[0m
+[1;90m    len = 1632, map size = 2745, exec speed = 14546 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000036,time:0,orig:bug76130_1.jpg'...[0m
+[1;90m    len = 3396, map size = 2764, exec speed = 12674 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000037,time:0,orig:bug73737.tiff'...[0m
+[1;90m    len = 48, map size = 2826, exec speed = 13262 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000038,time:0,orig:bug72627.tiff'...[0m
+[1;90m    len = 1250, map size = 2932, exec speed = 14396 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000039,time:0,orig:bug72618.jpg'...[0m
+[1;90m    len = 3711, map size = 2923, exec speed = 14266 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000040,time:0,orig:bug72603.jpeg'...[0m
+[1;90m    len = 3711, map size = 2923, exec speed = 13886 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000041,time:0,orig:bug72094_4.jpg'...[0m
+[1;90m    len = 32, map size = 2663, exec speed = 23877 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000042,time:0,orig:bug72094_3.jpg'...[0m
+[1;90m    len = 112, map size = 2751, exec speed = 29344 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000043,time:0,orig:bug72094_2.jpg'...[0m
+[1;90m    len = 140, map size = 2678, exec speed = 29693 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000044,time:0,orig:bug68799.jpg'...[0m
+[1;90m    len = 735, map size = 2817, exec speed = 26099 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000045,time:0,orig:bug68113_2.jpg'...[0m
+[1;90m    len = 368, map size = 2755, exec speed = 16129 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000046,time:0,orig:bug68113.jpg'...[0m
+[1;90m    len = 368, map size = 2755, exec speed = 31333 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000047,time:0,orig:bug62523_3.jpg'...[0m
+[1;90m    len = 394, map size = 2633, exec speed = 31931 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000048,time:0,orig:bug62523_1.jpg'...[0m
+[1;90m    len = 304, map size = 2633, exec speed = 45565 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000049,time:0,orig:bug54002_2.jpeg'...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;90m    len = 87599, map size = 2959, exec speed = 28601 us
+[0m[1;93m[!] [1;97mWARNING: [0mInstrumentation output varies across runs.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000050,time:0,orig:bug54002_1.jpeg'...[0m
+[1;90m    len = 87599, map size = 2959, exec speed = 26081 us
+[0m[1;93m[!] [1;97mWARNING: [0mNo new instrumentation output, test case may be useless.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000051,time:0,orig:bug48378.jpeg'...[0m
+[1;90m    len = 2566, map size = 2695, exec speed = 41997 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mThe target binary is pretty slow! See docs/perf_tips.md.[0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases are huge (85.5 kB) - see docs/perf_tips.md![0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases look useless. Consider using a smaller set.[0m
+[1;93m[!] [1;97mWARNING: [0mYou have lots of input files; try starting small.[0m
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m30 favored, 4 variable, 5 ignored, 52 total
+[1;90m       Bitmap range : [0m2633 to 2959 bits (average: 2798.06 bits)
+[1;90m        Exec timing : [0m11.1k to 45.6k us (average: 18.8k us)
+[0m
+[1;94m[*] [0mNo -t option specified, so I'll use exec timeout of 60 ms.[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #37 (52 total, 0 uniq crashes found, perf_score=100, exec_us=13262, hits=0, map=2826)...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;94m[*] [0mFuzzing test case #74 (95 total, 0 uniq crashes found, perf_score=100, exec_us=12286, hits=333, map=2626)...[0m
+[1;94m[*] [0mFuzzing test case #35 (95 total, 0 uniq crashes found, perf_score=100, exec_us=14546, hits=0, map=2745)...[0m
+[1;94m[*] [0mFuzzing test case #67 (126 total, 0 uniq crashes found, perf_score=100, exec_us=11721, hits=1, map=2827)...[0m
+[1;94m[*] [0mFuzzing test case #81 (128 total, 0 uniq crashes found, perf_score=100, exec_us=11920, hits=4, map=2698)...[0m
+[1;94m[*] [0mFuzzing test case #38 (128 total, 0 uniq crashes found, perf_score=100, exec_us=14396, hits=0, map=2932)...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;94m[*] [0mFuzzing test case #232 (234 total, 0 uniq crashes found, perf_score=100, exec_us=12926, hits=1, map=2914)...[0m
+[1;94m[*] [0mFuzzing test case #168 (235 total, 0 uniq crashes found, perf_score=100, exec_us=11606, hits=7, map=2916)...[0m
+[1;94m[*] [0mFuzzing test case #0 (235 total, 0 uniq crashes found, perf_score=75, exec_us=20594, hits=0, map=2825)...[0m
+[1;94m[*] [0mFuzzing test case #23 (251 total, 0 uniq crashes found, perf_score=100, exec_us=12545, hits=0, map=2814)...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;94m[*] [0mFuzzing test case #319 (350 total, 0 uniq crashes found, perf_score=100, exec_us=11831, hits=1, map=2825)...[0m
+[1;94m[*] [0mFuzzing test case #71 (350 total, 0 uniq crashes found, perf_score=100, exec_us=11135, hits=4, map=2679)...[0m
+[1;94m[*] [0mFuzzing test case #259 (350 total, 0 uniq crashes found, perf_score=100, exec_us=11154, hits=1, map=2846)...[0m
+[1;94m[*] [0mFuzzing test case #234 (350 total, 0 uniq crashes found, perf_score=100, exec_us=11030, hits=1, map=2918)...[0m
+[1;94m[*] [0mFuzzing test case #150 (352 total, 0 uniq crashes found, perf_score=100, exec_us=11122, hits=2, map=2925)...[0m
+[1;94m[*] [0mFuzzing test case #312 (355 total, 0 uniq crashes found, perf_score=100, exec_us=8540, hits=1, map=2965)...[0m
+[1;94m[*] [0mFuzzing test case #30 (361 total, 0 uniq crashes found, perf_score=100, exec_us=11761, hits=0, map=2866)...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;94m[*] [0mFuzzing test case #389 (401 total, 0 uniq crashes found, perf_score=100, exec_us=7714, hits=1, map=2714)...[0m
+[1;94m[*] [0mFuzzing test case #69 (402 total, 0 uniq crashes found, perf_score=100, exec_us=11594, hits=1038, map=2557)...[0m
+[1;94m[*] [0mFuzzing test case #74 (403 total, 0 uniq crashes found, perf_score=114, exec_us=12286, hits=453, map=2626)...[0m
+[1;94m[*] [0mFuzzing test case #126 (403 total, 0 uniq crashes found, perf_score=100, exec_us=12376, hits=4, map=2827)...[0m
+[1;94m[*] [0mFuzzing test case #348 (403 total, 0 uniq crashes found, perf_score=100, exec_us=10865, hits=1, map=2644)...[0m
+[1;94m[*] [0mFuzzing test case #32 (405 total, 0 uniq crashes found, perf_score=100, exec_us=14400, hits=0, map=2745)...[0m
+[1;94m[*] [0mFuzzing test case #381 (406 total, 0 uniq crashes found, perf_score=100, exec_us=7505, hits=1, map=2799)...[0m
+[1;94m[*] [0mFuzzing test case #359 (407 total, 0 uniq crashes found, perf_score=100, exec_us=7989, hits=1, map=2921)...[0m
+[1;94m[*] [0mFuzzing test case #358 (458 total, 0 uniq crashes found, perf_score=100, exec_us=7209, hits=1, map=2961)...[0m
+[1;94m[*] [0mFuzzing test case #463 (489 total, 0 uniq crashes found, perf_score=200, exec_us=7856, hits=1, map=2993)...[0m
+[1;94m[*] [0mFuzzing test case #293 (494 total, 0 uniq crashes found, perf_score=100, exec_us=12057, hits=3, map=2816)...[0m
+[1;93m[!] [1;97mWARNING: [0minstability detected during calibration
+[0m
+[1;94m[*] [0mFuzzing test case #492 (497 total, 0 uniq crashes found, perf_score=200, exec_us=7242, hits=1, map=2995)...[0m
+[1;94m[*] [0mFuzzing test case #379 (498 total, 0 uniq crashes found, perf_score=100, exec_us=7029, hits=1, map=2832)...[0m
+[1;94m[*] [0mFuzzing test case #385 (498 total, 0 uniq crashes found, perf_score=100, exec_us=7436, hits=1, map=2859)...[0m
+[1;94m[*] [0mFuzzing test case #91 (498 total, 0 uniq crashes found, perf_score=100, exec_us=13892, hits=1, map=2836)...[0m
+[1;94m[*] [0mFuzzing test case #354 (498 total, 0 uniq crashes found, perf_score=100, exec_us=7362, hits=1, map=2948)...[0m
+[1;94m[*] [0mFuzzing test case #477 (499 total, 0 uniq crashes found, perf_score=200, exec_us=7096, hits=1, map=3032)...[0m
+[1;94m[*] [0mFuzzing test case #375 (503 total, 0 uniq crashes found, perf_score=100, exec_us=7425, hits=1, map=2785)...[0m
+[1;94m[*] [0mFuzzing test case #286 (503 total, 0 uniq crashes found, perf_score=100, exec_us=11688, hits=3, map=2816)...[0m
+[1;94m[*] [0mFuzzing test case #8 (504 total, 0 uniq crashes found, perf_score=100, exec_us=12942, hits=0, map=2735)...[0m
+[1;94m[*] [0mFuzzing test case #181 (506 total, 0 uniq crashes found, perf_score=100, exec_us=15359, hits=1, map=2935)...[0m
+[1;94m[*] [0mFuzzing test case #68 (507 total, 0 uniq crashes found, perf_score=100, exec_us=10941, hits=1029, map=2633)...[0m
+[1;94m[*] [0mFuzzing test case #247 (508 total, 0 uniq crashes found, perf_score=100, exec_us=11450, hits=1, map=2826)...[0m
+[1;94m[*] [0mFuzzing test case #470 (532 total, 0 uniq crashes found, perf_score=200, exec_us=7202, hits=1, map=2903)...[0m
+[1;94m[*] [0mFuzzing test case #506 (533 total, 0 uniq crashes found, perf_score=100, exec_us=13733, hits=1, map=2935)...[0m
+[1;94m[*] [0mFuzzing test case #74 (533 total, 0 uniq crashes found, perf_score=114, exec_us=12286, hits=669, map=2626)...[0m
+[1;94m[*] [0mFuzzing test case #275 (533 total, 0 uniq crashes found, perf_score=100, exec_us=11924, hits=2, map=2857)...[0m
+[?25h[1;91m
+
++++ Testing aborted by user +++
+[0m
+[1;93m[!] [0mStopped during the first cycle, results may be incomplete.
+    (For info on resuming, see docs/README.md)
+[1;92m[+] [0mWe're done here. Have a nice day!
+[0m
+Campaign terminated at 2026-02-11 21:30
+/magma/magma/run.sh: line 81:   865 Terminated              while true; do
+    "$OUT/monitor" --dump row > "$MONITOR/tmp"; if [ $? -eq 0 ]; then
+        mv "$MONITOR/tmp" "$MONITOR/$counter";
+    else
+        rm "$MONITOR/tmp";
+    fi; counter=$(( counter + POLL )); sleep $POLL;
+done
