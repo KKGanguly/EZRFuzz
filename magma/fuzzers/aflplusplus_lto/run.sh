@@ -11,10 +11,6 @@
 # - env FUZZARGS: extra arguments to pass to the fuzzer
 ##
 
-if nm "$OUT/afl/$PROGRAM" | grep -E '^[0-9a-f]+\s+[Ww]\s+main$'; then
-    ARGS="-"
-fi
-
 mkdir -p "$SHARED/findings"
 
 flag_cmplog=(-m none -c "$OUT/cmplog/$PROGRAM")

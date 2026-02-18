@@ -26,10 +26,9 @@ fi
     cd build
     CXX=clang++ CC=clang cmake ../ \
         -DCMAKE_INSTALL_PREFIX="$FUZZER/z3/install" \
-        -DCMAKE_INSTALL_Z3_CMAKE_PACKAGE_DIR="$FUZZER/z3/cmake_conf" \
-        -G Ninja
-    cmake --build .
-    cmake --build . --target install
+        -DCMAKE_INSTALL_Z3_CMAKE_PACKAGE_DIR="$FUZZER/z3/cmake_conf"
+    make -j $(nproc)
+    make install
 )
 
 # build SymCC

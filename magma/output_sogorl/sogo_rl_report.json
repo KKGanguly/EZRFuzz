@@ -1,0 +1,21 @@
+{
+  "fuzzer": "sogo_rl",
+  "target": "/magma_out/afl/libpng_read_fuzzer",
+  "elapsed_s": 481.3,
+  "total_execs": 71653,
+  "exec_per_s": 148.9,
+  "unique_crashes": 2,
+  "bugs_reached": [
+    "PNG001",
+    "PNG003",
+    "PNG004",
+    "PNG005",
+    "PNG006",
+    "PNG007"
+  ],
+  "bugs_triggered": [
+    "PNG003"
+  ],
+  "n_reached": 6,
+  "n_triggered": 1
+}

@@ -13,11 +13,7 @@
 
 mkdir -p "$SHARED/findings" "$SHARED/output"
 
-# replace AFL-style input file parameter with honggfuzz-style one. Use stdin
-# fuzzing if an input file parameter is not provided
-if [[ ! "$ARGS" =~ " @@" ]]; then
-    FUZZARGS="$FUZZARGS -s"
-fi
+# replace AFL-style input file parameter with honggfuzz-style one
 ARGS="${ARGS/@@/___FILE___}"
 
 "$FUZZER/repo/honggfuzz" -n 1 -z --input "$TARGET/corpus/$PROGRAM" \
