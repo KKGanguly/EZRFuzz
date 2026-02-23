@@ -1,0 +1,11 @@
+{
+  "fuzzer": "sogo_rl_fair",
+  "target": "magma_out/afl/libpng_read_fuzzer @@",
+  "elapsed_s": 6.9,
+  "total_execs": 3506,
+  "exec_per_s": 511.6,
+  "unique_crashes": 0,
+  "bugs_triggered": [],
+  "n_triggered": 0,
+  "new_cov_events": 1
+}

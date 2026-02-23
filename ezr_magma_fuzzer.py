@@ -595,7 +595,15 @@ class SeedSelector:
             return []
 
         paths  = [x[2] for x in pool]
-        embs   = np.array([x[1] for x in pool])
+        embs_list = [x[1] for x in pool]
+        try:
+            embs = np.array(embs_list, dtype=np.float32)
+            if embs.ndim != 2:
+                raise ValueError("Bad shape")
+        except Exception:
+            # Fall back to random selection
+            return [pool[i][2] for i in np.random.choice(len(pool), 
+                    min(k, len(pool)), replace=False)]
 
         # Change 5: score all pool inputs with EZR acquisition
         scores = acquisition.score(embs)
@@ -827,23 +835,18 @@ class EZRMagmaFuzzer:
         triggered_all      = frozenset()
 
         for idx in exec_idx:
-            inp       = all_mutations[idx]
-            try:
-                inp_bytes = open(inp, 'rb').read()
-            except Exception:
-                continue
-            cov, crashed, reached, triggered = self.magma.run(inp)
-            self.stats['executions'] += 1
-
-            reached_all   = reached_all   | reached
+            cov, crashed, reached, triggered = self.magma.run(all_mutations[idx])
+            if triggered:
+                h_now = hashlib.sha256(open(all_mutations[idx],'rb').read()).hexdigest()[:16]
+                elapsed_f = time.time() - self.start_time
+                # Save triggering input immediately with correct hash
+                shutil.copy(all_mutations[idx], 
+                            os.path.join(self.crash_dir, f"trigger_{h_now}"))
+                self.bug_tracker.update(frozenset(), triggered, 
+                                        open(all_mutations[idx],'rb').read(), elapsed_f)
+            reached_all   = reached_all | reached
             triggered_all = triggered_all | triggered
 
-            if crashed:
-                self.stats['crashes'] += 1
-                h2 = hashlib.sha256(inp_bytes).hexdigest()[:16]
-                shutil.copy(inp, os.path.join(
-                    self.crash_dir, f"crash_{self.stats['crashes']:04d}_{h2}"))
-                print(f"  [!!!] CRASH #{self.stats['crashes']}")
 
             if cov and cov > best_coverage_iter:
                 best_coverage_iter = cov
@@ -875,16 +878,22 @@ class EZRMagmaFuzzer:
         elapsed_f = time.time() - self.start_time
         self.bug_tracker.update(reached_all, triggered_all, best_input_bytes, elapsed_f)
 
+        # Check timeout FIRST before anything else
+        if coverage is None:
+            print("  [T] Timeout - skipping")
+            self._cleanup_mut_dirs()
+            return
         # Crash handling
         if crashed or coverage == -1:
             self.stats['crashes'] += 1
             crash_path = os.path.join(self.crash_dir,
-                                      f"crash_{self.stats['crashes']:04d}_{h}")
+                                    f"crash_{self.stats['crashes']:04d}_{h}")
             try:
-                shutil.copy(best_input, crash_path)
-            except Exception:
-                pass
-            print(f"  [!!!] CRASH #{self.stats['crashes']}")
+                with open(crash_path, 'wb') as f:
+                    f.write(best_input_bytes)  # write bytes directly, safe from cleanup race
+            except Exception as e:
+                print(f"  [!] Failed to save crash: {e}")
+            print(f"  [!!!] CRASH #{self.stats['crashes']} saved -> {crash_path}")
 
         if coverage is None:
             print("  [T] Timeout - skipping")
@@ -973,12 +982,18 @@ class EZRMagmaFuzzer:
         print(f"  Rest inputs  : {self.stats['rest_inputs']}")
         print(f"  Crashes      : {self.stats['crashes']}")
         print(f"  {dash}")
-        print(f"  Bugs reached : {len(bt.bugs_reached)}  {sorted(bt.bugs_reached)}")
-        print(f"  Bugs trigg.  : {len(bt.bugs_triggered)}  {sorted(bt.bugs_triggered)}")
-        print(f"  New cov evts : {bt.new_cov_events}")
+        # Clearly separate reached-only from triggered
+        reached_only = bt.bugs_reached - bt.bugs_triggered
+        print(f"  Bugs reached only  : {len(reached_only)}  {sorted(reached_only)}")
+        print(f"  Bugs triggered     : {len(bt.bugs_triggered)}  {sorted(bt.bugs_triggered)}")
+        print(f"  New cov evts       : {bt.new_cov_events}")
         if bt.trigger_history:
-            print(f"  Trigger log  :")
+            print(f"  Trigger log:")
             for t in bt.trigger_history:
+                print(f"    [{t['time']:.0f}s] {t['bug']}  input={t['input_hash']}")
+        if bt.reach_history:
+            print(f"  Reach log:")
+            for t in bt.reach_history:
                 print(f"    [{t['time']:.0f}s] {t['bug']}  input={t['input_hash']}")
         print(f"  {sep}\n")
 

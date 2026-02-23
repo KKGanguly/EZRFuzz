@@ -63,6 +63,7 @@ ENV AFL_NO_UI=1
 # ---- Copy fuzzer ----
 WORKDIR /ezr
 COPY ezr_magma_fuzzer.py .
+COPY sogo_rl_fair.py .
 
 ENTRYPOINT ["python3.7", "/ezr/ezr_magma_fuzzer.py"]
 CMD ["--target", "libpng", "--duration", "3600"]
